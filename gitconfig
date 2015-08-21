@@ -1,0 +1,10 @@
+[user]
+	name = Mo Baig
+	email = mo@mobaig.com
+[core]
+	editor = /usr/local/bin/nvim
+	excludesfile = /Users/mo/.gitignore_global
+[push]
+	default = simple
+[commit]
+  template = ~/.gitmessage

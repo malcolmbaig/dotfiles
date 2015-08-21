@@ -1,0 +1,9 @@
+ssh_config
+*.bak
+nvim/bundle
+nvim/session
+.netrwhist
+zprezto/
+copy_to_home.sh
+tmux/plugins
+tmux/resurrect
