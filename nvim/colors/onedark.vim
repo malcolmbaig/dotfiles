@@ -263,14 +263,19 @@ else
 endif
 
 if version >= 700
-  call s:X("CursorLine","","2c323b","","",s:termBlack)
-  call s:X("CursorColumn","","2c323b","","",s:termBlack)
+  let g:onedark_gray_detailing = "2c323b"
+  let g:onedark_gray_text = "4b5262"
+
+  call s:X("CursorLine","",g:onedark_gray_detailing,"","",s:termBlack)
+  call s:X("CursorColumn","",g:onedark_gray_detailing,"","",s:termBlack)
   call s:X("MatchParen","ffffff","556779","bold","","DarkCyan")
 
-  call s:X("TabLine","000000","b0b8c0","italic","",s:termBlack)
-
+  "unselected tabs
+  call s:X("TabLine",g:onedark_gray_text,g:onedark_gray_detailing,"","",s:termBlack)
+  "selected tabs
+  call s:X("TabLineSel","ffffff",g:onedark_gray_detailing,"italic,bold",s:termBlack,"White")
+  "tab bar background
   call s:X("TabLineFill","9098a0","","","",s:termBlack)
-  call s:X("TabLineSel","000000","f0f0f0","italic,bold",s:termBlack,"White")
 
   " Auto-completion
   call s:X("Pmenu","ffffff","2c323b","","White",s:termBlack)
