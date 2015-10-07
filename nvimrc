@@ -238,6 +238,9 @@ augroup vimrc-wrapping
   autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
 augroup END
 
+" Pleco flashcard import file
+autocmd BufRead,BufNewFile *.pleco.txt set nowrap
+
 "" ruby
 augroup vimrc-ruby
   autocmd!
