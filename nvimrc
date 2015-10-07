@@ -45,9 +45,6 @@ NeoBundle 'Lokaltog/vim-easymotion'
 "" Git gutter updates
 NeoBundle 'airblade/vim-gitgutter'
 
-"" Vim-Session
-NeoBundle 'xolox/vim-misc'
-NeoBundle 'xolox/vim-session'
 
 "" Syntax checking
 NeoBundle "scrooloose/syntastic"
@@ -58,9 +55,6 @@ NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
 
 " --- Additional Language / Syntax Support
-" Elixir Bundle
-NeoBundle 'carlosgaldino/elixir-snippets'
-
 "" Ruby Bundle
 NeoBundle "tpope/vim-rails"
 NeoBundle "tpope/vim-rake"
@@ -71,8 +65,6 @@ NeoBundle 'tonekk/vim-ruby-capybara'
 "" HTML Bundle
 NeoBundle 'amirh/HTML-AutoCloseTag'
 NeoBundle 'JulesWang/css.vim'
-NeoBundle 'gorodinskiy/vim-coloresque'
-
 
 call neobundle#end()
 
@@ -128,8 +120,6 @@ set noswapfile
 set fileformats=unix,mac
 set showcmd
 set shell=/bin/zsh
-
-
 
 "*****************************************************************************
 "" Visual Settings
@@ -266,12 +256,6 @@ set autoread
 "" Vim Polyglot
 let g:polyglot_disabled = ['css']
 
-" Vim Session management
-let g:session_directory = "~/.nvim/session"
-let g:session_autoload = "no"
-let g:session_autosave = "no"
-let g:session_command_aliases = 1
-
 "" Ctrl-P
 " set-up ctrlp to include hidden files in its search
 let g:ctrlp_show_hidden=1
@@ -340,12 +324,6 @@ noremap <Leader>gr :Gremove<CR>
 "" Ruby
 nnoremap <leader>b ibinding.pry<Esc>osleep 1<Esc>
 
-" session management
-nnoremap <leader>so :OpenSession
-nnoremap <leader>ss :SaveSession
-nnoremap <leader>sd :DeleteSession<CR>
-nnoremap <leader>sc :CloseSession<CR>
-
 "" Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
@@ -384,7 +362,7 @@ noremap <leader>c :bd<CR>
 "" Open items from quickfix in existing tab if it contains target buffer)
 set switchbuf+=usetab
 
-"" Clean search (highlight)
+"" Clear search highlight
 nnoremap <silent> <leader>l :noh<cr>
 
 "" Open current line on GitHub
