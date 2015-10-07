@@ -217,6 +217,8 @@ endif
 "*****************************************************************************
 " Soft tabs with 2 stops by default for everything
 autocmd FileType * set tabstop=2|set shiftwidth=2|set expandtab
+" Stop treating periods as keywords
+autocmd FileType * set iskeyword-=.
 
 "" The PC is fast enough, do syntax highlight syncing from start
 augroup vimrc-sync-fromstart
