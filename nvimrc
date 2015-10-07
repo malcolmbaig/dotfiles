@@ -42,14 +42,18 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'paranoida/vim-airlineish'
 NeoBundle 'Lokaltog/vim-easymotion'
 
-"" Git gutter updates
-NeoBundle 'airblade/vim-gitgutter'
+"" Qdo command for search/replace in quickfix list
+NeoBundle 'henrik/vim-qargs'
 
+"" See git status in gutter
+NeoBundle 'airblade/vim-gitgutter'
 
 "" Syntax checking
 NeoBundle "scrooloose/syntastic"
+
 "" Syntax highlighting
 NeoBundle 'sheerun/vim-polyglot'
+
 "" Snippets
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
@@ -392,3 +396,7 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
 
 "copy filename
 nmap <leader>cf :let @*=expand("%")<CR>
+
+" Replace within Quickfix with Qdo
+nnoremap <leader>r :Qdo %s/
+
