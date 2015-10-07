@@ -365,8 +365,8 @@ noremap <leader>w :bn<CR>
 "" Close buffer
 noremap <leader>c :bd<CR>
 
-"" Open items from quickfix in existing tab if it contains target buffer)
-set switchbuf+=usetab
+"" Open items from quickfix in existing tab if it contains target buffer
+set switchbuf+=usetab,newtab
 
 "" Clear search highlight
 nnoremap <silent> <leader>l :noh<cr>
