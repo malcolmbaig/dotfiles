@@ -255,6 +255,7 @@ highlight def link rubyRspec Function
 " remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
+" autoread files that have changed outside of vim
 set autoread
 
 
@@ -317,8 +318,8 @@ nmap s <Plug>(easymotion-s)
 "" Mappings
 "*****************************************************************************
 "" Split
-noremap <Leader>h :<C-u>split<CR>
-noremap <Leader>v :<C-u>vsplit<CR>
+noremap <Leader>- :<C-u>split<CR>
+noremap <Leader><bar> :<C-u>vsplit<CR>
 
 "" Git
 noremap <Leader>ga :Gwrite<CR>
