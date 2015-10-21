@@ -3,7 +3,7 @@
 	email = mo@mobaig.com
 [core]
 	editor = /usr/local/bin/nvim
-	excludesfile = /Users/mo/.gitignore_global
+	excludesfile = /Users/mo/.gitignore-global
 [push]
 	default = simple
 [commit]
