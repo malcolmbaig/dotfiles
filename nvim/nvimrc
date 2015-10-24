@@ -97,7 +97,12 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
-"" Disable wrapping
+" Don't display the current mode (Insert, Visual, Replace)
+" in the status line. This info is already shown in the
+" Airline status bar.
+set noshowmode
+
+" Disable wrapping
 set wrap!
 
 "" Map leader to ,
@@ -179,7 +184,7 @@ endif
 
 " vim-airline
 let g:airline_theme = 'airlineish'
-let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#syntastic#enabled = 0
 let g:airline#extensions#branch#enabled = 1
 let g:airline_powerline_fonts = 1
 
@@ -374,9 +379,6 @@ set switchbuf+=usetab,newtab
 
 "" Clear search highlight
 nnoremap <silent> <leader>l :noh<cr>
-
-"" Open current line on GitHub
-noremap <leader>o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs open<CR><CR>
 
 " nullify ctrl+space in insert mode (cuz it's annoying)
 imap <Nul> <Space>
