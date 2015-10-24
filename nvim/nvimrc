@@ -1,5 +1,5 @@
 "*****************************************************************************
-"" NeoBundle core
+" NeoBundle core
 "*****************************************************************************
 
 if has('vim_starting')
@@ -29,9 +29,9 @@ call neobundle#begin(expand('~/.nvim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 "*****************************************************************************
-"" NeoBundle install packages
+" NeoBundle install packages
 "*****************************************************************************
-"" Core
+" Core
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-vinegar'
@@ -42,31 +42,31 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'paranoida/vim-airlineish'
 NeoBundle 'Lokaltog/vim-easymotion'
 
-"" Qdo command for search/replace in quickfix list
+" Qdo command for search/replace in quickfix list
 NeoBundle 'henrik/vim-qargs'
 
-"" See git status in gutter
+" See git status in gutter
 NeoBundle 'airblade/vim-gitgutter'
 
-"" Syntax checking
+" Syntax checking
 NeoBundle "scrooloose/syntastic"
 
-"" Syntax highlighting
+" Syntax highlighting
 NeoBundle 'sheerun/vim-polyglot'
 
-"" Snippets
+" Snippets
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
 
 " --- Additional Language / Syntax Support
-"" Ruby Bundle
+" Ruby Bundle
 NeoBundle "tpope/vim-rails"
 NeoBundle "tpope/vim-rake"
 NeoBundle "thoughtbot/vim-rspec"
 NeoBundle 'asux/vim-capybara'
 NeoBundle 'tonekk/vim-ruby-capybara'
 
-"" HTML Bundle
+" HTML Bundle
 NeoBundle 'amirh/HTML-AutoCloseTag'
 NeoBundle 'JulesWang/css.vim'
 
@@ -81,17 +81,17 @@ NeoBundleCheck
 
 
 "*****************************************************************************
-"" Basic Setup
+" Basic Setup
 "*****************************************************************************"
-"" Encoding
+" Encoding
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
 
-"" Fix backspace indent
+" Fix backspace indent
 set backspace=indent,eol,start
 
-"" Tabs. May be overriten by autocmd rules
+" Tabs. May be overriten by autocmd rules
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
@@ -105,23 +105,23 @@ set noshowmode
 " Disable wrapping
 set wrap!
 
-"" Map leader to ,
+" Map leader to ,
 let mapleader=' '
 
-"" Enable hidden buffers
+" Enable hidden buffers
 set hidden
 
-"" Searching
+" Searching
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 
-"" Encoding
+" Encoding
 set bomb
 set binary
 
-"" Directories for swp files
+" Directories for swp files
 set nobackup
 set noswapfile
 
@@ -131,7 +131,7 @@ set showcmd
 set shell=/bin/zsh
 
 "*****************************************************************************
-"" Visual Settings
+" Visual Settings
 "*****************************************************************************
 syntax on
 set ruler
@@ -165,10 +165,10 @@ endif
 " Minimum number of lines above and below cursor
 set scrolloff=5
 
-"" Status bar
+" Status bar
 set laststatus=2
 
-"" Use modeline overrides
+" Use modeline overrides
 set modeline
 set modelines=10
 
@@ -190,9 +190,9 @@ let g:airline_powerline_fonts = 1
 
 
 "*****************************************************************************
-"" Abbreviations
+" Abbreviations
 "*****************************************************************************
-"" remap annoying mistakes to something useful
+" remap annoying mistakes to something useful
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
 cnoreabbrev Qall! qall!
@@ -207,7 +207,7 @@ cnoreabbrev Qall qall
 
 
 "*****************************************************************************
-"" Functions
+" Functions
 "*****************************************************************************
 if !exists('*s:setupWrapping')
   function s:setupWrapping()
@@ -218,26 +218,26 @@ if !exists('*s:setupWrapping')
 endif
 
 "*****************************************************************************
-"" Autocmd Rules
+" Autocmd Rules
 "*****************************************************************************
 " Soft tabs with 2 stops by default for everything
 autocmd FileType * set tabstop=2|set shiftwidth=2|set expandtab
 " Stop treating periods as keywords
 autocmd FileType * set iskeyword-=.
 
-"" The PC is fast enough, do syntax highlight syncing from start
+" The PC is fast enough, do syntax highlight syncing from start
 augroup vimrc-sync-fromstart
   autocmd!
   autocmd BufEnter * :syntax sync fromstart
 augroup END
 
-"" Remember cursor position
+" Remember cursor position
 augroup vimrc-remember-cursor-position
   autocmd!
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
 
-"" txt
+" txt
 augroup vimrc-wrapping
   autocmd!
   autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
@@ -246,14 +246,14 @@ augroup END
 " Pleco flashcard import file
 autocmd BufRead,BufNewFile *.pleco.txt set nowrap
 
-"" ruby
+" ruby
 augroup vimrc-ruby
   autocmd!
   autocmd BufNewFile,BufRead *.rb,*.rbw,*.gemspec setlocal filetype=ruby
   autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 augroup END
 
-"" RSpec syntax highlighting is sometimes lacking
+" RSpec syntax highlighting is sometimes lacking
 autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
 highlight def link rubyRspec Function
 
@@ -265,13 +265,13 @@ set autoread
 
 
 "*****************************************************************************
-"" Bundle Config
+" Bundle Config
 "*****************************************************************************
 
-"" Vim Polyglot
+" Vim Polyglot
 let g:polyglot_disabled = ['css']
 
-"" Ctrl-P
+" Ctrl-P
 " set-up ctrlp to include hidden files in its search
 let g:ctrlp_show_hidden=1
 " disable ctrlp's feature where it tries to intelligently work out the current working directory to search within
@@ -315,18 +315,18 @@ let g:syntastic_scss_checkers=[]
 let g:syntastic_eruby_ruby_quiet_messages =
     \ {'regex': 'possibly useless use of - in void context'}
 
-"" Easymotion
+" Easymotion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 nmap s <Plug>(easymotion-s)
 
 "*****************************************************************************
-"" Mappings
+" Mappings
 "*****************************************************************************
-"" Split
+" Split
 noremap <Leader>- :<C-u>split<CR>
 noremap <Leader><bar> :<C-u>vsplit<CR>
 
-"" Git
+" Git
 noremap <Leader>ga :Gwrite<CR>
 noremap <Leader>gc :Gcommit<CR>
 noremap <Leader>gsh :Gpush<CR>
@@ -336,24 +336,24 @@ noremap <Leader>gb :Gblame<CR>
 noremap <Leader>gd :Gvdiff<CR>
 noremap <Leader>gr :Gremove<CR>
 
-"" Ruby
+" Ruby
 nnoremap <leader>b ibinding.pry<Esc>osleep 1<Esc>
 
-"" Tabs
+" Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>
 
-"" Set working directory
+" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
 
-"" Opens an edit command with the path of the currently edited file filled in
+" Opens an edit command with the path of the currently edited file filled in
 noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
-"" Opens a tab edit command with the path of the currently edited file filled
+" Opens a tab edit command with the path of the currently edited file filled
 noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
-"" Copy/Paste/Cut
+" Copy/Paste/Cut
 set clipboard=unnamed,unnamedplus
 noremap YY "+y<CR>
 noremap P "+gP<CR>
@@ -365,19 +365,19 @@ if has('macunix')
   vmap <C-c> :w !pbcopy<CR><CR>
 endif
 
-"" Buffer nav
+" Buffer nav
 noremap <leader>z :bp<CR>
 noremap <leader>q :bp<CR>
 noremap <leader>x :bn<CR>
 noremap <leader>w :bn<CR>
 
-"" Close buffer
+" Close buffer
 noremap <leader>c :bd<CR>
 
-"" Open items from quickfix in existing tab if it contains target buffer
+" Open items from quickfix in existing tab if it contains target buffer
 set switchbuf+=usetab,newtab
 
-"" Clear search highlight
+" Clear search highlight
 nnoremap <silent> <leader>l :noh<cr>
 
 " nullify ctrl+space in insert mode (cuz it's annoying)
