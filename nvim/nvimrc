@@ -145,7 +145,7 @@ let no_buffers_menu=1
 
 set mousemodel=popup
 set t_Co=256
-set cursorline
+" set cursorline
 
 " highlight tailing whitespace
 set list listchars=tab:\ \ ,trail:·
@@ -384,7 +384,7 @@ nnoremap <silent> <leader>l :noh<cr>
 imap <Nul> <Space>
 
 " remap escape to kj
-inoremap kj <Esc>`^
+" inoremap kj <Esc>`^
 
 " insert newline below or above
 nnoremap <leader>j o<Esc>
