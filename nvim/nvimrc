@@ -338,7 +338,7 @@ noremap <Leader>gd :Gvdiff<CR>
 noremap <Leader>gr :Gremove<CR>
 
 " Ruby
-nnoremap <leader>b ibinding.pry<Esc>osleep 1<Esc>
+nnoremap <leader>b obinding.pry<Esc>osleep 1<CR><Esc>
 
 " Tabs
 nnoremap <Tab> gt
