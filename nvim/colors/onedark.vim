@@ -249,41 +249,42 @@ endfun
 " }}}
 
 if !exists("g:onedark_background_color")
-  let g:onedark_background_color = "282c34"
+  " let g:onedark_background_color = "282c34"
+  let g:onedark_background_color = "252b33"
 end
-
-
-call s:X("Normal","dde0e5",g:onedark_background_color,"","dde0e5","")
+let g:onedark_text_color = "dde0e5"
+call s:X("Normal",g:onedark_text_color,g:onedark_background_color,"","dde0e5","")
 set background=dark
 
 if !exists("g:onedark_use_lowcolor_black") || g:onedark_use_lowcolor_black
-    let s:termBlack = "Black"
+  let s:termBlack = "Black"
 else
-    let s:termBlack = "Grey"
+  let s:termBlack = "Grey"
 endif
 
 if version >= 700
   let g:onedark_gray_detailing = "2c323b"
   let g:onedark_gray_text = "4b5262"
+  let g:onedark_blue_detail = "0095de"
 
   call s:X("CursorLine","",g:onedark_gray_detailing,"","",s:termBlack)
   call s:X("CursorColumn","",g:onedark_gray_detailing,"","",s:termBlack)
-  call s:X("MatchParen","ffffff","556779","bold","","DarkCyan")
+  call s:X("MatchParen","ffffff",g:onedark_gray_text,"bold","","DarkCyan")
 
   "unselected tabs
   call s:X("TabLine",g:onedark_gray_text,g:onedark_gray_detailing,"","",s:termBlack)
   "selected tabs
-  call s:X("TabLineSel","ffffff",g:onedark_gray_detailing,"italic,bold",s:termBlack,"White")
+  call s:X("TabLineSel",g:onedark_text_color,g:onedark_gray_detailing,"italic,bold",s:termBlack,"White")
   "tab bar background
-  call s:X("TabLineFill","9098a0","","","",s:termBlack)
+  call s:X("TabLineFill","","","","",s:termBlack)
 
   " Auto-completion
-  call s:X("Pmenu","ffffff","2c323b","","White",s:termBlack)
-  call s:X("PmenuSel","eeeeee","61afef","",s:termBlack,"White")
+  call s:X("Pmenu","ffffff",g:onedark_gray_detailing,"","","")
+  call s:X("PmenuSel","ffffff",g:onedark_blue_detail,"","","")
 endif
 
-call s:X("Visual","","3e4451","","",s:termBlack)
-call s:X("Cursor","White","b0d0f0","","","")
+call s:X("Visual","",g:onedark_gray_text,"","",s:termBlack)
+call s:X("Cursor","White",g:onedark_blue_detail,"","","")
 
 call s:X("LineNr","4b5262",g:onedark_background_color,"none",s:termBlack,"")
 call s:X("CursorLineNr","abb2bf","","none","White","")
@@ -381,23 +382,18 @@ hi! link rubySharpBang Comment
 call s:X("rubyInclude","61afef","","","Blue","")
 call s:X("rubyInterpolation","88b379","","","Green","")
 call s:X("rubyInstanceVariable","be5043","","","Red","")
-
 hi! link rubyInterpolationDelimiter rubyInstanceVariable
 hi! link rubyBlockParameterList rubyInstanceVariable
 hi! link rubyBlockParameter rubyInstanceVariable
 hi! link rubyPredefinedIdentifier rubyInstanceVariable
 hi! link rubyGlobalVariable rubyInstanceVariable
-
 hi! link rubyConstant Type
 hi! link rubyFunction Function
 hi! link rubyPredefinedConstant Type
-
 call s:X("rubySymbol","59b3c5","","","Cyan","")
 call s:X("rubyControl","b27ecd","","","Violet","")
-
 hi! link rubyString String
 hi! link rubyStringDelimiter String
-
 call s:X("rubyRegexpDelimiter","59b3c5","","","Cyan","")
 call s:X("rubyRegexp","59b3c5","","","Cyan","")
 hi! link rubyRegexpSpecial rubyInstanceVariable
