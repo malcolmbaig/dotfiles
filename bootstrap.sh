@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-DIR='/Users/mo/Dropbox/dev_env/dotfiles'
+DIR='/Users/mo/Dropbox/_dev-env/dotfiles'
 
 # NVIM
 ln -sf "$DIR/nvim/nvimrc" ~/.nvimrc
