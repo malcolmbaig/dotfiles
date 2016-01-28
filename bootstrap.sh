@@ -30,3 +30,7 @@ ln -sf ~/.zprezto/runcoms/zlogin ~/.zlogin
 ln -sf "$DIR/tmux" ~/.tmux
 ln -sf "$DIR/tmux/tmux.conf" ~/.tmux.conf
 ln -sf "$DIR/tmux/tmuxline_snapshot" ~/.tmuxline_snapshot
+
+# CTags
+ln -sf "$DIR/ctags/ctag_config" ~/.ctags
+
