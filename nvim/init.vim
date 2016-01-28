@@ -43,6 +43,9 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'chriskempson/base16-vim'
 NeoBundle 'itchyny/lightline.vim'
 
+" Distraction-free writing mode
+NeoBundle 'junegunn/goyo.vim'
+
 " Qdo command for search/replace in quickfix list
 NeoBundle 'henrik/vim-qargs'
 
@@ -63,6 +66,7 @@ NeoBundle 'honza/vim-snippets'
 " Ruby Bundle
 NeoBundle "tpope/vim-rails"
 NeoBundle "tpope/vim-rake"
+NeoBundle "tpope/vim-bundler"
 NeoBundle "thoughtbot/vim-rspec"
 NeoBundle 'asux/vim-capybara'
 NeoBundle 'tonekk/vim-ruby-capybara'
@@ -356,8 +360,14 @@ augroup vimrc-wrapping
   autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
 augroup END
 
+" Markdown
+augroup vimrc-markdown-settings
+  autocmd!
+  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set fo+=t tw=80
+augroup END
+
 " Pleco flashcard import file
-autocmd BufRead,BufNewFile *.pleco.txt set nowrap
+autocmd BufRead,BufNewFile *.pleco.txt set nowrap noexpandtab fo-=t tw=0
 
 " ruby
 augroup vimrc-ruby
@@ -439,6 +449,9 @@ nmap s <Plug>(easymotion-s)
 noremap <Leader>- :<C-u>split<CR>
 noremap <Leader><bar> :<C-u>vsplit<CR>
 
+" Goyo distraction-free writing mode
+noremap <Leader>G :Goyo<CR>
+
 " Git
 noremap <Leader>ga :Gwrite<CR>
 noremap <Leader>gc :Gcommit<CR>
@@ -509,9 +522,9 @@ nnoremap Q <nop>
 " command shortcut to sudo save
 command SW w !sudo tee %
 
-" preview function in markdown files
+" Function to preview markdown in Atom
 function! s:setupMarkup()
-  nnoremap <leader>p :silent !open -a MacDown.app '%:p'<cr>
+  nnoremap <leader>p :silent !open -a Atom.app '%:p'<cr>
 endfunction
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
 

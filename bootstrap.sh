@@ -4,8 +4,9 @@ set -e
 DIR='/Users/mo/Dropbox/_dev-env/dotfiles'
 
 # NVIM
-ln -sf "$DIR/nvim/nvimrc" ~/.nvimrc
-ln -sf "$DIR/nvim" ~/.nvim
+# Move colorschemes manually
+mkdir -p ~/.config/nvim
+ln -sf "$DIR/nvim/init.vim" ~/.config/nvim/init.vim
 
 # SSH
 ln -sf "$DIR/ssh/config" ~/.ssh/config

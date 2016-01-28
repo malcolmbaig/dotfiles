@@ -5,18 +5,6 @@
 " Last Change: 2016-01-11 11:11
 " =============================================================================
 "
-let s:red = '#df0000'
-let s:green = '#008700'
-let s:blue = '#00afaf'
-
-let s:pink = '#afdf00'
-let s:olive = '#dfaf5f'
-let s:navy = '#df875f'
-
-let s:orange = '#d75f00'
-let s:purple = '#8959a8'
-let s:aqua = '#3e999f'
-
 " Basics:
 let s:foreground = '#d0d0d0'
 let s:background = '#2b303b'
@@ -37,6 +25,11 @@ let s:statusline_active_bg = '#2b303b'
 let s:statusline_inactive_fg = '#3c4a52'
 let s:statusline_inactive_bg = '#444444'
 
+" Normal:
+let s:normal_dark_bg = '#3e4a51'
+let s:normal_light_bg = '#728793'
+let s:normal_lightest_bg = '#7d909b'
+
 " Visual:
 let s:visual_fg = '#ffffff'
 let s:visual_bg = '#ff6600'
@@ -50,9 +43,11 @@ let s:replace_fg= '#ffffff'
 let s:replace_bg= '#cc3300'
 
 let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
-let s:p.normal.left = [ [ s:foreground, s:background ], [ s:statusline_active_fg, s:status ], [ s:statusline_active_fg, s:statusline_active_bg ] ]
-let s:p.normal.right = [ [ s:foreground, s:background ], [ s:statusline_active_fg, s:status ], [ s:statusline_active_fg, s:statusline_active_bg ] ]
-let s:p.normal.middle = [ [ s:statusline_active_fg, s:statusline_active_bg ]]
+
+let s:p.normal.left = [ [ s:normal_lightest_bg, s:normal_dark_bg], [ s:normal_lightest_bg, s:normal_dark_bg], [ s:normal_dark_bg, s:normal_light_bg] ]
+let s:p.normal.right = [ [ s:normal_lightest_bg, s:normal_dark_bg], [ s:normal_lightest_bg, s:normal_dark_bg], [ s:normal_lightest_bg, s:normal_dark_bg] ]
+let s:p.normal.middle = [ [ s:statusline_active_fg, s:normal_dark_bg]]
+
 let s:p.inactive.right = [ [ s:foreground, s:background ], [ s:foreground, s:background ] ]
 let s:p.inactive.left = [ [ s:foreground, s:background ], [ s:foreground, s:background ] ]
 let s:p.inactive.middle = [ [ s:foreground, s:background ], ]
@@ -66,6 +61,8 @@ let s:p.replace.right= [ [s:statusline_active_fg, s:status], [s:statusline_activ
 let s:p.replace.middle= [ [ s:statusline_active_fg, s:status ], [s:statusline_active_fg, s:status ], [ s:statusline_active_fg, s:statusline_active_bg ] ]
 
 let s:p.visual.left = [ [ s:visual_fg, s:visual_bg ], [s:statusline_active_fg, s:status ], [ s:statusline_active_fg, s:statusline_active_bg ] ]
+let s:p.visual.right= [ [s:statusline_active_fg, s:status], [s:statusline_active_fg, s:status ], [ s:statusline_active_fg, s:statusline_active_bg ] ]
+let s:p.visual.middle= [ [ s:statusline_active_fg, s:status ], [s:statusline_active_fg, s:status ], [ s:statusline_active_fg, s:statusline_active_bg ] ]
 
 let s:p.tabline.left = [ [s:tabline_inactive_fg, s:tabline_inactive_bg ]]
 let s:p.tabline.tabsel = [ [s:tabline_active_fg, s:tabline_active_bg ] ]
