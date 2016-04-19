@@ -406,6 +406,13 @@ augroup vimrc-ruby
   autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 augroup END
 
+" javascript
+augroup vimrc-javascript
+  autocmd!
+  autocmd BufNewFile,BufRead *.js setlocal filetype=javascript
+  autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+augroup END
+
 " RSpec syntax highlighting is sometimes lacking
 autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
 highlight def link rubyRspec Function
