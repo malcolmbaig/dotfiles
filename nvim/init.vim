@@ -67,15 +67,12 @@ NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
 
 " --- Additional Language / Syntax Support
-" Ruby Bundle
+" Ruby
 NeoBundle "tpope/vim-rails"
-NeoBundle "tpope/vim-rake"
-NeoBundle "tpope/vim-bundler"
 NeoBundle "thoughtbot/vim-rspec"
-NeoBundle 'asux/vim-capybara'
 NeoBundle 'tonekk/vim-ruby-capybara'
 
-" HTML Bundle
+" HTML
 NeoBundle 'amirh/HTML-AutoCloseTag'
 NeoBundle 'JulesWang/css.vim'
 
@@ -146,15 +143,9 @@ set relativenumber
 set number
 set colorcolumn=80
 
-" colorscheme onedark
-colorscheme base16-ocean-custom
-set background=dark
-
 let no_buffers_menu=1
 
 set mousemodel=popup
-set t_Co=256
-" set cursorline
 
 " highlight tailing whitespace
 set list listchars=tab:\ \ ,trail:·
@@ -165,10 +156,6 @@ else
 	if $TERM == 'xterm'
 		set term=xterm-256color
 	endif
-endif
-
-if &term =~ '256color'
-  set t_ut=
 endif
 
 " Minimum number of lines above and below cursor
@@ -306,11 +293,6 @@ function! s:syntastic()
   SyntasticCheck
   call lightline#update()
 endfunction
-
-" let g:unite_force_overwrite_statusline = 0
-" let g:vimfiler_force_overwrite_statusline = 0
-" let g:vimshell_force_overwrite_statusline = 0
-
 """"""""""""""""""""" STATUS BAR END
 
 "*****************************************************************************
@@ -329,17 +311,6 @@ cnoreabbrev Q q
 cnoreabbrev Qa q
 cnoreabbrev Qall qall
 
-
-"*****************************************************************************
-" Functions
-"*****************************************************************************
-if !exists('*s:setupWrapping')
-  function s:setupWrapping()
-    set wrap
-    set wm=2
-    set textwidth=79
-  endfunction
-endif
 
 "*****************************************************************************
 " Autocmd Rules
@@ -379,7 +350,7 @@ augroup END
 " Stop treating periods as keywords
 autocmd FileType * set iskeyword-=.
 
-" The PC is fast enough, do syntax highlight syncing from start
+" Do syntax highlight syncing from start
 augroup vimrc-sync-fromstart
   autocmd!
   autocmd BufEnter * :syntax sync fromstart
@@ -389,18 +360,6 @@ augroup END
 augroup vimrc-remember-cursor-position
   autocmd!
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-augroup END
-
-" txt
-augroup vimrc-wrapping
-  autocmd!
-  autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
-augroup END
-
-" Markdown
-augroup vimrc-markdown-settings
-  autocmd!
-  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set fo+=t tw=80
 augroup END
 
 " Pleco flashcard import file
@@ -432,7 +391,7 @@ set autoread
 
 
 "*****************************************************************************
-" Bundle Config
+" Plugin Config
 "*****************************************************************************
 
 " Vim Polyglot
@@ -446,7 +405,7 @@ let g:ctrlp_working_path_mode=0
 " don't let ctrlp take over the screen!
 let g:ctrlp_max_height=30
 
-" The Silver Searcher
+" Ctrl-P - The Silver Searcher
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
@@ -454,8 +413,6 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --ignore .git -g ""'
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
-else
-  let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
 endif
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
@@ -525,21 +482,6 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " Copy/Paste/Cut
 set clipboard=unnamed,unnamedplus
-noremap YY "+y<CR>
-noremap P "+gP<CR>
-noremap XX "+x<CR>
-
-if has('macunix')
-  " pbcopy for OSX copy/paste
-  vmap <C-x> :!pbcopy<CR>
-  vmap <C-c> :w !pbcopy<CR><CR>
-endif
-
-" Buffer nav
-noremap <leader>z :bp<CR>
-noremap <leader>q :bp<CR>
-noremap <leader>x :bn<CR>
-noremap <leader>w :bn<CR>
 
 " Close buffer
 noremap <leader>c :bd<CR>
@@ -553,9 +495,6 @@ nnoremap <silent> <leader>l :noh<cr>
 " nullify ctrl+space in insert mode (cuz it's annoying)
 imap <Nul> <Space>
 
-" remap escape to kj
-" inoremap kj <Esc>`^
-
 " insert newline below or above
 nnoremap <leader>j o<Esc>
 nnoremap <leader>k O<Esc>
@@ -565,12 +504,6 @@ nnoremap Q <nop>
 
 " command shortcut to sudo save
 command SW w !sudo tee %
-
-" Function to preview markdown in Atom
-function! s:setupMarkup()
-  nnoremap <leader>p :silent !open -a Atom.app '%:p'<cr>
-endfunction
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
 
 "copy filename
 nmap <leader>cf :let @*=expand("%")<CR>
