@@ -3,6 +3,9 @@ set -e
 
 DIR='/Users/mo/Dropbox/_dev-env/dotfiles'
 
+# Dev environment deps
+# brew install neovim the_silver_searcher python3 fzf ack rbenv
+
 # NVIM
 mkdir -p ~/.config/nvim
 ln -sf "$DIR/nvim/init.vim" ~/.config/nvim/init.vim
