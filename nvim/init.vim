@@ -79,6 +79,9 @@ NeoBundle 'tonekk/vim-ruby-capybara'
 NeoBundle 'amirh/HTML-AutoCloseTag'
 NeoBundle 'JulesWang/css.vim'
 
+" Javascript
+NeoBundle 'pangloss/vim-javascript'
+
 call neobundle#end()
 
 " Required:
