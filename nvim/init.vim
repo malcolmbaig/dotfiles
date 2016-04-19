@@ -43,6 +43,10 @@ NeoBundle 'itchyny/lightline.vim'
 " Color schemes
 NeoBundle 'chriskempson/base16-vim'
 NeoBundle 'reedes/vim-colors-pencil'
+
+" Match HTML tags
+NeoBundle "Valloric/MatchTagAlways"
+
 " Distraction-free writing mode
 NeoBundle 'junegunn/goyo.vim'
 
@@ -571,3 +575,5 @@ nmap <leader>cf :let @*=expand("%")<CR>
 " Replace within Quickfix with Qdo
 nnoremap <leader>r :Qdo %s/
 
+" MatchTagAlways jump shortcut
+nnoremap <leader>% :MtaJumpToOtherTag<cr>
