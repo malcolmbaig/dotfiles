@@ -13,11 +13,10 @@ let s:status = '#2b303b'
 let s:error = '#5f0000'
 
 " Tabline:
-let s:tabline_bg = '#3c4a52'
-let s:tabline_active_fg = '#eeeeee'
+let s:tabline_active_fg = '#d0d0d0'
 let s:tabline_active_bg = '#3c4a52'
-let s:tabline_inactive_fg = '#a8a8a8'
-let s:tabline_inactive_bg = '#3c4a52'
+let s:tabline_inactive_fg = '#3c4a52'
+let s:tabline_inactive_bg = '#444444'
 
 " Statusline:
 let s:statusline_active_fg = '#d0d0d0'
@@ -26,7 +25,8 @@ let s:statusline_inactive_fg = '#3c4a52'
 let s:statusline_inactive_bg = '#444444'
 
 " Normal:
-let s:normal_dark_bg = '#3e4a51'
+" let s:normal_dark_bg = '#3e4a51'
+let s:normal_dark_bg = '#343d46'
 let s:normal_light_bg = '#728793'
 let s:normal_lightest_bg = '#7d909b'
 
@@ -48,9 +48,9 @@ let s:p.normal.left = [ [ s:normal_lightest_bg, s:normal_dark_bg], [ s:normal_li
 let s:p.normal.right = [ [ s:normal_lightest_bg, s:normal_dark_bg], [ s:normal_lightest_bg, s:normal_dark_bg], [ s:normal_lightest_bg, s:normal_dark_bg] ]
 let s:p.normal.middle = [ [ s:statusline_active_fg, s:normal_dark_bg]]
 
-let s:p.inactive.right = [ [ s:foreground, s:background ], [ s:foreground, s:background ] ]
-let s:p.inactive.left = [ [ s:foreground, s:background ], [ s:foreground, s:background ] ]
-let s:p.inactive.middle = [ [ s:foreground, s:background ], ]
+let s:p.inactive.right = [ [ s:background, s:normal_dark_bg], [ s:background, s:normal_dark_bg] ]
+let s:p.inactive.left = [ [ s:background, s:normal_dark_bg], [ s:background, s:normal_dark_bg] ]
+let s:p.inactive.middle = [ [ s:background, s:normal_dark_bg] ]
 
 let s:p.insert.left = [ ['darkestcyan', 'white', 'bold'], ['white', 'darkblue'] ]
 let s:p.insert.right = [ [ 'darkestcyan', 'mediumcyan' ], [ 'mediumcyan', 'darkblue' ], [ 'mediumcyan', 'darkestblue' ] ]
@@ -64,11 +64,11 @@ let s:p.visual.left = [ [ s:visual_fg, s:visual_bg ], [s:statusline_active_fg, s
 let s:p.visual.right= [ [s:statusline_active_fg, s:status], [s:statusline_active_fg, s:status ], [ s:statusline_active_fg, s:statusline_active_bg ] ]
 let s:p.visual.middle= [ [ s:statusline_active_fg, s:status ], [s:statusline_active_fg, s:status ], [ s:statusline_active_fg, s:statusline_active_bg ] ]
 
-let s:p.tabline.left = [ [s:tabline_inactive_fg, s:tabline_inactive_bg ]]
+" let s:p.tabline.left = [ [s:tabline_inactive_fg, s:tabline_inactive_bg ]]
 let s:p.tabline.tabsel = [ [s:tabline_active_fg, s:tabline_active_bg ] ]
-let s:p.tabline.middle = [ [s:tabline_bg, s:tabline_bg]]
-let s:p.tabline.right = copy(s:p.normal.right)
+" let s:p.tabline.middle = [ [s:tabline_bg, s:tabline_bg]]
+" let s:p.tabline.right = copy(s:p.normal.right)
 
-let s:p.normal.error = [ [ s:background, s:error ] ]
+let s:p.normal.error = [ [ 'white' , s:error ] ]
 
 let g:lightline#colorscheme#lightline_custom#palette = lightline#colorscheme#fill(s:p)
