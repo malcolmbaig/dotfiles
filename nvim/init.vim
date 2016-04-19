@@ -1,6 +1,4 @@
 "*****************************************************************************
-" NeoBundle core
-"*****************************************************************************
 
 if has('vim_starting')
   set nocompatible               " Be iMproved
@@ -40,9 +38,11 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'chriskempson/base16-vim'
 NeoBundle 'itchyny/lightline.vim'
 
+" Color schemes
+NeoBundle 'chriskempson/base16-vim'
+NeoBundle 'reedes/vim-colors-pencil'
 " Distraction-free writing mode
 NeoBundle 'junegunn/goyo.vim'
 
