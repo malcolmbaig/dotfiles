@@ -337,8 +337,38 @@ endif
 "*****************************************************************************
 " Autocmd Rules
 "*****************************************************************************
-" Soft tabs with 2 stops by default for everything
-autocmd FileType * set tabstop=2|set shiftwidth=2|set expandtab
+
+function! s:defaultColors()
+  if exists('#goyo')
+    :Goyo
+  endif
+  colorscheme base16-ocean-custom
+  set background=dark
+endfunction
+
+function! s:markdownColors()
+  colorscheme pencil
+  set background=light
+  :Goyo
+endfunction
+
+call s:defaultColors()
+
+" Function to preview markdown in Atom
+function! s:setupMarkup()
+  nnoremap <leader>p :silent !open -a Atom.app '%:p'<cr>
+endfunction
+
+" Markdown
+augroup vimrc-markdown-settings
+  autocmd!
+  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set fo+=t tw=79
+  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
+  " Set colorscheme rules
+  autocmd BufEnter *.{md,markdown,mdown,mkd,mkdn} call s:markdownColors()
+  autocmd BufLeave *.{md,markdown,mdown,mkd,mkdn} call s:defaultColors()
+augroup END
+
 " Stop treating periods as keywords
 autocmd FileType * set iskeyword-=.
 
