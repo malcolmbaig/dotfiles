@@ -4,9 +4,9 @@ set -e
 DIR='/Users/mo/Dropbox/_dev-env/dotfiles'
 
 # NVIM
-# Move colorschemes manually
 mkdir -p ~/.config/nvim
 ln -sf "$DIR/nvim/init.vim" ~/.config/nvim/init.vim
+ln -sf "$DIR/nvim/custom_colors/" ~/.config/nvim/init.vim
 
 # SSH
 ln -sf "$DIR/ssh/config" ~/.ssh/config
@@ -34,3 +34,5 @@ ln -sf "$DIR/tmux/tmuxline_snapshot" ~/.tmuxline_snapshot
 # CTags
 ln -sf "$DIR/ctags/ctag_config" ~/.ctags
 
+# Lightline Customisation
+source install_lightline_custom.sh
