@@ -53,12 +53,6 @@ NeoBundle 'junegunn/goyo.vim'
 " Qdo command for search/replace in quickfix list
 NeoBundle 'henrik/vim-qargs'
 
-" See git status in gutter
-NeoBundle 'airblade/vim-gitgutter'
-
-" Syntax checking
-NeoBundle "scrooloose/syntastic"
-
 " Syntax highlighting
 NeoBundle 'sheerun/vim-polyglot'
 
@@ -425,20 +419,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
-
-" syntastic
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_style_warning_symbol = '⚠'
-let g:syntastic_auto_loc_list=1
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_ruby_mri_exec = "~/.rbenv/shims/ruby"
-let g:syntastic_scss_checkers=[]
-let g:syntastic_eruby_ruby_quiet_messages =
-    \ {'regex': 'possibly useless use of - in void context'}
-
 " Easymotion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 nmap s <Plug>(easymotion-s)
