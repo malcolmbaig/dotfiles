@@ -1,5 +1,3 @@
-"*****************************************************************************
-
 if has('vim_starting')
   set nocompatible               " Be iMproved
 
@@ -27,7 +25,7 @@ call neobundle#begin(expand('~/.nvim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 "*****************************************************************************
-" NeoBundle install packages
+" Plugins
 "*****************************************************************************
 " Core
 NeoBundle 'tpope/vim-commentary'
@@ -56,15 +54,18 @@ NeoBundle 'henrik/vim-qargs'
 " Syntax highlighting
 NeoBundle 'sheerun/vim-polyglot'
 
-" Snippets
+" Completion / Snippets
+NeoBundle 'Shougo/deoplete.nvim'
+NeoBundle 'Shougo/context_filetype.vim'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
 
 " --- Additional Language / Syntax Support
 " Ruby
-NeoBundle "tpope/vim-rails"
-NeoBundle "thoughtbot/vim-rspec"
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'thoughtbot/vim-rspec'
 NeoBundle 'tonekk/vim-ruby-capybara'
+NeoBundle 'keith/rspec.vim'
 
 " HTML
 NeoBundle 'amirh/HTML-AutoCloseTag'
@@ -81,6 +82,67 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
+
+
+"*****************************************************************************
+" Plugin Config
+"*****************************************************************************
+" Vim Polyglot
+let g:polyglot_disabled = ['css']
+
+" Ctrl-P
+" set-up ctrlp to include hidden files in its search
+let g:ctrlp_show_hidden=1
+" disable ctrlp's feature where it tries to intelligently work out the current working directory to search within
+let g:ctrlp_working_path_mode=0
+" don't let ctrlp take over the screen!
+let g:ctrlp_max_height=30
+
+" Ctrl-P - The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --ignore .git -g ""'
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" bind \ (backward slash) to grep shortcut
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<SPACE>
+
+" Completion / Snippets
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_ignore_case = 1
+let	g:deoplete#enable_smart_case = 1
+" always use completions from all buffers
+if !exists('g:deoplete#same_filetypes')
+	let g:deoplete#same_filetypes = {}
+endif
+let g:deoplete#same_filetypes._ = '_'
+" <CR>: cancel popup and insert newline.
+inoremap <silent> <CR> <C-r>=deoplete#mappings#smart_close_popup()<CR><CR>
+" <TAB>: completion.
+inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr> <C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
+" omnifuncs
+augroup omnifuncs
+  autocmd!
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup end
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" Easymotion
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+nmap s <Plug>(easymotion-s)
 
 
 "*****************************************************************************
@@ -128,6 +190,7 @@ set fileformats=unix,mac
 set showcmd
 set shell=/bin/zsh
 
+
 "*****************************************************************************
 " Visual Settings
 "*****************************************************************************
@@ -163,7 +226,9 @@ set title
 set titleold="Terminal"
 set titlestring=%F
 
-""""""""""""""""""""" STATUS BAR
+"*****************************************************************************
+" Status Bar
+"*****************************************************************************"
 " Don't display the current mode (Insert, Visual, Replace)
 " in the status line. This info is already shown in the Lightline status bar.
 set noshowmode
@@ -173,7 +238,7 @@ let g:lightline = {
   \ 'colorscheme': 'lightline_custom',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ], [ 'filename' ], ['ctrlpmark'] ],
-  \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'filetype' ] ]
+  \   'right': [ [ 'lineinfo' ], ['percent'], [ 'filetype' ] ]
   \ },
   \ 'component_function': {
   \   'filename': 'LightLineFilename',
@@ -184,10 +249,8 @@ let g:lightline = {
   \   'ctrlpmark': 'CtrlPMark',
   \ },
   \ 'component_expand': {
-  \   'syntastic': 'SyntasticStatuslineFlag',
   \ },
   \ 'component_type': {
-  \   'syntastic': 'error',
   \ },
   \ 'subseparator': { 'left': '|', 'right': '|' }
   \ }
@@ -278,16 +341,10 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
     let g:lightline.fname = a:fname
   return lightline#statusline(0)
 endfunction
+"*****************************************************************************
+" Status Bar (END)
+"*****************************************************************************"
 
-augroup AutoSyntastic
-  autocmd!
-  autocmd BufWritePost *.c,*.cpp call s:syntastic()
-augroup END
-function! s:syntastic()
-  SyntasticCheck
-  call lightline#update()
-endfunction
-""""""""""""""""""""" STATUS BAR END
 
 "*****************************************************************************
 " Abbreviations
@@ -307,38 +364,37 @@ cnoreabbrev Qall qall
 
 
 "*****************************************************************************
-" Autocmd Rules
+" Color schemes
 "*****************************************************************************
-
-function! s:defaultColors()
-  if exists('#goyo')
-    :Goyo
-  endif
+function! DarkColors()
   colorscheme base16-ocean-custom
   set background=dark
+	call lightline#init()
+	call lightline#colorscheme()
+	call lightline#update()
 endfunction
 
-function! s:markdownColors()
+function! LightColors()
   colorscheme pencil
   set background=light
-  :Goyo
 endfunction
 
-call s:defaultColors()
+call DarkColors()
 
+
+"*****************************************************************************
+" Autocmd Rules
+"*****************************************************************************
 " Function to preview markdown in Atom
-function! s:setupMarkup()
+function! s:setupMarkdownPreview()
   nnoremap <leader>p :silent !open -a Atom.app '%:p'<cr>
 endfunction
 
 " Markdown
 augroup vimrc-markdown-settings
   autocmd!
-  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set fo+=t tw=79
-  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
-  " Set colorscheme rules
-  autocmd BufEnter *.{md,markdown,mdown,mkd,mkdn} call s:markdownColors()
-  autocmd BufLeave *.{md,markdown,mdown,mkd,mkdn} call s:defaultColors()
+  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal fo+=t tw=79 spell spelllang=en_gb
+  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdownPreview()
 augroup END
 
 " Stop treating periods as keywords
@@ -357,25 +413,27 @@ augroup vimrc-remember-cursor-position
 augroup END
 
 " Pleco flashcard import file
-autocmd BufRead,BufNewFile *.pleco.txt set nowrap noexpandtab fo-=t tw=0
+autocmd BufRead *.pleco.txt setlocal nowrap noexpandtab fo-=t tw=0
 
 " ruby
 augroup vimrc-ruby
   autocmd!
   autocmd BufNewFile,BufRead *.rb,*.rbw,*.gemspec setlocal filetype=ruby
-  autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  autocmd FileType ruby setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
+
+" eruby
+augroup vimrc-eruby
+  autocmd!
+  autocmd FileType eruby setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 " javascript
 augroup vimrc-javascript
   autocmd!
   autocmd BufNewFile,BufRead *.js setlocal filetype=javascript
-  autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  autocmd Filetype javascript setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
-
-" RSpec syntax highlighting is sometimes lacking
-autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
-highlight def link rubyRspec Function
 
 " remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -385,47 +443,12 @@ set autoread
 
 
 "*****************************************************************************
-" Plugin Config
+" Leader Key Mappings
 "*****************************************************************************
+" Color schemes
+noremap <Leader>cd :call DarkColors()<CR>
+noremap <Leader>cl :call LightColors()<CR>
 
-" Vim Polyglot
-let g:polyglot_disabled = ['css']
-
-" Ctrl-P
-" set-up ctrlp to include hidden files in its search
-let g:ctrlp_show_hidden=1
-" disable ctrlp's feature where it tries to intelligently work out the current working directory to search within
-let g:ctrlp_working_path_mode=0
-" don't let ctrlp take over the screen!
-let g:ctrlp_max_height=30
-
-" Ctrl-P - The Silver Searcher
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --ignore .git -g ""'
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
-" bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-" bind \ (backward slash) to grep shortcut
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-nnoremap \ :Ag<SPACE>
-
-" snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsEditSplit="vertical"
-" Easymotion
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-nmap s <Plug>(easymotion-s)
-
-"*****************************************************************************
-" Mappings
-"*****************************************************************************
 " Split
 noremap <Leader>- :<C-u>split<CR>
 noremap <Leader><bar> :<C-u>vsplit<CR>
@@ -493,3 +516,4 @@ nnoremap <leader>r :Qdo %s/
 
 " MatchTagAlways jump shortcut
 nnoremap <leader>% :MtaJumpToOtherTag<cr>
+
