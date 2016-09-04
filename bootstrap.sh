@@ -9,7 +9,6 @@ DIR='/Users/mo/Dropbox/_dev-env/dotfiles'
 # NVIM
 mkdir -p ~/.config/nvim
 ln -sf "$DIR/nvim/init.vim" ~/.config/nvim/init.vim
-ln -sf "$DIR/nvim/custom_colors/" ~/.config/nvim/init.vim
 
 # SSH
 ln -sf "$DIR/ssh/config" ~/.ssh/config
