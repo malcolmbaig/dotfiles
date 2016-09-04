@@ -20,6 +20,9 @@ ln -sf "$DIR/git/git-template" ~/.git-template
 ln -sf "$DIR/git/gitmessage" ~/.gitmessage
 ln -sf "$DIR/git/gitconfig" ~/.gitconfig
 
+# Bundler
+ln -sf "$DIR/bundler/config" ~/.bundle/config
+
 # ZSH
 ln -sf "$DIR/zprezto/" ~/.zprezto
 ln -sf ~/.zprezto/runcoms/zlogin ~/.zlogin
