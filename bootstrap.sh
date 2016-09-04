@@ -39,5 +39,3 @@ ln -sf "$DIR/tmux/tmuxline_snapshot" ~/.tmuxline_snapshot
 # CTags
 ln -sf "$DIR/ctags/ctag_config" ~/.ctags
 
-# Lightline Customisation
-source install_lightline_custom.sh
