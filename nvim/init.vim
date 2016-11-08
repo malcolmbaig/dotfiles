@@ -41,17 +41,13 @@ Plug 'Lokaltog/vim-easymotion'
 
 " Color schemes
 Plug 'reedes/vim-colors-pencil'
-Plug 'tyrannicaltoucan/vim-deep-space'
-Plug 'rakr/vim-two-firewatch' | Plug 'mobaig/vim-two-firewatch-airline'
+Plug 'mobaig/vim-two-firewatch'
 
 " Generates ctags automatically
 Plug 'ludovicchabant/vim-gutentags'
 
 " GUI for the undo tree
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
-
-" Switch the cwd based on the file location
-Plug 'airblade/vim-rooter'
 
 " Rearrange text into tables
 Plug 'godlygeek/tabular'
@@ -184,12 +180,12 @@ if s:has_plugin('ctrlp.vim')
     let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --ignore .git -g ""'
     " ag is fast enough that CtrlP doesn't need to cache
     let g:ctrlp_use_caching = 0
+    " bind K to grep word under cursor
+    nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+    " bind \ (backward slash) to grep shortcut
+    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+    nnoremap \ :Ag<SPACE>
   endif
-  " bind K to grep word under cursor
-  nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-  " bind \ (backward slash) to grep shortcut
-  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-  nnoremap \ :Ag<SPACE>
 endif
 
 if s:has_plugin('deoplete.nvim')
@@ -213,7 +209,10 @@ if s:has_plugin('vim-easymotion')
   " Easymotion
   let g:EasyMotion_do_mapping = 0 " Disable default mappings
   nmap s <Plug>(easymotion-s)
-end
+endif
+
+
+let g:rspec_command = "term bundle exec rspec {spec}"
 
 
 "*****************************************************************************
@@ -223,6 +222,9 @@ end
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
+
+" Open items from quickfix in existing tab if it contains target buffer
+set switchbuf+=usetab,newtab
 
 " Fix backspace indent
 set backspace=indent,eol,start
@@ -264,7 +266,11 @@ set ttyfast
 "*****************************************************************************
 " Visual Settings
 "*****************************************************************************
+
 syntax on
+set synmaxcol=128
+syntax sync minlines=256
+
 set ruler
 set relativenumber
 set number
@@ -276,6 +282,10 @@ set mousemodel=popup
 
 " highlight tailing whitespace
 set list listchars=tab:\ \ ,trail:·
+
+if has('termguicolors')
+  set termguicolors
+endif
 
 if $COLORTERM == 'gnome-terminal'
   set term=gnome-256color
@@ -317,32 +327,35 @@ cnoreabbrev Qall qall
 "*****************************************************************************
 " Color schemes
 "*****************************************************************************
-function! DarkColors()
+function! ColorsDark()
   set background=dark " or light if you prefer the light version
+
   let g:two_firewatch_italics=1
   colo two-firewatch
-  let g:airline_theme='twofirewatchcustom'
-
-  " set background=dark
-  " colorscheme deep-space
-  " let g:deepspace_italics = 1
+  let g:airline_theme='twofirewatch'
 endfunction
 
-function! LightColors()
-  colorscheme pencil
+function! ColorsLight()
   set background=light
+
+  let g:two_firewatch_italics=1
+  colo two-firewatch
+  let g:airline_theme='twofirewatch'
 endfunction
 
-call DarkColors()
+function! ColorsPencil()
+  set background=light
+
+  colorscheme pencil
+  let g:airline_theme='pencil'
+endfunction
+
+call ColorsDark()
 
 
 "*****************************************************************************
 " Autocmd Rules
 "*****************************************************************************
-" Function to preview markdown in Atom
-function! s:setupMarkdownPreview()
-  nnoremap <leader>p :silent !open -a Marked\ 2.app '%:p'<cr>
-endfunction
 
 augroup vimrc-defaults
   autocmd!
@@ -350,7 +363,14 @@ augroup vimrc-defaults
   autocmd BufEnter * :syntax sync fromstart
   " Default tab settings in everything, overriding anything set by ftplugin
   au BufRead,BufNewFile * setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  " remove whitespace on save
+  autocmd BufWritePre * :%s/\s\+$//e
 augroup END
+
+" Function to preview markdown in Atom
+function! s:setupMarkdownPreview()
+  nnoremap <leader>p :silent !open -a Marked\ 2.app '%:p'<cr>
+endfunction
 
 " Markdown
 augroup vimrc-markdown-settings
@@ -389,52 +409,54 @@ augroup vimrc-javascript
   autocmd Filetype javascript setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
-" remove whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
-
 " autoread files that have changed outside of vim
 set autoread
 
 
 "*****************************************************************************
-" Leader Key Mappings
+" Custom Key Mappings
 "*****************************************************************************
 
 " Color schemes
-noremap <Leader>cd :call DarkColors()<CR>
-noremap <Leader>cl :call LightColors()<CR>
+noremap <leader>cd :call ColorsDark()<CR>
+noremap <leader>cl :call ColorsLight()<CR>
+noremap <leader>cp :call ColorsPencil()<CR>
+
+" Line number toggles
+noremap <leader>ln :set nu!<CR>
+noremap <leader>lr :set relativenumber!<CR>
 
 " Split
-noremap <Leader>- :<C-u>split<CR>
-noremap <Leader><bar> :<C-u>vsplit<CR>
+noremap <leader>- :<C-u>split<CR>
+noremap <leader><bar> :<C-u>vsplit<CR>
 
 " Goyo distraction-free writing mode
-noremap <Leader>G :Goyo<CR>
+noremap <leader>G :Goyo<CR>
 
 " Git
-noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gc :Gcommit<CR>
-noremap <Leader>gsh :Gpush<CR>
-noremap <Leader>gll :Gpull<CR>
-noremap <Leader>gs :Gstatus<CR>
-noremap <Leader>gb :Gblame<CR>
-noremap <Leader>gd :Gvdiff<CR>
-noremap <Leader>gr :Gremove<CR>
-noremap <Leader>go :Gbrowse<CR>
+noremap <leader>ga :Gwrite<CR>
+noremap <leader>gc :Gcommit<CR>
+noremap <leader>gsh :Gpush<CR>
+noremap <leader>gll :Gpull<CR>
+noremap <leader>gs :Gstatus<CR>
+noremap <leader>gb :Gblame<CR>
+noremap <leader>gd :Gvdiff<CR>
+noremap <leader>gr :Gremove<CR>
+noremap <leader>go :Gbrowse<CR>
 
 " Ruby
-nnoremap <leader>b orequire 'pry-byebug';binding.pry;sleep 1<CR><Esc>
+noremap <leader>b orequire 'pry-byebug';binding.pry;sleep 1<CR><Esc>
 
 " Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
-nnoremap <silent> <Leader>t :tabnew<CR>
+noremap <silent> <leader>t :tabnew<CR>
 
 " Set working directory
-nnoremap <leader>. :lcd %:p:h<CR>
+noremap <leader>. :lcd %:p:h<CR>
 
 " Opens an edit command with the path of the currently edited file filled in
-noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+noremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Copy/Paste/Cut
 set clipboard=unnamed,unnamedplus
@@ -442,18 +464,15 @@ set clipboard=unnamed,unnamedplus
 " Close buffer
 noremap <leader>c :bd<CR>
 
-" Open items from quickfix in existing tab if it contains target buffer
-set switchbuf+=usetab,newtab
-
 " Clear search highlight
-nnoremap <silent> <leader>l :noh<cr>
+noremap <silent> <leader>l :noh<cr>
 
 " nullify ctrl+space in insert mode (cuz it's annoying)
 imap <Nul> <Space>
 
 " insert newline below or above
-nnoremap <leader>j o<Esc>
-nnoremap <leader>k O<Esc>
+noremap <leader>j o<Esc>
+noremap <leader>k O<Esc>
 
 " disable Ex mode shortcut
 nnoremap Q <nop>
@@ -462,16 +481,16 @@ nnoremap Q <nop>
 command SW w !sudo tee %
 
 "copy filename
-nmap <leader>cf :let @*=expand("%")<CR>
+noremap <leader>cf :let @*=expand("%")<CR>
 
 " Replace within Quickfix with Qdo
-nnoremap <leader>r :Qdo %s/
+noremap <leader>r :Qdo %s/
 
 " MatchTagAlways jump shortcut
-nnoremap <leader>% :MtaJumpToOtherTag<cr>
+noremap <leader>% :MtaJumpToOtherTag<cr>
 
 " tabs
-nnoremap <leader>o :tabonly<cr>
+noremap <leader>o :tabonly<cr>
 
 " vim-rspec
 noremap <leader>sc :call RunCurrentSpecFile()<CR>
