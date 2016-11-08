@@ -2,9 +2,9 @@
 	name = Mo Baig
 	email = mo@mobaig.com
 [core]
-	editor = /usr/local/bin/nvim
-	excludesfile = /Users/mo/.gitignore-global
+	editor = nvim
+	excludesfile = ~/.gitignore-global
 [push]
 	default = simple
-[commit]
-  template = ~/.gitmessage
+[status]
+  displaycommentprefix = true
