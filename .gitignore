@@ -6,3 +6,4 @@ zprezto/
 tmux/plugins
 tmux/resurrect
 ssh/config
+.vim_tags*
