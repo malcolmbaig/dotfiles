@@ -77,6 +77,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'tpope/vim-rails'
 Plug 'tonekk/vim-ruby-capybara'
 Plug 'keith/rspec.vim'
+Plug 'thoughtbot/vim-rspec'
 
 " HTML
 Plug 'alvan/vim-closetag'
@@ -472,3 +473,8 @@ nnoremap <leader>% :MtaJumpToOtherTag<cr>
 " tabs
 nnoremap <leader>o :tabonly<cr>
 
+" vim-rspec
+noremap <leader>sc :call RunCurrentSpecFile()<CR>
+noremap <leader>sn :call RunNearestSpec()<CR>
+noremap <leader>sl :call RunLastSpec()<CR>
+noremap <leader>sa :call RunAllSpecs()<CR>
