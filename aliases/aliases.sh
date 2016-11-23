@@ -54,7 +54,7 @@ alias tailf='tail -f'
 alias k9='kill -9'
 alias show256colors='for code in {000..255}; do print -P -- "$code: %F{$code}Test%f"; done'
 alias del="rmtrash"
-alias wttr="curl -4 http://wttr\.in"
+alias wttr="curl -4 http://wttr\.in/london"
 alias ia="open $1 -a /Applications/iA\ Writer.app"
 if [ -x "$(command -v brew)" ]; then
   alias ctags="`brew --prefix`/bin/ctags"
