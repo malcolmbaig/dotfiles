@@ -458,8 +458,8 @@ noremap <leader>. :lcd %:p:h<CR>
 " Opens an edit command with the path of the currently edited file filled in
 noremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
-" Copy/Paste/Cut
-set clipboard=unnamed,unnamedplus
+" " Copy/Paste/Cut
+" set clipboard=unnamed,unnamedplus
 
 " Close buffer
 noremap <leader>c :bd<CR>
