@@ -68,6 +68,12 @@ Plug 'sheerun/vim-polyglot'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
+" Linting
+Plug 'w0rp/ale'
+let g:ale_linters = {'ruby': 'bundle exec rubocop'}
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
 " --- Additional Language / Syntax Support
 " Ruby
 Plug 'tpope/vim-rails'
