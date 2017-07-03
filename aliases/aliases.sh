@@ -48,7 +48,7 @@ alias cuke='cucumber -f progress'
 alias ls='ls -FGfho'
 alias lsp='CLICOLOR_FORCE=1 ls -FGfho | less -R' # ls with paging
 alias lsd='ls -d */' # ls directories only
-alias psg='ps x | grep '
+alias psg='ps aux | grep '
 alias tailn='tail -n'
 alias tailf='tail -f'
 alias k9='kill -9'
