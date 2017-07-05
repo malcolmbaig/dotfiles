@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-DIR='/Users/mo/Dropbox/_dev-env/dotfiles'
+DIR='/Users/malcolm/Dropbox/_dev-env/dotfiles'
 
 # Dev environment deps
 # brew install neovim the_silver_searcher python3 fzf ack rbenv

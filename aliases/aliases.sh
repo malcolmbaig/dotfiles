@@ -3,11 +3,11 @@
 alias n='nvim'
 
   # DIRECTORY SHORTCUTS
-alias code='cd /Users/mo/code'
-alias dotfiles='cd /Users/mo/Dropbox/_dev-env/dotfiles'
-alias pnotes='cd /Users/mo/Dropbox/notes-personal'
-alias wnotes='cd /Users/mo/Dropbox/notes-work'
-alias dropbox='cd /Users/mo/Dropbox/'
+alias code='cd ~/code'
+alias dotfiles='cd ~/Dropbox/_dev-env/dotfiles'
+alias pnotes='cd ~/Dropbox/notes-personal'
+alias wnotes='cd ~/Dropbox/notes-work'
+alias dropbox='cd ~/Dropbox/'
 
   # GOLANG
 alias gopath='cd $GOPATH'
