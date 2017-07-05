@@ -215,7 +215,8 @@ if s:has_plugin('vim-easymotion')
 endif
 
 
-let g:rspec_command = "term bundle exec rspec {spec}"
+let g:rspec_command = "tabnew | term bundle exec rspec {spec}"
+
 let g:ale_sign_column_always = 1
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
