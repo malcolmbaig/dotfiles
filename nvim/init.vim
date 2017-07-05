@@ -269,6 +269,8 @@ set iskeyword-=.
 " set lazyredraw
 set ttyfast
 
+" Personal spellfile location
+set spellfile=~/.config/nvim/spell/en.utf-8.add
 
 "*****************************************************************************
 " Visual Settings
