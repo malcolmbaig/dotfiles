@@ -4,11 +4,13 @@ set -e
 DIR='/Users/malcolm/Dropbox/_dev-env/dotfiles'
 
 # Dev environment deps
-# brew install neovim the_silver_searcher python3 fzf ack rbenv
+# brew tap neovim/neovim
+# brew install neovim tmux the_silver_searcher python3 fzf ack rbenv
 
 # NVIM
 mkdir -p ~/.config/nvim
 ln -sf "$DIR/nvim/init.vim" ~/.config/nvim/init.vim
+ln -sf "$DIR/nvim/spell" ~/.config/nvim/spell
 
 # SSH
 ln -sf "$DIR/ssh/config" ~/.ssh/config
@@ -34,7 +36,6 @@ ln -sf ~/.zprezto/runcoms/zlogin ~/.zlogin
 # Tmux
 ln -sf "$DIR/tmux" ~/.tmux
 ln -sf "$DIR/tmux/tmux.conf" ~/.tmux.conf
-ln -sf "$DIR/tmux/tmuxline_snapshot" ~/.tmuxline_snapshot
 
 # CTags
 ln -sf "$DIR/ctags/ctag_config" ~/.ctags
