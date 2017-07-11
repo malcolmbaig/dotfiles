@@ -468,7 +468,7 @@ noremap <leader>. :lcd %:p:h<CR>
 noremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " " Copy/Paste/Cut
-" set clipboard=unnamed,unnamedplus
+set clipboard+=unnamed,unnamedplus
 
 " Close buffer
 noremap <leader>c :bd<CR>
