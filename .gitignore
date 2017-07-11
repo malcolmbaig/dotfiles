@@ -7,3 +7,4 @@ tmux/plugins
 tmux/resurrect
 ssh/config
 .vim_tags*
+nvim/spell
