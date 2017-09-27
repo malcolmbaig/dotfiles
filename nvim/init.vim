@@ -50,13 +50,13 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 
 " Rearrange text into tables
-Plug 'godlygeek/tabular'
+Plug 'godlygeek/tabular', {'on': 'Tabularize'}
 
 " Match HTML tags
 Plug 'Valloric/MatchTagAlways'
 
 " Distraction-free writing mode
-Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 
 " Qdo command for search/replace in quickfix list
 Plug 'henrik/vim-qargs'
