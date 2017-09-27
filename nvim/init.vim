@@ -82,15 +82,12 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'alvan/vim-closetag'
 Plug 'cakebaker/scss-syntax.vim'
 
-" Javascript
-Plug 'pangloss/vim-javascript'
-
 " CSS
 Plug 'ap/vim-css-color'
 
 " JSON
 Plug 'tpope/vim-jdaddy'
-"
+
 "" Custom bundles
 "" Include user's extra bundle
 if filereadable(expand("~/.config/nvim/local_bundles.vim"))
@@ -114,8 +111,8 @@ filetype plugin indent on
 "*****************************************************************************
 
 if s:has_plugin('vim-gutentags')
-  let g:gutentags_tagfile = '.vim_tags'
-  let g:gutentags_exclude = [
+  let g:gutentags_ctags_tagfile = '.vim_tags'
+  let g:gutentags_ctags_exclude = [
         \ 'node_modules',
         \ 'dist',
         \ 'vendor',
@@ -217,9 +214,11 @@ endif
 
 let g:rspec_command = "tabnew | term bundle exec rspec {spec}"
 
-let g:ale_sign_column_always = 1
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+if s:has_plugin('ale')
+  let g:ale_sign_column_always = 1
+  nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+  nmap <silent> <C-j> <Plug>(ale_next_wrap)
+endif
 
 
 "*****************************************************************************
@@ -279,6 +278,7 @@ set spellfile=~/.config/nvim/spell/en.utf-8.add
 syntax on
 set synmaxcol=128
 syntax sync minlines=256
+set guicursor=n-v-c:hor20-Cursor/lCursor-blinkon0,i-ci:hor20-Cursor/lCursor-blinkwait200-blinkon100-blinkoff50
 
 set ruler
 set relativenumber
@@ -387,6 +387,7 @@ augroup vimrc-markdown-settings
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal fo+=t tw=79 spell spelllang=en_gb
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdownPreview()
+  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal comments+=fb:-,fb:*
 augroup END
 
 " Remember cursor position
@@ -468,7 +469,9 @@ noremap <leader>. :lcd %:p:h<CR>
 noremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " " Copy/Paste/Cut
-set clipboard+=unnamed,unnamedplus
+if (executable('pbcopy') || executable('xclip') || executable('xsel')) && has('clipboard')
+  set clipboard+=unnamed,unnamedplus
+endif
 
 " Close buffer
 noremap <leader>c :bd<CR>
