@@ -1,37 +1,48 @@
-## ALIASES
-  # TEXT EDITORS
+# ALIASES
+#########
+
+# TEXT EDITORS
 alias n='nvim'
 
-  # DIRECTORY SHORTCUTS
+# DIRECTORY SHORTCUTS
 alias code='cd ~/code'
 alias dotfiles='cd ~/Dropbox/_dev-env/dotfiles'
 alias pnotes='cd ~/Dropbox/notes-personal'
 alias wnotes='cd ~/Dropbox/notes-work'
 alias dropbox='cd ~/Dropbox/'
 
-  # GOLANG
-alias gopath='cd $GOPATH'
-
-  # GIT
-  # status
-alias gst="git status"
-alias ga="git add"
-alias gl="git log"
-  # copy branch
-alias cb="git symbolic-ref --short -q HEAD | tr -d '\n' | pbcopy"
-  # wip
+# GIT
+# copy branch
+alias gcb="git symbolic-ref --short -q HEAD | tr -d '\n' | pbcopy"
+# wip
 alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit -m "--wip--"'
 alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
-  # GitUp
+# gitup
 alias gu="gitup open "
-
+# standard commands
 alias g='git'
+alias gst='git status'
+alias gco='git checkout'
+alias ga='git add'
+alias gl='git log'
 alias gb='git branch'
 alias gc='git commit --verbose'
+alias gcm='git commit --verbose -m'
+alias gcf='git commit --amend'
+alias gcF='git commit --amend --reuse-message HEAD'
 alias gf='git fetch'
 alias gs='git stash'
+alias gd='git diff'
+alias gD='git diff --cached'
+alias gp='git pull'
+# rebase (r)
+alias gr='git rebase'
+alias gra='git rebase --abort'
+alias grc='git rebase --continue'
+alias gri='git rebase --interactive'
+alias grs='git rebase --skip'
 
-  # TMUX
+# TMUX
 alias t='tmux'
 alias tl='tmux ls'
 alias tn='tmux new -s '
@@ -39,12 +50,12 @@ alias ta='tmux a -t '
 alias tk='tmux kill-session -t '
 alias mux='tmuxinator'
 
-  # RUBY/RAILS
+# RUBY/RAILS
 alias be='bundle exec'
 alias bs='bin/spring'
 alias cuke='cucumber -f progress'
 
-  # CLI
+# CLI
 alias ls='ls -FGfho'
 alias lsp='CLICOLOR_FORCE=1 ls -FGfho | less -R' # ls with paging
 alias lsd='ls -d */' # ls directories only
