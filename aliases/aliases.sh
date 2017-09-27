@@ -70,3 +70,7 @@ alias ia="open $1 -a /Applications/iA\ Writer.app"
 if [ -x "$(command -v brew)" ]; then
   alias ctags="`brew --prefix`/bin/ctags"
 fi
+
+# CLIENT-SPECIFIC - CARWOW
+alias cwp='cd ~/code/carwow/projects/carwow'
+alias cwdb='cd ~/code/carwow/vagrant_devbox && vagrant ssh'
