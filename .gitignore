@@ -1,4 +1,4 @@
 zprezto/
 ssh/config
 .vim_tags*
-nvim/spell
+nvim/.config/nvim/plugged
