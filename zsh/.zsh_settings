@@ -1,0 +1,27 @@
+# ZSH Settings
+
+# EDITOR
+export EDITOR='nvim'
+export VISUAL='nvim'
+export BUNDLER_EDITOR='nvim'
+
+# PATH UPDATES
+export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="/usr/local/share/npm/bin:$PATH"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:opt/X11/bin:$PATH"
+export PATH="~/.rbenv/bin:$PATH"
+
+## RBENV
+if command -v rbenv; then
+  eval "$(rbenv init -)"
+fi
+
+## FZF
+export FZF_DEFAULT_OPTS='
+  --bind ctrl-f:page-down,ctrl-b:page-up
+  --color fg:124,bg:3,hl:202,fg+:214,bg+:52,hl+:231
+  --color info:52,prompt:196,spinner:208,pointer:196,marker:208
+'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# FUNCTIONS
