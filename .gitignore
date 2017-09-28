@@ -1,10 +1,4 @@
-*.bak
-nvim/bundle
-nvim/session
-.netrwhist
 zprezto/
-tmux/plugins
-tmux/resurrect
 ssh/config
 .vim_tags*
 nvim/spell
