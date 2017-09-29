@@ -12,7 +12,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:opt/X11/bin:$PATH"
 export PATH="~/.rbenv/bin:$PATH"
 
 ## RBENV
-if command -v rbenv; then
+if command -v rbenv &> /dev/null; then
   eval "$(rbenv init -)"
 fi
 
