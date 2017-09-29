@@ -271,6 +271,7 @@ set ttyfast
 " Personal spellfile location
 set spellfile=~/.config/nvim/spell/en.utf-8.add
 
+
 "*****************************************************************************
 " Visual Settings
 "*****************************************************************************
@@ -404,6 +405,7 @@ augroup vimrc-ruby
   autocmd!
   autocmd BufNewFile,BufRead *.rb,*.rbw,*.gemspec setlocal filetype=ruby
   autocmd FileType ruby setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd FileType ruby setlocal comments+=fb:#
 augroup END
 
 " eruby
