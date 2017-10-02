@@ -5,6 +5,9 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export BUNDLER_EDITOR='nvim'
 
+# GREP
+export GREP_COLOR='30;42'
+
 # PATH UPDATES
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/usr/local/share/npm/bin:$PATH"
