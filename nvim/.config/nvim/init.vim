@@ -107,6 +107,57 @@ filetype plugin indent on
 
 
 "*****************************************************************************
+" Basic Setup
+"*****************************************************************************"
+" Encoding
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8
+
+" Open items from quickfix in existing tab if it contains target buffer
+set switchbuf+=usetab,newtab
+
+" Fix backspace indent
+set backspace=indent,eol,start
+
+" Disable wrapping
+set wrap!
+
+" Map leader to ,
+let mapleader="\<Space>"
+
+" Enable hidden buffers
+set hidden
+
+" Searching
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" Encoding
+set bomb
+set binary
+
+" Directories for swp files
+set nobackup
+set noswapfile
+
+" misc
+set fileformats=unix,mac
+set showcmd
+set shell=/bin/zsh
+set iskeyword-=.
+
+" Performance tweaks
+" set lazyredraw
+set ttyfast
+
+" Personal spellfile location
+set spellfile=~/.config/nvim/spell/en.utf-8.add
+
+
+"*****************************************************************************
 " Plugin Config
 "*****************************************************************************
 
@@ -224,56 +275,6 @@ if s:has_plugin('ale')
   let g:ale_fixers = { 'ruby': ['rubocop'] }
 endif
 
-
-"*****************************************************************************
-" Basic Setup
-"*****************************************************************************"
-" Encoding
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8
-
-" Open items from quickfix in existing tab if it contains target buffer
-set switchbuf+=usetab,newtab
-
-" Fix backspace indent
-set backspace=indent,eol,start
-
-" Disable wrapping
-set wrap!
-
-" Map leader to ,
-let mapleader="\<Space>"
-
-" Enable hidden buffers
-set hidden
-
-" Searching
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-
-" Encoding
-set bomb
-set binary
-
-" Directories for swp files
-set nobackup
-set noswapfile
-
-" misc
-set fileformats=unix,mac
-set showcmd
-set shell=/bin/zsh
-set iskeyword-=.
-
-" Performance tweaks
-" set lazyredraw
-set ttyfast
-
-" Personal spellfile location
-set spellfile=~/.config/nvim/spell/en.utf-8.add
 
 
 "*****************************************************************************
