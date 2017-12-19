@@ -220,6 +220,7 @@ if s:has_plugin('ale')
   nmap <silent> <C-j> <Plug>(ale_next_wrap)
   let g:ale_ruby_rubocop_executable = 'bundle'
   let g:ale_linters = { 'ruby': ['rubocop'] }
+  let g:ale_fixers = { 'ruby': ['rubocop'] }
 endif
 
 
