@@ -448,7 +448,7 @@ noremap <leader>- :<C-u>split<CR>
 noremap <leader><bar> :<C-u>vsplit<CR>
 
 " Goyo distraction-free writing mode
-noremap <leader>G :Goyo<CR>
+noremap <leader>G :Goyo 100<CR>
 
 " Git
 noremap <leader>ga :Gwrite<CR>
