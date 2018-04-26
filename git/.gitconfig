@@ -1,10 +1,10 @@
 [user]
-	name = Malcolm Baig
-	email = mo@mobaig.com
+  name = Malcolm Baig
+  email = malcolm.baig@gmail.com
 [core]
-	editor = nvim
-	excludesfile = ~/.gitignore-global
+  editor = nvim
+  excludesfile = ~/.gitignore-global
 [push]
-	default = simple
+  default = simple
 [status]
   displaycommentprefix = true
