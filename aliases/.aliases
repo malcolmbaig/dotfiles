@@ -59,8 +59,8 @@ alias bs='bin/spring'
 alias cuke='cucumber -f progress'
 
 # CLI
-alias ls='ls -FGfho'
-alias lsp='CLICOLOR_FORCE=1 ls -FGfho | less -R' # ls with paging
+alias ls='ls -FGlAhp'
+alias lsp='CLICOLOR_FORCE=1 ls -FGlAhp | less -R' # ls with paging
 alias lsd='ls -d */' # ls directories only
 alias psg='ps aux | grep '
 alias tailn='tail -n'
