@@ -15,12 +15,12 @@ export PATH="/usr/local/share/npm/bin:$PATH"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:opt/X11/bin:$PATH"
 export PATH="~/.rbenv/bin:$PATH"
 
-## RBENV
+# RBENV
 if command -v rbenv &> /dev/null; then
   eval "$(rbenv init -)"
 fi
 
-## FZF
+# FZF
 export FZF_DEFAULT_OPTS='
   --bind ctrl-f:page-down,ctrl-b:page-up
   --color fg:124,bg:3,hl:202,fg+:214,bg+:52,hl+:231
@@ -28,4 +28,11 @@ export FZF_DEFAULT_OPTS='
 '
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# FUNCTIONS
+# Work-related
+export CT_GIT_ROOT=$HOME/code/
+alias test-make-test='RAILS_ENV=test make test'
+alias test-rspec='RAILS_ENV=test bundle exec rspec'
+alias psql-testbase='psql -U postgres -h 127.0.0.1 ct_development_debug'
+export PG_ADMIN_USERNAME='postgres'
+export PG_ADMIN_PASSWORD='postgres'
+
