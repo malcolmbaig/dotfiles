@@ -44,7 +44,7 @@ Plug 'reedes/vim-colors-pencil'
 Plug 'mobaig/vim-two-firewatch'
 
 " Generates ctags automatically
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 
 " GUI for the undo tree
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
