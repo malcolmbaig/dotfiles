@@ -289,7 +289,7 @@ set guicursor=n-v-c:hor20-Cursor/lCursor-blinkon0,i-ci:hor20-Cursor/lCursor-blin
 set ruler
 set relativenumber
 set number
-set colorcolumn=80
+set colorcolumn=80,120
 
 let no_buffers_menu=1
 
