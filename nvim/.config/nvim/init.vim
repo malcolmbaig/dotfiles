@@ -384,13 +384,14 @@ augroup END
 
 " Function to preview markdown in Atom
 function! s:setupMarkdownPreview()
-  nnoremap <leader>p :silent !open -a Marked\ 2.app '%:p'<cr>
+  nnoremap <leader>p :silent !open -a iA\ Writer.app '%:p'<cr>
 endfunction
 
 " Markdown
 augroup vimrc-markdown-settings
   autocmd!
-  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal fo+=t tw=79 spell spelllang=en_gb
+  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal wrap linebreak nolist textwidth=0 wrapmargin=0
+  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal fo+=t spell spelllang=en_gb
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdownPreview()
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal comments+=fb:-,fb:*
