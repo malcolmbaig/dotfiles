@@ -284,7 +284,7 @@ endif
 syntax on
 set synmaxcol=128
 syntax sync minlines=256
-set guicursor=n-v-c:hor20-Cursor/lCursor-blinkon0,i-ci:hor20-Cursor/lCursor-blinkwait200-blinkon100-blinkoff50
+set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 
 set ruler
 set relativenumber
