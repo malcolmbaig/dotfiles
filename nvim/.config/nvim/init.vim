@@ -173,11 +173,17 @@ endif
 if s:has_plugin('vim-airline')
   let g:airline#extensions#branch#enabled = 1
   let g:airline_powerline_fonts = 1
-  let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
-  let g:airline#extensions#tabline#fnamemod = ':t' " Show the filename
-  let g:airline#extensions#tabline#fnamecollapse = 0
-  let g:airline#extensions#tabline#tab_nr_type = 1 " Show tab number
-  let g:airline#extensions#tabline#buffer_nr_show = 0
+
+  let g:airline#extensions#tabline#enabled = 1
+  " let g:airline#extensions#tabline#fnamemod = ':t' " Show the filename only
+  let g:airline#extensions#tabline#show_buffers = 0
+  let g:airline#extensions#tabline#show_splits = 0
+  let g:airline#extensions#tabline#show_tabs = 1
+  let g:airline#extensions#tabline#show_tab_nr = 0
+  let g:airline#extensions#tabline#show_tab_type = 0
+  let g:airline#extensions#tabline#close_symbol = '×'
+  let g:airline#extensions#tabline#show_close_button = 0
+
   let g:airline_section_warning = ''
   let g:airline_section_error = ''
 endif
