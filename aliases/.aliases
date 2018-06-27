@@ -6,9 +6,6 @@ alias n='nvim'
 
 # DIRECTORY SHORTCUTS
 alias code='cd ~/code'
-alias dotfiles='cd ~/Dropbox/dev-env/dotfiles'
-alias pnotes='cd ~/Dropbox/notes-personal'
-alias wnotes='cd ~/Dropbox/notes-work'
 alias dropbox='cd ~/Dropbox/'
 alias d='dirs -v'
 
