@@ -28,11 +28,4 @@ export FZF_DEFAULT_OPTS='
 '
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Work-related
-export CT_GIT_ROOT=$HOME/code/
-alias test-make-test='RAILS_ENV=test make test'
-alias test-rspec='RAILS_ENV=test bundle exec rspec'
-alias psql-testbase='psql -U postgres -h 127.0.0.1 ct_development_debug'
-export PG_ADMIN_USERNAME='postgres'
-export PG_ADMIN_PASSWORD='postgres'
 
