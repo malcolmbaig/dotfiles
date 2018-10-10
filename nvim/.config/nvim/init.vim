@@ -477,7 +477,7 @@ noremap <leader>gr :Gremove<CR>
 noremap <leader>go :Gbrowse<CR>
 
 " Ruby
-noremap <leader>b orequire 'pry-byebug';binding.pry;sleep 1<CR><Esc>
+noremap <leader>rb orequire 'pry-byebug';binding.pry;sleep 1<CR><Esc>
 
 " Tabs
 nnoremap <Tab> gt
