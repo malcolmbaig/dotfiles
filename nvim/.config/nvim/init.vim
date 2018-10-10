@@ -440,6 +440,11 @@ augroup END
 set autoread
 
 
+" " Copy/Paste/Cut
+if (executable('pbcopy') || executable('xclip') || executable('xsel')) && has('clipboard')
+  set clipboard+=unnamed,unnamedplus
+endif
+
 "*****************************************************************************
 " Custom Key Mappings
 "*****************************************************************************
@@ -484,11 +489,6 @@ noremap <leader>. :lcd %:p:h<CR>
 
 " Opens an edit command with the path of the currently edited file filled in
 noremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" " Copy/Paste/Cut
-if (executable('pbcopy') || executable('xclip') || executable('xsel')) && has('clipboard')
-  set clipboard+=unnamed,unnamedplus
-endif
 
 " Close buffer
 noremap <leader>c :bd<CR>
