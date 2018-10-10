@@ -415,7 +415,7 @@ augroup END
 
 " Function to preview markdown in Atom
 function! s:setupMarkdownPreview()
-  nnoremap <leader>p :silent !open -a iA\ Writer.app '%:p'<cr>
+  nnoremap <leader>mp :silent !open -a iA\ Writer.app '%:p'<cr>
 endfunction
 
 " Markdown
@@ -471,21 +471,38 @@ endif
 " Custom Key Mappings
 "*****************************************************************************
 
+" --- Leader Key - single character
+
+" Splits
+noremap <leader>- :<C-u>split<CR>
+noremap <leader><bar> :<C-u>vsplit<CR>
+" Set working directory
+noremap <leader>. :lcd %:p:h<CR>
+" MatchTagAlways jump shortcut
+noremap <leader>% :MtaJumpToOtherTag<cr>
+
+" Close buffer
+noremap <leader>c :bd<CR>
+" Opens an edit command with the path of the currently edited file filled in
+noremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+" Clear search highlight
+noremap <silent> <leader>l :noh<cr>
+" Insert newline below or above
+noremap <leader>j o<Esc>
+noremap <leader>k O<Esc>
+" Tabs
+noremap <leader>o :tabonly<cr>
+" Replace within Quickfix with Qdo
+noremap <leader>r :Qdo %s/
+" Goyo distraction-free writing mode
+noremap <leader>G :Goyo 100<CR>
+
+" --- Leader Key - multiple character
+
 " Color schemes
 noremap <leader>cd :call ColorsDark()<CR>
 noremap <leader>cl :call ColorsLight()<CR>
 noremap <leader>cp :call ColorsPencil()<CR>
-
-" Line number toggles
-noremap <leader>ln :set nu!<CR>
-noremap <leader>lr :set relativenumber!<CR>
-
-" Split
-noremap <leader>- :<C-u>split<CR>
-noremap <leader><bar> :<C-u>vsplit<CR>
-
-" Goyo distraction-free writing mode
-noremap <leader>G :Goyo 100<CR>
 
 " Git
 noremap <leader>ga :Gwrite<CR>
@@ -498,32 +515,31 @@ noremap <leader>gd :Gvdiff<CR>
 noremap <leader>gr :Gremove<CR>
 noremap <leader>go :Gbrowse<CR>
 
+" Line number toggles
+noremap <leader>ln :set nu!<CR>
+noremap <leader>lr :set relativenumber!<CR>
+
 " Ruby
 noremap <leader>rb orequire 'pry-byebug';binding.pry;sleep 1<CR><Esc>
+
+"copy filename
+noremap <leader>cf :let @*=expand("%")<CR>
+
+" vim-rspec
+noremap <leader>sc :call RunCurrentSpecFile()<CR>
+noremap <leader>sn :call RunNearestSpec()<CR>
+noremap <leader>sl :call RunLastSpec()<CR>
+noremap <leader>sa :call RunAllSpecs()<CR>
+
+" --- Misc
 
 " Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 noremap <silent> <leader>t :tabnew<CR>
 
-" Set working directory
-noremap <leader>. :lcd %:p:h<CR>
-
-" Opens an edit command with the path of the currently edited file filled in
-noremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" Close buffer
-noremap <leader>c :bd<CR>
-
-" Clear search highlight
-noremap <silent> <leader>l :noh<cr>
-
-" nullify ctrl+space in insert mode (cuz it's annoying)
+" nullify ctrl+space in insert mode (used in macos)
 imap <Nul> <Space>
-
-" insert newline below or above
-noremap <leader>j o<Esc>
-noremap <leader>k O<Esc>
 
 " disable Ex mode shortcut
 nnoremap Q <nop>
@@ -531,20 +547,3 @@ nnoremap Q <nop>
 " command shortcut to sudo save
 command SW w !sudo tee %
 
-"copy filename
-noremap <leader>cf :let @*=expand("%")<CR>
-
-" Replace within Quickfix with Qdo
-noremap <leader>r :Qdo %s/
-
-" MatchTagAlways jump shortcut
-noremap <leader>% :MtaJumpToOtherTag<cr>
-
-" tabs
-noremap <leader>o :tabonly<cr>
-
-" vim-rspec
-noremap <leader>sc :call RunCurrentSpecFile()<CR>
-noremap <leader>sn :call RunNearestSpec()<CR>
-noremap <leader>sl :call RunLastSpec()<CR>
-noremap <leader>sa :call RunAllSpecs()<CR>
