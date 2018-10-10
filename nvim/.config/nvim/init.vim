@@ -1,6 +1,7 @@
 "*****************************************************************************
-"" Vim-PLug core
+"" Vim-Plug core
 "*****************************************************************************
+
 if has('vim_starting')
   set nocompatible               " Be iMproved
 endif
@@ -27,6 +28,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "*****************************************************************************
 " Plugins
 "*****************************************************************************
+
 " Core
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -71,7 +73,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " Linting
 Plug 'w0rp/ale'
 
-" --- Additional Language / Syntax Support
+" --- Additional Language Support
 " Ruby
 Plug 'tpope/vim-rails'
 Plug 'tonekk/vim-ruby-capybara'
@@ -88,14 +90,14 @@ Plug 'ap/vim-css-color'
 " JSON
 Plug 'tpope/vim-jdaddy'
 
-"" Custom bundles
-"" Include user's extra bundle
+" Custom bundles
+" Include user's extra bundle
 if filereadable(expand("~/.config/nvim/local_bundles.vim"))
   source ~/.config/nvim/local_bundles.vim
 endif
 
 call plug#end()
-"
+
 " Shortcut for checking if a plugin is loaded
 function! s:has_plugin(plugin)
   let lookup = 'g:plugs["' . a:plugin . '"]'
@@ -108,7 +110,8 @@ filetype plugin indent on
 
 "*****************************************************************************
 " Basic Setup
-"*****************************************************************************"
+"*****************************************************************************
+
 " Encoding
 set encoding=utf-8
 set fileencoding=utf-8
