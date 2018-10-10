@@ -35,11 +35,14 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-endwise'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
 Plug 'Lokaltog/vim-easymotion'
+
+" Fuzzy search
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
 " Color schemes
 Plug 'reedes/vim-colors-pencil'
@@ -159,10 +162,52 @@ set ttyfast
 " Personal spellfile location
 set spellfile=~/.config/nvim/spell/en.utf-8.add
 
+ " Copy/Paste/Cut
+if (executable('pbcopy') || executable('xclip') || executable('xsel')) && has('clipboard')
+  set clipboard+=unnamed,unnamedplus
+endif
 
 "*****************************************************************************
 " Plugin Config
 "*****************************************************************************
+
+if s:has_plugin('fzf.vim')
+  let g:fzf_height = '30%'
+  let g:fzf_commits_log_options = '--color --graph --pretty=format:"%C(yellow)%h%Creset -%C(auto)%d%Creset %s %C(bold blue)(%cr) %Cred<%an>%Creset" --abbrev-commit'
+
+  nnoremap <leader>p :FZF<cr>
+  nnoremap <leader>b :Buffers<cr>
+  nnoremap <leader>bl :BLines<cr>
+  nnoremap <leader>h :History:<cr>
+  nnoremap <leader>c :History:<cr>
+
+  let g:fzf_colors =
+  \ { 'fg':      ['fg', 'Normal'],
+    \ 'bg':      ['bg', 'Normal'],
+    \ 'hl':      ['fg', 'Boolean'],
+    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+    \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+    \ 'hl+':     ['fg', 'Statement'],
+    \ 'info':    ['fg', 'PreProc'],
+    \ 'border':  ['fg', 'Ignore'],
+    \ 'prompt':  ['fg', 'Conditional'],
+    \ 'pointer': ['fg', 'Exception'],
+    \ 'marker':  ['fg', 'Keyword'],
+    \ 'spinner': ['fg', 'Label'],
+    \ 'header':  ['fg', 'Comment'] }
+endif
+
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " bind K to grep word under cursor
+  nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+  " bind \ (backward slash) to grep shortcut
+  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+  nnoremap \ :Ag<SPACE>
+endif
 
 if s:has_plugin('vim-gutentags')
   let g:gutentags_ctags_tagfile = '.vim_tags'
@@ -208,7 +253,8 @@ if s:has_plugin('vimfiler.vim')
     autocmd FileType vimfiler nunmap <buffer> <Tab>
     autocmd FileType vimfiler nnoremap <Tab> gt
     autocmd FileType vimfiler nnoremap <S-Tab> gT
-    " prefer keeping my leader key
+
+    " change shortcut for mark current line
     autocmd FileType vimfiler nunmap <buffer> <Space>
     autocmd FileType vimfiler nmap <buffer> , <Plug>(vimfiler_toggle_mark_current_line)
 
@@ -222,30 +268,6 @@ endif
 
 if s:has_plugin('vim-polyglot')
   let g:polyglot_disabled = ['css']
-endif
-
-if s:has_plugin('ctrlp.vim')
-  " set-up ctrlp to include hidden files in its search
-  let g:ctrlp_show_hidden=1
-  " disable ctrlp's feature where it tries to intelligently work out the current working directory to search within
-  let g:ctrlp_working_path_mode=0
-  " don't let ctrlp take over the screen!
-  let g:ctrlp_max_height=30
-
-  " Ctrl-P - The Silver Searcher
-  if executable('ag')
-    " Use ag over grep
-    set grepprg=ag\ --nogroup\ --nocolor
-    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-    let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --ignore .git -g ""'
-    " ag is fast enough that CtrlP doesn't need to cache
-    let g:ctrlp_use_caching = 0
-    " bind K to grep word under cursor
-    nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-    " bind \ (backward slash) to grep shortcut
-    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-    nnoremap \ :Ag<SPACE>
-  endif
 endif
 
 if s:has_plugin('deoplete.nvim')
