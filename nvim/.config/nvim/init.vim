@@ -175,11 +175,11 @@ if s:has_plugin('fzf.vim')
   let g:fzf_height = '30%'
   let g:fzf_commits_log_options = '--color --graph --pretty=format:"%C(yellow)%h%Creset -%C(auto)%d%Creset %s %C(bold blue)(%cr) %Cred<%an>%Creset" --abbrev-commit'
 
-  nnoremap <leader>p :FZF<cr>
-  nnoremap <leader>b :Buffers<cr>
+  nnoremap <c-p> :FZF<cr>
+  nnoremap <leader>bu :Buffers<cr>
   nnoremap <leader>bl :BLines<cr>
-  nnoremap <leader>h :History:<cr>
-  nnoremap <leader>c :History:<cr>
+  nnoremap <leader>hi :History:<cr>
+  nnoremap <leader>co :Commits<cr>
 
   let g:fzf_colors =
   \ { 'fg':      ['fg', 'Normal'],
@@ -480,7 +480,6 @@ noremap <leader><bar> :<C-u>vsplit<CR>
 noremap <leader>. :lcd %:p:h<CR>
 " MatchTagAlways jump shortcut
 noremap <leader>% :MtaJumpToOtherTag<cr>
-
 " Close buffer
 noremap <leader>c :bd<CR>
 " Opens an edit command with the path of the currently edited file filled in
