@@ -27,8 +27,12 @@ export FZF_DEFAULT_OPTS='
 '
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+
 # NVM
 if [[ -a "/usr/local/opt/nvm/nvm.sh" ]]; then
   export NVM_DIR="$HOME/.nvm"
   . "/usr/local/opt/nvm/nvm.sh"
 fi
+
+
