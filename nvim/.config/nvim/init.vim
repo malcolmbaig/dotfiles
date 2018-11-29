@@ -72,6 +72,8 @@ Plug 'sheerun/vim-polyglot'
 " Completion / Snippets
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'epilande/vim-es2015-snippets'
+Plug 'epilande/vim-react-snippets'
 
 " Linting
 Plug 'w0rp/ale'
@@ -83,9 +85,13 @@ Plug 'tonekk/vim-ruby-capybara'
 Plug 'keith/rspec.vim'
 Plug 'thoughtbot/vim-rspec'
 
+" Javascript
+Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
+
 " HTML
 Plug 'alvan/vim-closetag'
 Plug 'cakebaker/scss-syntax.vim'
+Plug 'mattn/emmet-vim'
 
 " CSS
 Plug 'ap/vim-css-color'
@@ -170,6 +176,16 @@ endif
 "*****************************************************************************
 " Plugin Config
 "*****************************************************************************
+
+if s:has_plugin('emmet-vim')
+  let g:user_emmet_install_global = 0
+  autocmd FileType html,css,javascript EmmetInstall
+endif
+
+if s:has_plugin('vim-closetag')
+  let g:closetag_filenames = "*.html,*.js,*.jsx"
+  let g:closetag_close_shortcut = ''
+endif
 
 if s:has_plugin('fzf.vim')
   let g:fzf_height = '30%'
@@ -268,6 +284,7 @@ endif
 
 if s:has_plugin('vim-polyglot')
   let g:polyglot_disabled = ['css']
+  let g:jsx_ext_required = 0
 endif
 
 if s:has_plugin('deoplete.nvim')
@@ -454,7 +471,6 @@ augroup END
 " javascript
 augroup vimrc-javascript
   autocmd!
-  autocmd BufNewFile,BufRead *.js setlocal filetype=javascript
   autocmd Filetype javascript setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
