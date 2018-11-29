@@ -337,7 +337,7 @@ set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr
 set ruler
 set relativenumber
 set number
-set colorcolumn=80,120
+set colorcolumn=80,100
 
 let no_buffers_menu=1
 
