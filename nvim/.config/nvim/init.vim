@@ -40,6 +40,9 @@ Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
 Plug 'Lokaltog/vim-easymotion'
 
+" Better bullet points
+Plug 'dkarter/bullets.vim'
+
 " Fuzzy search
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
@@ -176,6 +179,14 @@ endif
 "*****************************************************************************
 " Plugin Config
 "*****************************************************************************
+
+if s:has_plugin('bullets.vim')
+  let g:bullets_enabled_file_types = [
+      \ 'markdown',
+      \ 'text',
+      \ 'gitcommit',
+      \]
+endif
 
 if s:has_plugin('emmet-vim')
   let g:user_emmet_install_global = 0
