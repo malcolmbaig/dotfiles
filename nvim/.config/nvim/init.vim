@@ -438,11 +438,13 @@ endfunction
 " Markdown
 augroup vimrc-markdown-settings
   autocmd!
-  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal wrap linebreak nolist textwidth=0 wrapmargin=0
-  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal fo+=t spell spelllang=en_gb
-  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdownPreview()
-  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal comments+=fb:-,fb:*
+  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn}
+        \ setlocal wrap linebreak nolist textwidth=0 wrapmargin=0 |
+        \ setlocal fo+=t spell spelllang=en_gb |
+        \ setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2 |
+        \ call s:setupMarkdownPreview() |
+        \ setlocal comments+=fb:-,fb:* |
+        \ set colorcolumn=
 augroup END
 
 " Remember cursor position
