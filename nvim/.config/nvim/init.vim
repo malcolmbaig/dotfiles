@@ -31,10 +31,11 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 
 " Core
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-endwise'
 Plug 'vim-airline/vim-airline'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
