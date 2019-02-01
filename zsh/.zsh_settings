@@ -22,8 +22,8 @@ fi
 # FZF
 export FZF_DEFAULT_OPTS='
   --bind ctrl-f:page-down,ctrl-b:page-up
-  --color fg:124,bg:3,hl:202,fg+:214,bg+:52,hl+:231
-  --color info:52,prompt:196,spinner:208,pointer:196,marker:208
+  --color fg:004,bg:000,hl:202,fg+:214,bg+:031,hl+:202
+  --color info:004,prompt:196,spinner:208,pointer:196,marker:208
 '
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -34,5 +34,4 @@ if [[ -a "/usr/local/opt/nvm/nvm.sh" ]]; then
   export NVM_DIR="$HOME/.nvm"
   . "/usr/local/opt/nvm/nvm.sh"
 fi
-
 
