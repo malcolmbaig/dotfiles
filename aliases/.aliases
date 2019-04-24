@@ -17,6 +17,8 @@ alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commi
 alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
 # gitup
 alias gu="gitup open "
+# rebase -i current branch on latest master
+alias grim='git checkout master && git pull && git checkout - && git rebase -i master'
 # rebase current branch on latest master
 alias grom='git checkout master && git pull && git checkout - && git rebase master'
 # standard commands
