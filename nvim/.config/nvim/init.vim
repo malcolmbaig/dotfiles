@@ -487,11 +487,6 @@ augroup END
 set autoread
 
 
-" " Copy/Paste/Cut
-if (executable('pbcopy') || executable('xclip') || executable('xsel')) && has('clipboard')
-  set clipboard+=unnamed,unnamedplus
-endif
-
 "*****************************************************************************
 " Custom Key Mappings
 "*****************************************************************************
