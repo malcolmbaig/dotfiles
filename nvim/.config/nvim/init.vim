@@ -30,6 +30,8 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "*****************************************************************************
 
 " Core
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimfiler.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
@@ -37,8 +39,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimfiler.vim'
+
+" Easy movement around text
 Plug 'Lokaltog/vim-easymotion'
 
 " Better bullet points
