@@ -394,6 +394,7 @@ cnoreabbrev Wq wq
 cnoreabbrev Wa wa
 cnoreabbrev wQ wq
 cnoreabbrev WQ wq
+cnoreabbrev Wqa wqa
 cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qa q
