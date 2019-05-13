@@ -51,7 +51,6 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 " Color schemes
-Plug 'reedes/vim-colors-pencil'
 Plug 'mobaig/vim-two-firewatch'
 
 " Generates ctags automatically
@@ -420,13 +419,6 @@ function! ColorsLight()
   let g:airline_theme='twofirewatch'
 endfunction
 
-function! ColorsPencil()
-  set background=light
-
-  colorscheme pencil
-  let g:airline_theme='pencil'
-endfunction
-
 call ColorsDark()
 
 
@@ -533,7 +525,6 @@ noremap <leader>G :Goyo 100<CR>
 " Color schemes
 noremap <leader>cd :call ColorsDark()<CR>
 noremap <leader>cl :call ColorsLight()<CR>
-noremap <leader>cp :call ColorsPencil()<CR>
 
 " Git
 noremap <leader>ga :Gwrite<CR>
