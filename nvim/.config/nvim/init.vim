@@ -51,7 +51,7 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 " Color schemes
-Plug 'mobaig/vim-two-firewatch'
+Plug 'malcolmbaig/vim-two-firewatch'
 
 " Generates ctags automatically
 Plug 'ludovicchabant/vim-gutentags'
