@@ -345,7 +345,7 @@ syntax sync minlines=256
 set ruler
 set relativenumber
 set number
-set colorcolumn=80,100
+set colorcolumn=80
 
 let no_buffers_menu=1
 
