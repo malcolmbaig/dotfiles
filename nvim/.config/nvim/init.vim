@@ -162,11 +162,8 @@ set binary
 set nobackup
 set noswapfile
 
-" misc
-set fileformats=unix,mac
 set showcmd
 set shell=/bin/zsh
-set iskeyword-=.
 
 " Performance tweaks
 " set lazyredraw
@@ -254,13 +251,11 @@ if s:has_plugin('vim-airline')
   let g:airline_powerline_fonts = 1
 
   let g:airline#extensions#tabline#enabled = 1
-  " let g:airline#extensions#tabline#fnamemod = ':t' " Show the filename only
   let g:airline#extensions#tabline#show_buffers = 0
   let g:airline#extensions#tabline#show_splits = 0
   let g:airline#extensions#tabline#show_tabs = 1
   let g:airline#extensions#tabline#show_tab_nr = 0
   let g:airline#extensions#tabline#show_tab_type = 0
-  let g:airline#extensions#tabline#close_symbol = '×'
   let g:airline#extensions#tabline#show_close_button = 0
 
   let g:airline_section_warning = ''
@@ -344,10 +339,8 @@ endif
 " Visual Settings
 "*****************************************************************************
 
-syntax on
 set synmaxcol=128
 syntax sync minlines=256
-set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 
 set ruler
 set relativenumber
@@ -379,10 +372,6 @@ set scrolloff=5
 " Use modeline overrides
 set modeline
 set modelines=10
-
-set title
-set titleold="Terminal"
-set titlestring=%F
 
 
 "*****************************************************************************
