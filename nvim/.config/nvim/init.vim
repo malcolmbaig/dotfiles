@@ -176,6 +176,10 @@ set lazyredraw
 
 " Personal spellfile location
 set spellfile=~/.config/nvim/spell/en.utf-8.add
+"
+" Support modelines at beginning of file
+set modeline
+set modelines=10
 
  " Copy/Paste/Cut
 if (executable('pbcopy') || executable('xclip') || executable('xsel')) && has('clipboard')
@@ -286,7 +290,6 @@ if s:has_plugin('vim-closetag')
 endif
 
 if s:has_plugin('vim-easymotion')
-  " Easymotion
   let g:EasyMotion_do_mapping = 0 " Disable default mappings
   nmap s <Plug>(easymotion-s)
 endif
@@ -343,26 +346,29 @@ endif
 " Visual Settings
 "*****************************************************************************
 
-syntax sync minlines=200
-syntax sync maxlines=300
-set synmaxcol=300
-
-set ruler
-set relativenumber
-set number
+" Indicate 80 char width with a color column
 set colorcolumn=80
-
-let no_buffers_menu=1
-
-set mousemodel=popup
-
-" Highlight tailing whitespace
+" Show trailing spaces and tabs
 set list listchars=tab:\ \ ,trail:·
+" Enable mousemode
+set mouse=a
+" Show line numbers
+set number
+" Make line numbers relative to cursor
+set relativenumber
+" Minimum number of lines above and below cursor
+set scrolloff=5
+" Specify max width for syntax highlighting
+set synmaxcol=300
+" Specify limits on number of previous lines inspected for highlight
+" synchronization when doing a redraw
+syntax sync maxlines=300
+syntax sync minlines=200
 
+" Color setup
 if has('termguicolors')
   set termguicolors
 endif
-
 if $COLORTERM == 'gnome-terminal'
   set term=gnome-256color
 else
@@ -370,14 +376,6 @@ else
     set term=xterm-256color
   endif
 endif
-
-" Minimum number of lines above and below cursor
-set scrolloff=5
-
-" Use modeline overrides
-set modeline
-set modelines=10
-
 
 "*****************************************************************************
 " Abbreviations
@@ -397,7 +395,6 @@ cnoreabbrev Q q
 cnoreabbrev Qa q
 cnoreabbrev Qall qall
 
-
 "*****************************************************************************
 " Color schemes
 "*****************************************************************************
@@ -405,16 +402,16 @@ cnoreabbrev Qall qall
 function! ColorsDark()
   set background=dark
   colorscheme iceberg
-  let g:airline_theme='iceberg'
+  au User AirlineAfterInit :AirlineTheme iceberg
 endfunction
 
 function! ColorsLight()
   set background=light
   colorscheme snow
+  :AirlineTheme snow_light
 endfunction
 
 call ColorsDark()
-
 
 "*****************************************************************************
 " Autocmd Rules
@@ -484,32 +481,48 @@ set autoread
 " Custom Key Mappings
 "*****************************************************************************
 
-" --- Leader Key - single character
+" -----------------------------
+" Leader Key - single character
+" -----------------------------
 
 " Splits
 noremap <leader>- :<C-u>split<CR>
 noremap <leader><bar> :<C-u>vsplit<CR>
+
 " Set working directory
 noremap <leader>. :lcd %:p:h<CR>
+
 " MatchTagAlways jump shortcut
 noremap <leader>% :MtaJumpToOtherTag<cr>
+
 " Close buffer
 noremap <leader>c :bd<CR>
+
 " Opens an edit command with the path of the currently edited file filled in
 noremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
 " Clear search highlight
 noremap <silent> <leader>l :noh<cr>
+
 " Insert newline below or above
 noremap <leader>j o<Esc>
 noremap <leader>k O<Esc>
-" Tabs
+
+" Open new tab
+noremap <silent> <leader>t :tabnew<CR>
+
+" Close all other tabs
 noremap <leader>o :tabonly<cr>
+
 " Replace within Quickfix with Qdo
 noremap <leader>r :Qdo %s/
-" Goyo distraction-free writing mode
+
+" Switch to a distraction-free writing mode
 noremap <leader>G :Goyo 100<CR>
 
-" --- Leader Key - multiple character
+" -------------------------------
+" Leader Key - multiple character
+" -------------------------------
 
 " Color schemes
 noremap <leader>cd :call ColorsDark()<CR>
@@ -517,44 +530,42 @@ noremap <leader>cl :call ColorsLight()<CR>
 
 " Git
 noremap <leader>ga :Gwrite<CR>
-noremap <leader>gc :Gcommit<CR>
-noremap <leader>gsh :Gpush<CR>
-noremap <leader>gll :Gpull<CR>
-noremap <leader>gs :Gstatus<CR>
 noremap <leader>gb :Gblame<CR>
+noremap <leader>gc :Gcommit<CR>
 noremap <leader>gd :Gvdiff<CR>
-noremap <leader>gr :Gremove<CR>
+noremap <leader>gll :Gpull<CR>
 noremap <leader>go :Gbrowse<CR>
+noremap <leader>gr :Gremove<CR>
+noremap <leader>gs :Gstatus<CR>
+noremap <leader>gsh :Gpush<CR>
 
 " Line number toggles
 noremap <leader>ln :set nu!<CR>
 noremap <leader>lr :set relativenumber!<CR>
 
-" Ruby
+" Ruby - add a binding.pry at the cursor
 noremap <leader>rb orequire 'pry-byebug';binding.pry;sleep 1<CR><Esc>
 
-"copy filename
+" Copy name of current file
 noremap <leader>cf :let @*=expand("%")<CR>
 
-" vim-rspec
-noremap <leader>sc :call RunCurrentSpecFile()<CR>
-noremap <leader>sn :call RunNearestSpec()<CR>
-noremap <leader>sl :call RunLastSpec()<CR>
+" Invoke vim-rspec runner
 noremap <leader>sa :call RunAllSpecs()<CR>
+noremap <leader>sc :call RunCurrentSpecFile()<CR>
+noremap <leader>sl :call RunLastSpec()<CR>
+noremap <leader>sn :call RunNearestSpec()<CR>
 
-" --- Misc
-
-" Tabs
+" Tab navigation
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
-noremap <silent> <leader>t :tabnew<CR>
 
-" nullify ctrl+space in insert mode (used in macos)
+" -----------------
+" Disabled mappings
+" -----------------
+
+" Nullify ctrl+space in insert mode (used in macos)
 imap <Nul> <Space>
 
-" disable Ex mode shortcut
+" Disable Ex mode shortcut
 nnoremap Q <nop>
-
-" command shortcut to sudo save
-command SW w !sudo tee %
 
