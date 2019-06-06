@@ -51,7 +51,9 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 " Color schemes
-Plug 'malcolmbaig/vim-two-firewatch'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'nightsense/snow'
+Plug 'cocopon/iceberg.vim'
 
 " Generates ctags automatically
 Plug 'ludovicchabant/vim-gutentags'
@@ -404,20 +406,16 @@ cnoreabbrev Qall qall
 "*****************************************************************************
 " Color schemes
 "*****************************************************************************
-function! ColorsDark()
-  set background=dark " or light if you prefer the light version
 
-  let g:two_firewatch_italics=1
-  colo two-firewatch
-  let g:airline_theme='twofirewatch'
+function! ColorsDark()
+  set background=dark
+  colorscheme iceberg
+  let g:airline_theme='iceberg'
 endfunction
 
 function! ColorsLight()
   set background=light
-
-  let g:two_firewatch_italics=1
-  colo two-firewatch
-  let g:airline_theme='twofirewatch'
+  colorscheme snow
 endfunction
 
 call ColorsDark()
