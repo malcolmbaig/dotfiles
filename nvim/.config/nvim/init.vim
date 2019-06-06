@@ -428,6 +428,12 @@ augroup vimrc-defaults
 augroup END
 
 " Function to preview markdown in Atom
+augroup vimrc-switch-line-number-mode-on-insert
+  autocmd!
+  autocmd InsertEnter * setlocal number norelativenumber
+  autocmd InsertLeave * setlocal relativenumber
+augroup END
+
 function! s:setupMarkdownPreview()
   nnoremap <leader>mp :silent !open -a iA\ Writer.app '%:p'<cr>
 endfunction
