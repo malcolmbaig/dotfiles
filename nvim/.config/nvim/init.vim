@@ -186,6 +186,28 @@ endif
 " Plugin Config
 "*****************************************************************************
 
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " bind K to grep word under cursor
+  nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+  " bind \ (backward slash) to grep shortcut
+  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+  nnoremap \ :Ag<SPACE>
+endif
+
+if s:has_plugin('ale')
+  let g:ale_sign_column_always = 1
+  nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+  nmap <silent> <C-j> <Plug>(ale_next_wrap)
+  nmap <silent> <leader>f <Plug>(ale_fix)
+  let g:ale_ruby_rubocop_executable = 'bundle'
+  let g:ale_linters = { 'ruby': ['rubocop'] }
+  let g:ale_fixers = { 'ruby': ['rubocop'] }
+endif
+
 if s:has_plugin('bullets.vim')
   let g:bullets_enabled_file_types = [
       \ 'markdown',
@@ -194,14 +216,26 @@ if s:has_plugin('bullets.vim')
       \]
 endif
 
+if s:has_plugin('deoplete.nvim')
+  " Completion / Snippets
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#enable_ignore_case = 1
+  let g:deoplete#enable_smart_case = 1
+  " always use completions from all buffers
+  if !exists('g:deoplete#same_filetypes')
+    let g:deoplete#same_filetypes = {}
+  endif
+  let g:deoplete#same_filetypes._ = '_'
+  " <TAB>: completion.
+  inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
+  let g:UltiSnipsExpandTrigger="<tab>"
+  let g:UltiSnipsJumpForwardTrigger="<tab>"
+  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+endif
+
 if s:has_plugin('emmet-vim')
   let g:user_emmet_install_global = 0
   autocmd FileType html,css,javascript EmmetInstall
-endif
-
-if s:has_plugin('vim-closetag')
-  let g:closetag_filenames = "*.html,*.js,*.jsx"
-  let g:closetag_close_shortcut = ''
 endif
 
 if s:has_plugin('fzf.vim')
@@ -230,27 +264,6 @@ if s:has_plugin('fzf.vim')
     \ 'header':  ['fg', 'Comment'] }
 endif
 
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " bind K to grep word under cursor
-  nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-
-  " bind \ (backward slash) to grep shortcut
-  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-  nnoremap \ :Ag<SPACE>
-endif
-
-if s:has_plugin('vim-gutentags')
-  let g:gutentags_ctags_tagfile = '.vim_tags'
-  let g:gutentags_ctags_exclude = [
-        \ 'node_modules',
-        \ 'dist',
-        \ 'vendor',
-        \ 'bower_components']
-endif
-
 if s:has_plugin('vim-airline')
   let g:airline#extensions#branch#enabled = 1
   let g:airline#extensions#tabline#enabled = 1
@@ -265,6 +278,17 @@ if s:has_plugin('vim-airline')
   let g:airline_section_error = ''
   let g:airline_section_warning = ''
   let g:airline_section_y = ''
+endif
+
+if s:has_plugin('vim-closetag')
+  let g:closetag_filenames = "*.html,*.js,*.jsx"
+  let g:closetag_close_shortcut = ''
+endif
+
+if s:has_plugin('vim-easymotion')
+  " Easymotion
+  let g:EasyMotion_do_mapping = 0 " Disable default mappings
+  nmap s <Plug>(easymotion-s)
 endif
 
 if s:has_plugin('vimfiler.vim')
@@ -297,48 +321,23 @@ if s:has_plugin('vimfiler.vim')
   augroup end
 endif
 
+if s:has_plugin('vim-gutentags')
+  let g:gutentags_ctags_tagfile = '.vim_tags'
+  let g:gutentags_ctags_exclude = [
+        \ 'node_modules',
+        \ 'dist',
+        \ 'vendor',
+        \ 'bower_components']
+endif
+
 if s:has_plugin('vim-polyglot')
   let g:polyglot_disabled = ['css']
   let g:jsx_ext_required = 0
 endif
 
-if s:has_plugin('deoplete.nvim')
-  " Completion / Snippets
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#enable_ignore_case = 1
-  let g:deoplete#enable_smart_case = 1
-  " always use completions from all buffers
-  if !exists('g:deoplete#same_filetypes')
-    let g:deoplete#same_filetypes = {}
-  endif
-  let g:deoplete#same_filetypes._ = '_'
-  " <TAB>: completion.
-  inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
-  let g:UltiSnipsExpandTrigger="<tab>"
-  let g:UltiSnipsJumpForwardTrigger="<tab>"
-  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+if s:has_plugin('vim-rspec')
+  let g:rspec_command = "tabnew | term bundle exec rspec {spec}"
 endif
-
-if s:has_plugin('vim-easymotion')
-  " Easymotion
-  let g:EasyMotion_do_mapping = 0 " Disable default mappings
-  nmap s <Plug>(easymotion-s)
-endif
-
-
-let g:rspec_command = "tabnew | term bundle exec rspec {spec}"
-
-if s:has_plugin('ale')
-  let g:ale_sign_column_always = 1
-  nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-  nmap <silent> <C-j> <Plug>(ale_next_wrap)
-  nmap <silent> <leader>f <Plug>(ale_fix)
-  let g:ale_ruby_rubocop_executable = 'bundle'
-  let g:ale_linters = { 'ruby': ['rubocop'] }
-  let g:ale_fixers = { 'ruby': ['rubocop'] }
-endif
-
-
 
 "*****************************************************************************
 " Visual Settings
