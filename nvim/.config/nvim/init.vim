@@ -55,7 +55,7 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'nightsense/snow'
 Plug 'cocopon/iceberg.vim'
 
-" Generates ctags automatically
+" Generate ctags automatically
 Plug 'ludovicchabant/vim-gutentags'
 
 " GUI for the undo tree
@@ -85,7 +85,10 @@ Plug 'epilande/vim-react-snippets'
 " Linting
 Plug 'w0rp/ale'
 
-" --- Additional Language Support
+"----------------------------
+" Additional Language Support
+"----------------------------
+
 " Ruby
 Plug 'tpope/vim-rails'
 Plug 'tonekk/vim-ruby-capybara'
@@ -97,11 +100,11 @@ Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
 
 " HTML
 Plug 'alvan/vim-closetag'
-Plug 'cakebaker/scss-syntax.vim'
 Plug 'mattn/emmet-vim'
 
 " CSS
 Plug 'ap/vim-css-color'
+Plug 'cakebaker/scss-syntax.vim'
 
 " JSON
 Plug 'tpope/vim-jdaddy'
@@ -123,7 +126,6 @@ endfunction
 " Required:
 filetype plugin indent on
 
-
 "*****************************************************************************
 " Basic Setup
 "*****************************************************************************
@@ -142,7 +144,7 @@ set backspace=indent,eol,start
 " Disable wrapping
 set wrap!
 
-" Map leader to ,
+" Map leader to space
 let mapleader="\<Space>"
 
 " Enable hidden buffers
@@ -158,12 +160,19 @@ set smartcase
 set nobackup
 set noswapfile
 
+" Show additional Visual mode info in last line
 set showcmd
+
+" Don't show current mode in status line
+set noshowmode
+
+" Configure EOL detection
+set fileformats=unix,mac
+
 set shell=/bin/zsh
 
-" Performance tweaks
-" set lazyredraw
-set ttyfast
+" Don't redraw for actions that haven't been typed
+set lazyredraw
 
 " Personal spellfile location
 set spellfile=~/.config/nvim/spell/en.utf-8.add
