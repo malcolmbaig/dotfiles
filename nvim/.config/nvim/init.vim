@@ -339,9 +339,9 @@ endif
 " Visual Settings
 "*****************************************************************************
 
-set synmaxcol=128
 syntax sync minlines=200
 syntax sync maxlines=300
+set synmaxcol=300
 
 set ruler
 set relativenumber
