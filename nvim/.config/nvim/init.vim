@@ -1,5 +1,5 @@
 "*****************************************************************************
-"" Vim-Plug core
+" Vim-Plug core
 "*****************************************************************************
 
 if has('vim_starting')
@@ -351,7 +351,7 @@ let no_buffers_menu=1
 
 set mousemodel=popup
 
-" highlight tailing whitespace
+" Highlight tailing whitespace
 set list listchars=tab:\ \ ,trail:·
 
 if has('termguicolors')
@@ -377,7 +377,8 @@ set modelines=10
 "*****************************************************************************
 " Abbreviations
 "*****************************************************************************
-" remap annoying mistakes to something useful
+
+" Remap common Normal mode typos to something useful
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
 cnoreabbrev Qall! qall!
