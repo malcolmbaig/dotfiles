@@ -417,23 +417,29 @@ call ColorsDark()
 " Autocmd Rules
 "*****************************************************************************
 
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+syntax sync fromstart
+
 augroup vimrc-defaults
   autocmd!
-  " Do syntax highlight syncing from start
-  autocmd BufEnter * :syntax sync fromstart
-  " Default tab settings in everything, overriding anything set by ftplugin
-  au BufRead,BufNewFile * setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-  " remove whitespace on save
+  " " Do syntax highlight syncing from start
+  " autocmd BufEnter * :syntax sync fromstart
+  " " Default tab settings in everything, overriding anything set by ftplugin
+  " au BufRead,BufNewFile * setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  " Remove whitespace on save
   autocmd BufWritePre * :%s/\s\+$//e
 augroup END
 
-" Function to preview markdown in Atom
 augroup vimrc-switch-line-number-mode-on-insert
   autocmd!
   autocmd InsertEnter * setlocal number norelativenumber
   autocmd InsertLeave * setlocal relativenumber
 augroup END
 
+" Function to preview markdown in an app
 function! s:setupMarkdownPreview()
   nnoremap <leader>mp :silent !open -a iA\ Writer.app '%:p'<cr>
 endfunction
@@ -459,32 +465,25 @@ augroup vimrc-remember-cursor-position
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
 
-" Pleco flashcard import file
-autocmd BufRead,BufEnter *.pleco.txt setlocal nowrap noexpandtab fo-=t tw=0
+" " ruby
+" augroup vimrc-ruby
+"   autocmd!
+"   autocmd BufNewFile,BufRead *.rb,*.rbw,*.gemspec setlocal filetype=ruby
+"   autocmd FileType ruby setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+"   autocmd FileType ruby setlocal comments+=fb:#
+" augroup END
 
-" ruby
-augroup vimrc-ruby
-  autocmd!
-  autocmd BufNewFile,BufRead *.rb,*.rbw,*.gemspec setlocal filetype=ruby
-  autocmd FileType ruby setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd FileType ruby setlocal comments+=fb:#
-augroup END
+" " eruby
+" augroup vimrc-eruby
+"   autocmd!
+"   autocmd FileType eruby setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+" augroup END
 
-" eruby
-augroup vimrc-eruby
-  autocmd!
-  autocmd FileType eruby setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-augroup END
-
-" javascript
-augroup vimrc-javascript
-  autocmd!
-  autocmd Filetype javascript setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-augroup END
-
-" autoread files that have changed outside of vim
-set autoread
-
+" " javascript
+" augroup vimrc-javascript
+"   autocmd!
+"   autocmd Filetype javascript setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+" augroup END
 
 "*****************************************************************************
 " Custom Key Mappings
