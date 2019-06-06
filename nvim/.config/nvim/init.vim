@@ -154,10 +154,6 @@ set incsearch
 set ignorecase
 set smartcase
 
-" Encoding
-set bomb
-set binary
-
 " Directories for swp files
 set nobackup
 set noswapfile
