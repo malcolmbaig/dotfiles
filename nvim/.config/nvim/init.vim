@@ -444,6 +444,9 @@ augroup vimrc-markdown-settings
         \ set colorcolumn=
 augroup END
 
+" Git commits
+autocmd FileType gitcommit setlocal spell spelllang=en_gb
+
 " Remember cursor position
 augroup vimrc-remember-cursor-position
   autocmd!
