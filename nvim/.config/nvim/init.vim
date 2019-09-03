@@ -400,8 +400,8 @@ cnoreabbrev Qall qall
 
 function! ColorsDark()
   set background=dark
-  colorscheme iceberg
-  au User AirlineAfterInit :AirlineTheme iceberg
+  colorscheme palenight
+  :AirlineTheme iceberg
 endfunction
 
 function! ColorsLight()
@@ -410,7 +410,12 @@ function! ColorsLight()
   :AirlineTheme snow_light
 endfunction
 
-call ColorsDark()
+augroup vimrc-palenight-overrides
+  autocmd!
+  autocmd ColorScheme palenight highlight ColorColumn guibg=#34394e
+augroup END
+
+au VimEnter * call ColorsDark()
 
 "*****************************************************************************
 " Autocmd Rules
