@@ -363,6 +363,8 @@ set synmaxcol=300
 " synchronization when doing a redraw
 syntax sync maxlines=300
 syntax sync minlines=200
+" Disable cursor styling
+set guicursor=
 
 " Color setup
 if has('termguicolors')
