@@ -169,11 +169,6 @@ set noshowmode
 " Configure EOL detection
 set fileformats=unix,mac
 
-set shell=/bin/zsh
-
-" Don't redraw for actions that haven't been typed
-set lazyredraw
-
 " Personal spellfile location
 set spellfile=~/.config/nvim/spell/en.utf-8.add
 
@@ -440,20 +435,10 @@ set shiftwidth=2
 set expandtab
 syntax sync fromstart
 
-augroup vimrc-defaults
+augroup vimrc-whitespace
   autocmd!
-  " " Do syntax highlight syncing from start
-  " autocmd BufEnter * :syntax sync fromstart
-  " " Default tab settings in everything, overriding anything set by ftplugin
-  " au BufRead,BufNewFile * setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   " Remove whitespace on save
   autocmd BufWritePre * :%s/\s\+$//e
-augroup END
-
-augroup vimrc-switch-line-number-mode-on-insert
-  autocmd!
-  autocmd InsertEnter * setlocal number norelativenumber
-  autocmd InsertLeave * setlocal relativenumber
 augroup END
 
 " Function to preview markdown in an app
@@ -482,25 +467,12 @@ augroup vimrc-remember-cursor-position
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
 
-" " ruby
-" augroup vimrc-ruby
-"   autocmd!
-"   autocmd BufNewFile,BufRead *.rb,*.rbw,*.gemspec setlocal filetype=ruby
-"   autocmd FileType ruby setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-"   autocmd FileType ruby setlocal comments+=fb:#
-" augroup END
+" Ruby
+augroup vimrc-ruby
+  autocmd!
+  autocmd FileType ruby setlocal comments+=b:#
+augroup END
 
-" " eruby
-" augroup vimrc-eruby
-"   autocmd!
-"   autocmd FileType eruby setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-" augroup END
-
-" " javascript
-" augroup vimrc-javascript
-"   autocmd!
-"   autocmd Filetype javascript setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-" augroup END
 
 "*****************************************************************************
 " Custom Key Mappings
