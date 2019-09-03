@@ -176,10 +176,9 @@ set lazyredraw
 
 " Personal spellfile location
 set spellfile=~/.config/nvim/spell/en.utf-8.add
-"
-" Support modelines at beginning of file
-set modeline
-set modelines=10
+
+" Switch off modelines
+set nomodeline
 
  " Copy/Paste/Cut
 if (executable('pbcopy') || executable('xclip') || executable('xsel')) && has('clipboard')
