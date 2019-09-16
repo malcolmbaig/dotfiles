@@ -156,6 +156,9 @@ set incsearch
 set ignorecase
 set smartcase
 
+" See live previews of text substitutions
+set inccommand=nosplit
+
 " Directories for swp files
 set nobackup
 set noswapfile
