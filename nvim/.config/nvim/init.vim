@@ -51,9 +51,10 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 " Color schemes
+Plug 'cocopon/iceberg.vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'nightsense/snow'
-Plug 'cocopon/iceberg.vim'
+Plug 'vim-airline/vim-airline-themes'
 
 " Generate ctags automatically
 Plug 'ludovicchabant/vim-gutentags'
@@ -413,7 +414,7 @@ function! ColorsDark()
   set background=dark
   colorscheme palenight
   highlight ColorColumn guibg=#34394e
-  :AirlineTheme iceberg
+  :AirlineTheme alduin
 endfunction
 
 function! ColorsLight()
