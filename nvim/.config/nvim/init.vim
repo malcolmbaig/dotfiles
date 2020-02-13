@@ -414,7 +414,7 @@ function! ColorsDark()
   set background=dark
   colorscheme palenight
   highlight ColorColumn guibg=#34394e
-  :AirlineTheme alduin
+  :AirlineTheme palenight
 endfunction
 
 function! ColorsLight()
