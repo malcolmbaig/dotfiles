@@ -35,3 +35,11 @@ nvm() {
     [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
     nvm "$@" &> /dev/null && nvm use --lts
 }
+
+# Custom steeef settings
+
+PS1='%F{${PWD_COLOR}}%~%f${(e)git_info[prompt]}$(_prompt_steeef_venv)
+%(!.#.☾) '
+
+export PWD_COLOR=003
+export BRANCH_COLOR=039
