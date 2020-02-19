@@ -8,3 +8,5 @@
   default = simple
 [status]
   displaycommentprefix = true
+[color "diff"]
+	meta = blue
