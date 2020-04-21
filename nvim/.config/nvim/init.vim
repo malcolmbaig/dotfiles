@@ -482,6 +482,10 @@ augroup END
 " Custom Key Mappings
 "*****************************************************************************
 
+" Tab navigation
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT
+
 " -----------------------------
 " Leader Key - single character
 " -----------------------------
@@ -525,6 +529,9 @@ noremap <leader>G :Goyo 100<CR>
 " Leader Key - multiple character
 " -------------------------------
 
+" Copy name of current file
+noremap <leader>cf :let @*=expand("%")<CR>
+
 " Color schemes
 noremap <leader>cd :call ColorsDark()<CR>
 noremap <leader>cl :call ColorsLight()<CR>
@@ -547,18 +554,12 @@ noremap <leader>lr :set relativenumber!<CR>
 " Ruby - add a binding.pry at the cursor
 noremap <leader>rb orequire 'pry-byebug';binding.pry;sleep 1<CR><Esc>
 
-" Copy name of current file
-noremap <leader>cf :let @*=expand("%")<CR>
-
 " Invoke vim-rspec runner
 noremap <leader>sa :call RunAllSpecs()<CR>
 noremap <leader>sc :call RunCurrentSpecFile()<CR>
 noremap <leader>sl :call RunLastSpec()<CR>
 noremap <leader>sn :call RunNearestSpec()<CR>
 
-" Tab navigation
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
 
 " -----------------
 " Disabled mappings
