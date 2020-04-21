@@ -560,6 +560,8 @@ noremap <leader>sc :call RunCurrentSpecFile()<CR>
 noremap <leader>sl :call RunLastSpec()<CR>
 noremap <leader>sn :call RunNearestSpec()<CR>
 
+" Quickfix
+noremap <leader>qf :copen<CR>
 
 " -----------------
 " Disabled mappings
