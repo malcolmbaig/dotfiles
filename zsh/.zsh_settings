@@ -41,5 +41,5 @@ nvm() {
 PS1='%F{${PWD_COLOR}}%~%f${(e)git_info[prompt]}$(_prompt_steeef_venv)
 %(!.#.☾) '
 
-export PWD_COLOR=003
+export PWD_COLOR=008
 export BRANCH_COLOR=039
