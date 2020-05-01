@@ -51,7 +51,6 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 " Color schemes
-Plug 'cocopon/iceberg.vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'nightsense/snow'
 Plug 'vim-airline/vim-airline-themes'
