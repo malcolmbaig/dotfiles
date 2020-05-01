@@ -1,0 +1,49 @@
+# Colors
+# general
+color author      3       default
+color commit      11      default
+color cursor      2       0
+color default     default default
+color id          3       default
+color parent      default default
+color status      default default
+color title-blur  default default
+color title-focus 3       default
+
+# diff highlighting
+color diff-add           green default
+color diff-chunk         3       default
+color "copy from "       9       default
+color "copy to "         2       default
+color diff-del           red default
+color "dissimilarity "   default default
+color diff-header        4       default
+color diff-index         default default
+color diff-newmode       2       default
+color diff-oldmode       9       default
+color "rename from "     9       default
+color "rename to "       2       default
+color diff-similarity    default default
+color "diff-tree "       default default
+
+# commit headers pretty prints
+color "AuthorDate: " 11      default
+color "author "      3       default
+color "CommitDate: " 11      default
+color "commit "      3       default
+color date           11      default
+color "Merge: "      default default
+color "Refs: "       default default
+
+# main view colors
+color main-head      default default
+color main-local-tag default default
+color main-ref       default default
+color main-remote    default default
+color main-tag       default default
+color main-tracked   default default
+
+# tree view
+color tree.header default default
+color tree.directory    default default
+color tree.file default default
