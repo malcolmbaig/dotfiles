@@ -77,8 +77,8 @@ Plug 'henrik/vim-qargs'
 Plug 'sheerun/vim-polyglot'
 
 " Completion / Snippets
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'honza/vim-snippets'
 Plug 'epilande/vim-es2015-snippets'
 Plug 'epilande/vim-react-snippets'
 
@@ -217,21 +217,23 @@ if s:has_plugin('bullets.vim')
       \]
 endif
 
-if s:has_plugin('deoplete.nvim')
-  " Completion / Snippets
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#enable_ignore_case = 1
-  let g:deoplete#enable_smart_case = 1
-  " always use completions from all buffers
-  if !exists('g:deoplete#same_filetypes')
-    let g:deoplete#same_filetypes = {}
-  endif
-  let g:deoplete#same_filetypes._ = '_'
-  " <TAB>: completion.
-  inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
-  let g:UltiSnipsExpandTrigger="<tab>"
-  let g:UltiSnipsJumpForwardTrigger="<tab>"
-  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+if s:has_plugin('coc.nvim')
+  " use <tab> for trigger completion and navigate to the next complete item
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+  endfunction
+
+  inoremap <silent><expr> <Tab>
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<Tab>" :
+        \ coc#refresh()
+
+  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+  " expand snippets with C-l
+  imap <C-l> <Plug>(coc-snippets-expand)
 endif
 
 if s:has_plugin('emmet-vim')
