@@ -2,7 +2,7 @@
 #########
 
 # TEXT EDITORS
-alias n='nvim'
+alias m='nvim'
 
 # DIRECTORY SHORTCUTS
 alias code='cd ~/code'
