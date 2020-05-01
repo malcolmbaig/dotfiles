@@ -19,6 +19,10 @@ if command -v rbenv &> /dev/null; then
   eval "$(rbenv init -)"
 fi
 
+# NODE - n version manager
+export N_PREFIX="$HOME/.n"
+export PATH="$HOME/.n/bin/:$PATH"
+
 # FZF
 export FZF_DEFAULT_OPTS='
   --bind ctrl-f:page-down,ctrl-b:page-up
@@ -29,17 +33,8 @@ export FZF_DEFAULT_OPTS='
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
-# NVM
-nvm() {
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
-    nvm "$@" &> /dev/null && nvm use --lts
-}
-
-# Custom steeef settings
-
+# CUSTOM PROMPT SETTINGS
 PS1='%F{${PWD_COLOR}}%~%f${(e)git_info[prompt]}$(_prompt_steeef_venv)
 %(!.#.☾) '
-
 export PWD_COLOR=008
 export BRANCH_COLOR=039
