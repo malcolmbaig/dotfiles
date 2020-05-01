@@ -4,9 +4,10 @@
 [core]
   editor = nvim
   excludesfile = ~/.gitignore-global
+  pager = delta --hunk-style=plain --file-color=cyan --file-style=box --plus-color="#012800" --minus-color="#340001" --theme='Nord'
+[interactive]
+  diffFilter = delta --color-only
 [push]
   default = simple
 [status]
   displaycommentprefix = true
-[color "diff"]
-	meta = blue
