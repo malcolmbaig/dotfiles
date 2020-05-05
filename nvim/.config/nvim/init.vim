@@ -558,6 +558,8 @@ noremap <leader>lr :set relativenumber!<CR>
 
 " Ruby - add a binding.pry at the cursor
 noremap <leader>rb orequire 'pry-byebug';binding.pry;sleep 1<CR><Esc>
+" Ruby - Capybara - add a save_and_open_page at the cursor
+noremap <leader>rso osave_and_open_page<CR><Esc>
 
 " Invoke vim-rspec runner
 noremap <leader>sa :call RunAllSpecs()<CR>
