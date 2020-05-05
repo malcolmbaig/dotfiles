@@ -74,7 +74,3 @@ if [ -x "$(command -v brew)" ]; then
 fi
 alias focus='open focus://toggle'
 alias fix-nfs="find . -type d -exec touch '{}'/.touch ';' -exec rm -f '{}'/.touch ';' 2>/dev/null"
-
-# CLIENT-SPECIFIC - CARWOW
-alias cwp='cd ~/code/carwow/projects/carwow'
-alias cwdb='cd ~/code/carwow/vagrant_devbox && vagrant ssh'
