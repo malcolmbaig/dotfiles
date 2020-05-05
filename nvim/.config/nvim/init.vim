@@ -218,22 +218,26 @@ if s:has_plugin('bullets.vim')
 endif
 
 if s:has_plugin('coc.nvim')
-  " use <tab> for trigger completion and navigate to the next complete item
-  function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-  endfunction
+  " use <c-space> for trigger completion
+  inoremap <silent><expr> <c-space> coc#refresh()
 
-  inoremap <silent><expr> <Tab>
-        \ pumvisible() ? "\<C-n>" :
-        \ <SID>check_back_space() ? "\<Tab>" :
-        \ coc#refresh()
-
+  " Use <Tab> and <S-Tab> for navigate completion list
   inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
   inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-  " expand snippets with C-l
+  " Use <C-l> for trigger snippet expand.
   imap <C-l> <Plug>(coc-snippets-expand)
+
+  " Use tab for jump to next placeholder, it's default of coc.nvim
+  let g:coc_snippet_next = '<tab>'
+  let g:coc_snippet_prev = '<S-Tab>'
+
+  " Introduce function text object
+  " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+  xmap if <Plug>(coc-funcobj-i)
+  xmap af <Plug>(coc-funcobj-a)
+  omap if <Plug>(coc-funcobj-i)
+  omap af <Plug>(coc-funcobj-a)
 endif
 
 if s:has_plugin('emmet-vim')
