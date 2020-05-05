@@ -44,6 +44,9 @@ alias grc='git rebase --continue'
 alias gri='git rebase --interactive'
 alias grs='git rebase --skip'
 
+# TIG
+alias ts='tig status'
+
 # TMUX
 alias t='tmux'
 alias tl='tmux ls'
