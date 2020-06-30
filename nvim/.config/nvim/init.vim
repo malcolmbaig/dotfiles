@@ -311,10 +311,8 @@ if s:has_plugin('vimfiler.vim')
   let g:vimfiler_as_default_explorer = 1
   let g:vimfiler_ignore_pattern = ['^\.git$', '^\.DS_Store$']
 
-
   call vimfiler#custom#profile('default', 'context', {
        \ 'safe' : 0,
-       \ 'edit_action' : 'tabopen',
        \ })
   let g:loaded_netrwPlugin = 1
   nnoremap - :VimFiler -find<CR>
@@ -326,6 +324,9 @@ if s:has_plugin('vimfiler.vim')
     autocmd FileType vimfiler nunmap <buffer> <Tab>
     autocmd FileType vimfiler nnoremap <Tab> gt
     autocmd FileType vimfiler nnoremap <S-Tab> gT
+
+    autocmd FileType vimfiler nunmap <buffer> E
+    autocmd FileType vimfiler nnoremap <silent><buffer><expr> E vimfiler#do_action('tabopen')
 
     " change shortcut for mark current line
     autocmd FileType vimfiler nunmap <buffer> <Space>
