@@ -218,16 +218,17 @@ if s:has_plugin('bullets.vim')
 endif
 
 if s:has_plugin('coc.nvim')
-  " use <c-space> for trigger completion
+  " Use <c-space> for trigger completion
   inoremap <silent><expr> <c-space> coc#refresh()
 
   " Use <Tab> and <S-Tab> for navigate completion list
   inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
   inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+  " Snippets
+  " Requires coc-snippets extension - :CocInstall coc-snippets
   " Use <C-l> for trigger snippet expand.
   imap <C-l> <Plug>(coc-snippets-expand)
-
   " Use tab for jump to next placeholder, it's default of coc.nvim
   let g:coc_snippet_next = '<tab>'
   let g:coc_snippet_prev = '<S-Tab>'
@@ -310,10 +311,8 @@ if s:has_plugin('vimfiler.vim')
   let g:vimfiler_as_default_explorer = 1
   let g:vimfiler_ignore_pattern = ['^\.git$', '^\.DS_Store$']
 
-
   call vimfiler#custom#profile('default', 'context', {
        \ 'safe' : 0,
-       \ 'edit_action' : 'tabopen',
        \ })
   let g:loaded_netrwPlugin = 1
   nnoremap - :VimFiler -find<CR>
@@ -325,6 +324,9 @@ if s:has_plugin('vimfiler.vim')
     autocmd FileType vimfiler nunmap <buffer> <Tab>
     autocmd FileType vimfiler nnoremap <Tab> gt
     autocmd FileType vimfiler nnoremap <S-Tab> gT
+
+    autocmd FileType vimfiler nunmap <buffer> E
+    autocmd FileType vimfiler nnoremap <silent><buffer><expr> E vimfiler#do_action('tabopen')
 
     " change shortcut for mark current line
     autocmd FileType vimfiler nunmap <buffer> <Space>
@@ -378,8 +380,6 @@ set synmaxcol=300
 " synchronization when doing a redraw
 syntax sync maxlines=300
 syntax sync minlines=200
-" Disable cursor styling
-set guicursor=
 
 " Color setup
 if has('termguicolors')
