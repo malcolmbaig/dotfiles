@@ -542,15 +542,11 @@ noremap <leader>cd :call ColorsDark()<CR>
 noremap <leader>cl :call ColorsLight()<CR>
 
 " Git
-noremap <leader>ga :Gwrite<CR>
+noremap <leader>gl :Git log<CR>
 noremap <leader>gb :Gblame<CR>
 noremap <leader>gc :Gcommit<CR>
-noremap <leader>gd :Gvdiff<CR>
-noremap <leader>gll :Gpull<CR>
-noremap <leader>go :Gbrowse<CR>
-noremap <leader>gr :Gremove<CR>
 noremap <leader>gs :Gstatus<CR>
-noremap <leader>gsh :Gpush<CR>
+noremap <leader>go :Gbrowse<CR>
 
 " Line number toggles
 noremap <leader>ln :set nu!<CR>
