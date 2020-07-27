@@ -33,3 +33,4 @@ accessor
 params
 autocomplete
 frontend
+numericality
