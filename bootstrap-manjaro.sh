@@ -13,6 +13,7 @@ yay tmux
 yay neovim
 yay rbenv
 yay git-delta
+yay xsel
 yay iosevka-fixed
 
 cd ~/.dotfiles
