@@ -58,9 +58,8 @@ alias mux='tmuxinator'
 alias be='bundle exec'
 
 # CLI
-alias ls='ls -FGlAhp'
-alias lsp='CLICOLOR_FORCE=1 ls -FGlAhp | less -R' # ls with paging
-alias lsd='ls -d */' # ls directories only
+alias ls='ls -AFGhl --color --time-style=long-iso --group-directories-first'
+alias lsp='ls | less'
 alias psg='ps aux | grep '
 alias tailn='tail -n'
 alias tailf='tail -f'
