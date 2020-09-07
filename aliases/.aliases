@@ -7,7 +7,6 @@ alias m='nvim'
 # DIRECTORY SHORTCUTS
 alias code='cd ~/code'
 alias dropbox='cd ~/Dropbox/'
-alias d='dirs -v'
 
 # GIT
 # copy branch
@@ -57,8 +56,6 @@ alias mux='tmuxinator'
 
 # RUBY/RAILS
 alias be='bundle exec'
-alias bs='bin/spring'
-alias cuke='cucumber -f progress'
 
 # CLI
 alias ls='ls -FGlAhp'
@@ -69,11 +66,4 @@ alias tailn='tail -n'
 alias tailf='tail -f'
 alias k9='kill -9'
 alias show256colors='for code in {000..255}; do print -P -- "$code: %F{$code}Test%f"; done'
-alias del="rmtrash"
 alias wttr="curl -4 http://wttr\.in/london"
-alias ia="open $1 -a /Applications/iA\ Writer.app"
-if [ -x "$(command -v brew)" ]; then
-  alias ctags="`brew --prefix`/bin/ctags"
-fi
-alias focus='open focus://toggle'
-alias fix-nfs="find . -type d -exec touch '{}'/.touch ';' -exec rm -f '{}'/.touch ';' 2>/dev/null"
