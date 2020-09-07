@@ -24,14 +24,7 @@ export N_PREFIX="$HOME/.n"
 export PATH="$HOME/.n/bin/:$PATH"
 
 # FZF
-export FZF_DEFAULT_OPTS='
-  --bind ctrl-f:page-down,ctrl-b:page-up
-  --color fg:004,bg:008,hl:202,fg+:004,bg+:000,hl+:202
-  --color info:004,prompt:196,spinner:208,pointer:196,marker:208
-'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 # CUSTOM PROMPT SETTINGS
 PS1='%F{${PWD_COLOR}}%~%f${(e)git_info[prompt]}

@@ -48,7 +48,6 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'dkarter/bullets.vim'
 
 " Fuzzy search
-Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 " Color schemes
@@ -248,14 +247,17 @@ if s:has_plugin('emmet-vim')
 endif
 
 if s:has_plugin('fzf.vim')
-  let g:fzf_height = '30%'
-  let g:fzf_commits_log_options = '--color --graph --pretty=format:"%C(yellow)%h%Creset -%C(auto)%d%Creset %s %C(bold blue)(%cr) %Cred<%an>%Creset" --abbrev-commit'
+  let g:fzf_height = '40%'
+  let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+  autocmd! FileType fzf set laststatus=0 noshowmode noruler
+    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
   nnoremap <c-p> :FZF<cr>
-  nnoremap <leader>bu :Buffers<cr>
-  nnoremap <leader>bl :BLines<cr>
-  nnoremap <leader>hi :History:<cr>
-  nnoremap <leader>co :Commits<cr>
+  nnoremap <leader>zb :Buffers<cr>
+  nnoremap <leader>zl :BLines<cr>
+  nnoremap <leader>zh :History:<cr>
+  nnoremap <leader>zc :Commits<cr>
 
   let g:fzf_colors =
   \ { 'fg':      ['fg', 'Normal'],
@@ -271,15 +273,6 @@ if s:has_plugin('fzf.vim')
     \ 'marker':  ['fg', 'Keyword'],
     \ 'spinner': ['fg', 'Label'],
     \ 'header':  ['fg', 'Comment'] }
-
-  function! s:fzf_statusline()
-    highlight fzf1 ctermfg=23 ctermbg=251
-    highlight fzf2 ctermfg=23 ctermbg=251
-    highlight fzf3 ctermfg=23 ctermbg=251
-    setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
-  endfunction
-
-  autocmd! User FzfStatusLine call <SID>fzf_statusline()
 endif
 
 if s:has_plugin('vim-airline')
