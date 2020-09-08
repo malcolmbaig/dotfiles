@@ -5,15 +5,17 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 
+yay bat
 yay dropbox
-yay stow
 yay fzf
-yay tig
-yay tmux
-yay neovim
-yay rbenv
 yay git-delta
 yay iosevka-fixed
+yay neovim
+yay rbenv
+yay ripgrep
+yay stow
+yay tig
+yay tmux
 
 cd ~/.dotfiles
-stow aliases ctags fzf.linux git nvim tig tmux zsh konsole
+stow aliases ctags fzf git konsole nvim tig tmux zsh
