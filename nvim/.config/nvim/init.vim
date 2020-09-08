@@ -187,16 +187,16 @@ endif
 " Plugin Config
 "*****************************************************************************
 
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+if executable('rg')
+  " Use rg over grep
+  set grepprg=rg\ --vimgrep
 
-  " bind K to grep word under cursor
+  " Bind K to grep word under cursor
   nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-  " bind \ (backward slash) to grep shortcut
-  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-  nnoremap \ :Ag<SPACE>
+  " Bind \ (backward slash) to grep shortcut
+  command -nargs=+ -complete=file -bar RgG silent! grep! <args>|cwindow|redraw!
+  nnoremap \ :RgG<SPACE>
 endif
 
 if s:has_plugin('ale')

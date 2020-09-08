@@ -26,6 +26,12 @@ export PATH="$HOME/.n/bin/:$PATH"
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# RIPGREP
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
+# BAT
+export BAT_THEME=1337
+
 # CUSTOM PROMPT SETTINGS
 PS1='%F{${PWD_COLOR}}%~%f${(e)git_info[prompt]}
 %(!.#.☾) '
