@@ -37,3 +37,9 @@ PS1='%F{${PWD_COLOR}}%~%f${(e)git_info[prompt]}
 %(!.#.☾) '
 export PWD_COLOR=008
 export BRANCH_COLOR=039
+
+# SSH
+sshl() {
+  eval $(ssh-agent)
+  ssh-add ~/.ssh/github < /dev/null
+}
