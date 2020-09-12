@@ -53,7 +53,7 @@ Plug 'junegunn/fzf.vim'
 " Color schemes
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'nightsense/snow'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'arcticicestudio/nord-vim'
 
 " Generate ctags automatically
 Plug 'ludovicchabant/vim-gutentags'
@@ -436,9 +436,9 @@ cnoreabbrev Qall qall
 
 function! ColorsDark()
   set background=dark
-  colorscheme palenight
+  colorscheme nord
   highlight ColorColumn guibg=#34394e
-  :AirlineTheme palenight
+  :AirlineTheme nord
 endfunction
 
 function! ColorsLight()
