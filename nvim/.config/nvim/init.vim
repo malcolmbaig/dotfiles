@@ -339,23 +339,20 @@ if s:has_plugin('vimfiler.vim')
   " VimFiler autocmd
   augroup vimfiler-custom
     autocmd!
-    " prefer tab navigation to opening 2nd vimfiler
+    " Prefer tab navigation to opening 2nd vimfiler
     autocmd FileType vimfiler nunmap <buffer> <Tab>
     autocmd FileType vimfiler nnoremap <Tab> gt
     autocmd FileType vimfiler nnoremap <S-Tab> gT
 
-    autocmd FileType vimfiler nunmap <buffer> E
-    autocmd FileType vimfiler nnoremap <silent><buffer><expr> E vimfiler#do_action('tabopen')
+    " Use C-t to open files in new tab, consistent with quickfix and fzf
+    autocmd FileType vimfiler nnoremap <silent><buffer><expr> <C-t> vimfiler#do_action('tabopen')
 
     " change shortcut for mark current line
     autocmd FileType vimfiler nunmap <buffer> <Space>
     autocmd FileType vimfiler nmap <buffer> , <Plug>(vimfiler_toggle_mark_current_line)
 
-    " prefer Ag's '\' search to viewing root
+    " Using '\' for grep, prefer this over vimfiler's default of going to root
     autocmd FileType vimfiler nunmap <buffer> \
-
-    " switch off relativenumber, too damn slow
-    autocmd FileType vimfiler setlocal norelativenumber
   augroup end
 endif
 
