@@ -9,13 +9,11 @@ alias code='cd ~/code'
 alias dropbox='cd ~/Dropbox/'
 
 # GIT
-# copy branch
-alias gcb="git symbolic-ref --short -q HEAD | tr -d '\n' | pbcopy"
+# output branch
+alias gcb="echo $(git symbolic-ref --short -q HEAD | tr -d '\n')"
 # wip
 alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit -m "--wip--"'
 alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
-# gitup
-alias gu="gitup open "
 # rebase -i current branch on latest master
 alias grim='git checkout master && git pull && git checkout - && git rebase -i master'
 # rebase current branch on latest master
@@ -36,6 +34,7 @@ alias gs='git stash'
 alias gd='git diff'
 alias gD='git diff --cached'
 alias gp='git pull'
+alias gP='git push'
 # rebase (r)
 alias gr='git rebase'
 alias gra='git rebase --abort'
