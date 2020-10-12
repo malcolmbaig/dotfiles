@@ -54,6 +54,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'nightsense/snow'
 Plug 'arcticicestudio/nord-vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'vim-airline/vim-airline-themes'
 
 " Generate ctags automatically
 Plug 'ludovicchabant/vim-gutentags'
@@ -433,15 +435,15 @@ cnoreabbrev Qall qall
 
 function! ColorsDark()
   set background=dark
-  colorscheme nord
+  colorscheme palenight
   highlight ColorColumn guibg=#34394e
-  :AirlineTheme nord
+  :AirlineTheme palenight
 endfunction
 
 function! ColorsLight()
   set background=light
-  colorscheme snow
-  :AirlineTheme snow_light
+  colorscheme seoul256-light
+  :AirlineTheme seoul256
 endfunction
 
 augroup vimrc-default-colorscheme
