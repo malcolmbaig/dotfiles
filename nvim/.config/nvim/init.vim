@@ -605,7 +605,7 @@ noremap <leader>G :Goyo 100<CR>
 " -------------------------------
 
 " Copy name of current file
-noremap <leader>cf :let @*=expand("%")<CR>
+noremap <leader>yf :let @+=expand("%")<CR>
 
 " Color schemes
 noremap <leader>cd :call ColorsDark()<CR>
