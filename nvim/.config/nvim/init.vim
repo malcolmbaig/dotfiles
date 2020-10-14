@@ -40,6 +40,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 
+" Better start screen
+Plug 'mhinz/vim-startify'
+
 " Easy movement around text
 Plug 'Lokaltog/vim-easymotion'
 
@@ -374,6 +377,11 @@ if s:has_plugin('fzf.vim')
   endfunction
 
   let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
+endif
+
+if s:has_plugin('vim-startify')
+  let g:startify_custom_header =
+        \ 'startify#center(startify#fortune#boxed())'
 endif
 
 if s:has_plugin('vim-airline')
