@@ -30,8 +30,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "*****************************************************************************
 
 " Core
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimfiler.vim'
+Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
@@ -185,6 +184,11 @@ if (executable('pbcopy') || executable('xclip') || executable('xsel')) && has('c
   set clipboard+=unnamed,unnamedplus
 endif
 
+
+" Disable netrw
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
+
 "*****************************************************************************
 " Plugin Config
 "*****************************************************************************
@@ -241,6 +245,76 @@ if s:has_plugin('coc.nvim')
   xmap af <Plug>(coc-funcobj-a)
   omap if <Plug>(coc-funcobj-i)
   omap af <Plug>(coc-funcobj-a)
+
+if s:has_plugin('defx.nvim')
+	autocmd FileType defx call s:defx_my_settings()
+	function! s:defx_my_settings() abort
+	  " Define mappings
+	  nnoremap <silent><buffer><expr> <CR>
+	  \ defx#do_action('open', 'vsplit')
+	  nnoremap <silent><buffer><expr> c
+	  \ defx#do_action('copy')
+	  nnoremap <silent><buffer><expr> m
+	  \ defx#do_action('move')
+	  nnoremap <silent><buffer><expr> p
+	  \ defx#do_action('paste')
+	  nnoremap <silent><buffer><expr> l
+	  \ defx#do_action('open')
+	  nnoremap <silent><buffer><expr> E
+	  \ defx#do_action('open')
+	  nnoremap <silent><buffer><expr> P
+	  \ defx#do_action('preview')
+	  nnoremap <silent><buffer><expr> o
+	  \ defx#do_action('open_tree', 'toggle')
+	  nnoremap <silent><buffer><expr> K
+	  \ defx#do_action('new_directory')
+	  nnoremap <silent><buffer><expr> N
+	  \ defx#do_action('new_file')
+	  nnoremap <silent><buffer><expr> M
+	  \ defx#do_action('new_multiple_files')
+	  nnoremap <silent><buffer><expr> C
+	  \ defx#do_action('toggle_columns',
+	  \                'mark:indent:icon:filename:type:size:time')
+	  nnoremap <silent><buffer><expr> S
+	  \ defx#do_action('toggle_sort', 'time')
+	  nnoremap <silent><buffer><expr> d
+	  \ defx#do_action('remove')
+	  nnoremap <silent><buffer><expr> r
+	  \ defx#do_action('rename')
+	  nnoremap <silent><buffer><expr> !
+	  \ defx#do_action('execute_command')
+	  nnoremap <silent><buffer><expr> x
+	  \ defx#do_action('execute_system')
+	  nnoremap <silent><buffer><expr> yy
+	  \ defx#do_action('yank_path')
+	  nnoremap <silent><buffer><expr> .
+	  \ defx#do_action('toggle_ignored_files')
+	  nnoremap <silent><buffer><expr> ;
+	  \ defx#do_action('repeat')
+	  nnoremap <silent><buffer><expr> h
+	  \ defx#do_action('cd', ['..'])
+	  nnoremap <silent><buffer><expr> ~
+	  \ defx#do_action('cd')
+	  nnoremap <silent><buffer><expr> q
+	  \ defx#do_action('quit')
+	  nnoremap <silent><buffer><expr> <Space>
+	  \ defx#do_action('toggle_select') . 'j'
+	  nnoremap <silent><buffer><expr> *
+	  \ defx#do_action('toggle_select_all')
+	  nnoremap <silent><buffer><expr> j
+	  \ line('.') == line('$') ? 'gg' : 'j'
+	  nnoremap <silent><buffer><expr> k
+	  \ line('.') == 1 ? 'G' : 'k'
+	  nnoremap <silent><buffer><expr> <C-l>
+	  \ defx#do_action('redraw')
+	  nnoremap <silent><buffer><expr> <C-g>
+	  \ defx#do_action('print')
+	  nnoremap <silent><buffer><expr> cd
+	  \ defx#do_action('change_vim_cwd')
+	endfunction
+
+  nnoremap - :Defx<CR>
+  nnoremap _ :Defx `expand('%:p:h')` -search=`expand('%:p')`<CR>
 endif
 
 if s:has_plugin('emmet-vim')
@@ -326,36 +400,6 @@ endif
 if s:has_plugin('vim-easymotion')
   let g:EasyMotion_do_mapping = 0 " Disable default mappings
   nmap s <Plug>(easymotion-s)
-endif
-
-if s:has_plugin('vimfiler.vim')
-  let g:vimfiler_as_default_explorer = 1
-  let g:vimfiler_ignore_pattern = ['^\.git$', '^\.DS_Store$']
-
-  call vimfiler#custom#profile('default', 'context', {
-       \ 'safe' : 0,
-       \ })
-  let g:loaded_netrwPlugin = 1
-  nnoremap - :VimFiler -find<CR>
-
-  " VimFiler autocmd
-  augroup vimfiler-custom
-    autocmd!
-    " Prefer tab navigation to opening 2nd vimfiler
-    autocmd FileType vimfiler nunmap <buffer> <Tab>
-    autocmd FileType vimfiler nnoremap <Tab> gt
-    autocmd FileType vimfiler nnoremap <S-Tab> gT
-
-    " Use C-t to open files in new tab, consistent with quickfix and fzf
-    autocmd FileType vimfiler nnoremap <silent><buffer><expr> <C-t> vimfiler#do_action('tabopen')
-
-    " change shortcut for mark current line
-    autocmd FileType vimfiler nunmap <buffer> <Space>
-    autocmd FileType vimfiler nmap <buffer> , <Plug>(vimfiler_toggle_mark_current_line)
-
-    " Using '\' for grep, prefer this over vimfiler's default of going to root
-    autocmd FileType vimfiler nunmap <buffer> \
-  augroup end
 endif
 
 if s:has_plugin('vim-gutentags')
