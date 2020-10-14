@@ -184,6 +184,11 @@ if (executable('pbcopy') || executable('xclip') || executable('xsel')) && has('c
   set clipboard+=unnamed,unnamedplus
 endif
 
+" Tabs and spaces
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
 
 " Disable netrw
 let g:loaded_netrw       = 1
@@ -505,10 +510,6 @@ augroup END
 " Autocmd Rules
 "*****************************************************************************
 
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
 syntax sync fromstart
 
 augroup vimrc-whitespace
