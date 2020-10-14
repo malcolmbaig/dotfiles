@@ -54,7 +54,6 @@ Plug 'junegunn/fzf.vim'
 
 " Color schemes
 Plug 'drewtempelmeyer/palenight.vim'
-Plug 'nightsense/snow'
 Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'vim-airline/vim-airline-themes'
@@ -83,8 +82,6 @@ Plug 'sheerun/vim-polyglot'
 " Completion / Snippets
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'honza/vim-snippets'
-Plug 'epilande/vim-es2015-snippets'
-Plug 'epilande/vim-react-snippets'
 
 " Linting
 Plug 'w0rp/ale'
