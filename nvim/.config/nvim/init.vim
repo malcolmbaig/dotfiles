@@ -190,6 +190,10 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
+" Syntax highlighting
+" syntax sync fromstart
+noremap <leader>ss <Esc>:syntax sync fromstart<CR>
+
 " Disable netrw
 let g:loaded_netrw       = 1
 let g:loaded_netrwPlugin = 1
@@ -509,8 +513,6 @@ augroup END
 "*****************************************************************************
 " Autocmd Rules
 "*****************************************************************************
-
-syntax sync fromstart
 
 augroup vimrc-whitespace
   autocmd!
