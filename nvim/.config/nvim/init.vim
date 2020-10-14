@@ -640,9 +640,5 @@ noremap <leader>qf :copen<CR>
 " Disabled mappings
 " -----------------
 
-" Nullify ctrl+space in insert mode (used in macos)
-imap <Nul> <Space>
-
 " Disable Ex mode shortcut
 nnoremap Q <nop>
-
