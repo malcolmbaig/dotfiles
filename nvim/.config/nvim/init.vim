@@ -254,6 +254,7 @@ if s:has_plugin('coc.nvim')
   xmap af <Plug>(coc-funcobj-a)
   omap if <Plug>(coc-funcobj-i)
   omap af <Plug>(coc-funcobj-a)
+endif
 
 if s:has_plugin('defx.nvim')
 	autocmd FileType defx call s:defx_my_settings()
