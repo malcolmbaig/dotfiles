@@ -283,8 +283,7 @@ if s:has_plugin('defx.nvim')
 	  nnoremap <silent><buffer><expr> M
 	  \ defx#do_action('new_multiple_files')
 	  nnoremap <silent><buffer><expr> C
-	  \ defx#do_action('toggle_columns',
-	  \                'mark:indent:icon:filename:type:size:time')
+	  \ defx#do_action('toggle_columns', 'mark:indent:icon:filename:type:size:time')
 	  nnoremap <silent><buffer><expr> S
 	  \ defx#do_action('toggle_sort', 'time')
 	  nnoremap <silent><buffer><expr> d
@@ -307,7 +306,7 @@ if s:has_plugin('defx.nvim')
 	  \ defx#do_action('cd')
 	  nnoremap <silent><buffer><expr> q
 	  \ defx#do_action('quit')
-	  nnoremap <silent><buffer><expr> <Space>
+	  nnoremap <silent><buffer><expr> ,
 	  \ defx#do_action('toggle_select') . 'j'
 	  nnoremap <silent><buffer><expr> *
 	  \ defx#do_action('toggle_select_all')
@@ -323,8 +322,18 @@ if s:has_plugin('defx.nvim')
 	  \ defx#do_action('change_vim_cwd')
 	endfunction
 
-  nnoremap - :Defx<CR>
-  nnoremap _ :Defx `expand('%:p:h')` -search=`expand('%:p')`<CR>
+  nnoremap - :Defx -search=`expand('%:p')` `getcwd()`<CR>
+  nnoremap _ :Defx<CR>
+
+	call defx#custom#column('icon', {
+	      \ 'directory_icon': '▸',
+	      \ 'opened_icon': '▾',
+	      \ 'root_icon': ' ',
+	      \ })
+	call defx#custom#column('filename', {
+	      \ 'min_width': 80,
+	      \ 'max_width': 80,
+	      \ })
 endif
 
 if s:has_plugin('emmet-vim')
