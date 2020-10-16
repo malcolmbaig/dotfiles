@@ -436,7 +436,6 @@ if s:has_plugin('vim-gutentags')
 endif
 
 if s:has_plugin('vim-polyglot')
-  let g:polyglot_disabled = ['css']
   let g:jsx_ext_required = 0
 endif
 
