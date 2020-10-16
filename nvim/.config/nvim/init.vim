@@ -194,8 +194,8 @@ set expandtab
 " syntax sync fromstart
 noremap <leader>ss <Esc>:syntax sync fromstart<CR>
 
-" Disable netrw
-let g:loaded_netrw       = 1
+" " Disable netrw
+" let g:loaded_netrw       = 1
 let g:loaded_netrwPlugin = 1
 
 "*****************************************************************************
