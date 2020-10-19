@@ -4,6 +4,7 @@
 [core]
   editor = nvim
   excludesfile = ~/.gitignore-global
+  attributesfile = /home/malcolm/.gitattributes
   pager = delta --hunk-style=plain --file-color=cyan --file-style=box --plus-color="#012800" --minus-color="#340001" --theme='Nord'
 [interactive]
   diffFilter = delta --color-only
