@@ -139,6 +139,9 @@ set fileencodings=utf-8
 " Open items from quickfix in existing tab if it contains target buffer
 set switchbuf+=usetab,newtab
 
+" Open vsplits on the right
+set splitright
+
 " Fix backspace indent
 set backspace=indent,eol,start
 
