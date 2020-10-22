@@ -90,25 +90,16 @@ Plug 'w0rp/ale'
 " Additional Language Support
 "----------------------------
 
-" Ruby
-Plug 'tpope/vim-rails'
-Plug 'tonekk/vim-ruby-capybara'
-Plug 'keith/rspec.vim'
-Plug 'thoughtbot/vim-rspec'
-
-" Javascript
-Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
+" CSS
+Plug 'ap/vim-css-color'
 
 " HTML
 Plug 'alvan/vim-closetag'
-Plug 'mattn/emmet-vim'
 
-" CSS
-Plug 'ap/vim-css-color'
-Plug 'cakebaker/scss-syntax.vim'
-
-" JSON
-Plug 'tpope/vim-jdaddy'
+" Ruby
+Plug 'keith/rspec.vim'
+Plug 'tpope/vim-rails'
+Plug 'thoughtbot/vim-rspec'
 
 " Custom bundles
 " Include user's extra bundle
