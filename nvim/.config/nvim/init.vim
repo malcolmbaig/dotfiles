@@ -432,7 +432,7 @@ if s:has_plugin('vim-polyglot')
 endif
 
 if s:has_plugin('vim-rspec')
-  let g:rspec_command = "tabnew | term bundle exec rspec {spec}"
+  let g:rspec_command = "vsplit | term bundle exec rspec {spec}"
 endif
 
 "*****************************************************************************
