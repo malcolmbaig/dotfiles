@@ -387,11 +387,6 @@ if s:has_plugin('fzf.vim')
   let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
 endif
 
-if s:has_plugin('vim-startify')
-  let g:startify_custom_header =
-        \ 'startify#center(startify#fortune#boxed())'
-endif
-
 if s:has_plugin('vim-airline')
   let g:airline#extensions#branch#enabled = 1
   let g:airline#extensions#tabline#enabled = 1
@@ -433,6 +428,16 @@ endif
 
 if s:has_plugin('vim-rspec')
   let g:rspec_command = "vsplit | term bundle exec rspec {spec}"
+endif
+
+if s:has_plugin('vim-startify')
+  let g:startify_custom_header =
+        \ 'startify#center(startify#fortune#boxed())'
+
+  let g:startify_change_to_dir = 0
+  let g:startify_fortune_use_unicode = 1
+
+  autocmd TabNewEntered * Startify
 endif
 
 "*****************************************************************************
