@@ -12,3 +12,5 @@
   default = simple
 [status]
   displaycommentprefix = true
+[pull]
+	rebase = false
