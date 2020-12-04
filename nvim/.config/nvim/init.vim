@@ -436,8 +436,6 @@ if s:has_plugin('vim-startify')
 
   let g:startify_change_to_dir = 0
   let g:startify_fortune_use_unicode = 1
-
-  autocmd TabNewEntered * Startify
 endif
 
 "*****************************************************************************
