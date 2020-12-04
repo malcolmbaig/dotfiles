@@ -1,6 +1,6 @@
 [Appearance]
 ColorScheme=nord
-Font=Iosevka Fixed,13,-1,5,57,0,0,0,0,0,Medium
+Font=Iosevka Fixed,12,-1,5,57,0,0,0,0,0,Medium
 UseFontLineChararacters=false
 
 [Cursor Options]
