@@ -14,15 +14,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 
-# RBENV
-if command -v rbenv &> /dev/null; then
-  eval "$(rbenv init -)"
-fi
-
-# NODE - n version manager
-export N_PREFIX="$HOME/.n"
-export PATH="$HOME/.n/bin/:$PATH"
-
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -43,3 +34,6 @@ sshl() {
   eval $(ssh-agent)
   ssh-add ~/.ssh/github < /dev/null
 }
+
+# Setup asdf version manager
+. /opt/asdf-vm/asdf.sh
