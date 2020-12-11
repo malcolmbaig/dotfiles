@@ -314,7 +314,7 @@ if s:has_plugin('defx.nvim')
 	  \ defx#do_action('change_vim_cwd')
 	endfunction
 
-  nnoremap - :Defx -search=`expand('%:p')` `getcwd()`<CR>
+  nnoremap - :Defx -search=`expand('%:p')` `getcwd()` -buffer-name=`'defx' . tabpagenr()`<CR>
   nnoremap _ :Defx<CR>
 
 	call defx#custom#column('icon', {
