@@ -415,6 +415,7 @@ endif
 
 if s:has_plugin('vim-gutentags')
   let g:gutentags_ctags_tagfile = '.vim_tags'
+  let g:gutentags_cache_dir = '~/tmp/'
   let g:gutentags_ctags_exclude = [
         \ 'node_modules',
         \ 'dist',
