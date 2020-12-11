@@ -1,39 +1,42 @@
+#******************************************************************************
 # ZSH Settings
+#******************************************************************************
 
-# EDITOR
-export EDITOR='nvim'
-export VISUAL='nvim'
-export BUNDLER_EDITOR='nvim'
-
-# GREP
-export GREP_COLOR='30;42'
-export GREP_COLORS='mt=30;42'
-
-# PATH UPDATES
-export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
-
-# FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# RIPGREP
-export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+# Asdf version manager
+. /opt/asdf-vm/asdf.sh
 
 # BAT
 export BAT_THEME=Nord
 
-# CUSTOM PROMPT SETTINGS
+# Editor
+export EDITOR='nvim'
+export VISUAL='nvim'
+export BUNDLER_EDITOR='nvim'
+
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Grep
+export GREP_COLOR='30;42'
+export GREP_COLORS='mt=30;42'
+
+# Path updates
+export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+
+# Prompt settings
 PS1='%F{${PWD_COLOR}}%~%f${(e)git_info[prompt]}
 %(!.#.☾) '
 export PWD_COLOR=008
 export BRANCH_COLOR=039
+
+# Ripgrep
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 # SSH
 sshl() {
   eval $(ssh-agent)
   ssh-add ~/.ssh/github < /dev/null
 }
-
-# Setup asdf version manager
-. /opt/asdf-vm/asdf.sh
