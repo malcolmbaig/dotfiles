@@ -527,7 +527,7 @@ augroup END
 
 " Function to preview markdown in an app
 function! s:setupMarkdownPreview()
-  nnoremap <leader>mp :silent !open -a iA\ Writer.app '%:p'<cr>
+  nnoremap <leader>mp :silent !marktext '%:p'<cr>
 endfunction
 
 " Markdown
