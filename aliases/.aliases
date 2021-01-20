@@ -57,6 +57,7 @@ alias mux='tmuxinator'
 
 # RUBY/RAILS
 alias be='bundle exec'
+alias prspec='bundle exec parallel_rspec'
 
 # CLI
 alias ls='ls -AFGhl --color --time-style=long-iso --group-directories-first'
