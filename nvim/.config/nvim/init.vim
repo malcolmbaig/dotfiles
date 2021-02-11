@@ -306,7 +306,7 @@ if s:has_plugin('defx.nvim')
 	  \ line('.') == line('$') ? 'gg' : 'j'
 	  nnoremap <silent><buffer><expr> k
 	  \ line('.') == 1 ? 'G' : 'k'
-	  nnoremap <silent><buffer><expr> <C-l>
+	  nnoremap <silent><buffer><expr> <C-r>
 	  \ defx#do_action('redraw')
 	  nnoremap <silent><buffer><expr> <C-g>
 	  \ defx#do_action('print')
@@ -565,7 +565,8 @@ augroup END
 "*****************************************************************************
 
 " Tab navigation
-nnoremap <S-Tab> gT
+nnoremap <C-l> gt
+nnoremap <C-h> gT
 
 " -----------------------------
 " Leader Key - single character
