@@ -219,6 +219,8 @@ if s:has_plugin('ale')
   let g:ale_ruby_rubocop_executable = 'bundle'
   let g:ale_linters = { 'ruby': ['rubocop'] }
   let g:ale_fixers = { 'ruby': ['rubocop'] }
+
+  let g:ale_pattern_options = {'code\/find': {'ale_linters': ['rubocop'] } }
 endif
 
 if s:has_plugin('bullets.vim')
