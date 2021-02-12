@@ -40,6 +40,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 
+" Support for .editorconfig files
+Plug 'editorconfig/editorconfig-vim'
+
 " Better start screen
 Plug 'mhinz/vim-startify'
 
