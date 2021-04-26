@@ -625,10 +625,10 @@ noremap <leader>cl :call ColorsLight()<CR>
 
 " Git
 noremap <leader>gl :Git log<CR>
-noremap <leader>gb :Gblame<CR>
-noremap <leader>gc :Gcommit<CR>
-noremap <leader>gs :Gstatus<CR>
-noremap <leader>go :Gbrowse<CR>
+noremap <leader>gb :Git blame<CR>
+noremap <leader>gc :Git commit<CR>
+noremap <leader>gs :Git<CR>
+noremap <leader>go :GBrowse<CR>
 
 " Line number toggles
 noremap <leader>ln :set nu!<CR>
