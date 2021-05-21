@@ -73,6 +73,9 @@ Plug 'godlygeek/tabular', {'on': 'Tabularize'}
 " Match HTML tags
 Plug 'Valloric/MatchTagAlways'
 
+" Match quotes
+Plug 'airblade/vim-matchquote'
+
 " Distraction-free writing mode
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 
@@ -89,6 +92,9 @@ Plug 'honza/vim-snippets'
 " Linting
 Plug 'w0rp/ale'
 
+" Expand keys in yaml files
+Plug 'airblade/vim-localorie'
+
 "----------------------------
 " Additional Language Support
 "----------------------------
@@ -103,7 +109,6 @@ Plug 'alvan/vim-closetag'
 Plug 'keith/rspec.vim'
 Plug 'tpope/vim-rails'
 Plug 'thoughtbot/vim-rspec'
-Plug 'airblade/vim-localorie'
 
 " Custom bundles
 " Include user's extra bundle
