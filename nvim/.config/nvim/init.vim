@@ -103,6 +103,7 @@ Plug 'alvan/vim-closetag'
 Plug 'keith/rspec.vim'
 Plug 'tpope/vim-rails'
 Plug 'thoughtbot/vim-rspec'
+Plug 'airblade/vim-localorie'
 
 " Custom bundles
 " Include user's extra bundle
@@ -645,6 +646,9 @@ noremap <leader>sc :call RunCurrentSpecFile()<CR>
 noremap <leader>sl :call RunLastSpec()<CR>
 noremap <leader>sn :call RunNearestSpec()<CR>
 
+" Expand yml key under cursor and add it to clipboard
+nnoremap <silent> <leader>rye :let @+=localorie#expand_key()<CR>
+
 " Quickfix
 noremap <leader>qf :copen<CR>
 
@@ -654,3 +658,4 @@ noremap <leader>qf :copen<CR>
 
 " Disable Ex mode shortcut
 nnoremap Q <nop>
+
