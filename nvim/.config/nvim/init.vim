@@ -568,6 +568,7 @@ augroup END
 augroup vimrc-ruby
   autocmd!
   autocmd FileType ruby setlocal comments+=b:#
+  let g:ruby_indent_hanging_elements = 0
 augroup END
 
 
