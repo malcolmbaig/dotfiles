@@ -594,18 +594,11 @@ noremap <leader>. :lcd %:p:h<CR>
 " MatchTagAlways jump shortcut
 noremap <leader>% :MtaJumpToOtherTag<cr>
 
-" Close buffer
-noremap <leader>c :bd<CR>
-
 " Opens an edit command with the path of the currently edited file filled in
 noremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Clear search highlight
 noremap <silent> <leader>l :noh<cr>
-
-" Insert newline below or above
-noremap <leader>j o<Esc>
-noremap <leader>k O<Esc>
 
 " Open new tab
 noremap <silent> <leader>t :tabnew<CR>
@@ -645,15 +638,14 @@ noremap <leader>lr :set relativenumber!<CR>
 noremap <leader>rb orequire 'pry-byebug';binding.pry;sleep 1<CR><Esc>
 " Ruby - Capybara - add a save_and_open_page at the cursor
 noremap <leader>rso osave_and_open_page<CR><Esc>
+" Expand yml key under cursor and add it to clipboard
+nnoremap <silent> <leader>rye :let @+=localorie#expand_key()<CR>
 
 " Invoke vim-rspec runner
 noremap <leader>sa :call RunAllSpecs()<CR>
 noremap <leader>sc :call RunCurrentSpecFile()<CR>
 noremap <leader>sl :call RunLastSpec()<CR>
 noremap <leader>sn :call RunNearestSpec()<CR>
-
-" Expand yml key under cursor and add it to clipboard
-nnoremap <silent> <leader>rye :let @+=localorie#expand_key()<CR>
 
 " Quickfix
 noremap <leader>qf :copen<CR>
