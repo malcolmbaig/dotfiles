@@ -29,71 +29,41 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 " Plugins
 "*****************************************************************************
 
-" Core
-Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'vim-airline/vim-airline'
+Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' } " File navigation
+Plug 'junegunn/fzf.vim' " Fuzzy search
+Plug 'tpope/vim-commentary' " Convenient mappings for commenting stuff out
+Plug 'tpope/vim-endwise' " Automatically insert ends
+Plug 'tpope/vim-fugitive' " Git integration
+Plug 'tpope/vim-repeat' " Expand 'repeat last command' functionality
+Plug 'tpope/vim-rhubarb' " Github integration
+Plug 'tpope/vim-surround' " Mappings to manipulate surrounding characters
+Plug 'tpope/vim-unimpaired' " Complementary paired commands using ] and [
+Plug 'vim-airline/vim-airline' " Improved status and tabline
 
-" Support for .editorconfig files
-Plug 'editorconfig/editorconfig-vim'
+Plug 'Lokaltog/vim-easymotion' " Easy movement around text
+Plug 'Valloric/MatchTagAlways' " Match HTML tags
+Plug 'airblade/vim-localorie' " Expand keys in yaml files
+Plug 'airblade/vim-matchquote' " Match quotes
+Plug 'dkarter/bullets.vim' " Better bullet points
+Plug 'editorconfig/editorconfig-vim' " Support for .editorconfig files
+Plug 'godlygeek/tabular', {'on': 'Tabularize'} " Rearrange text into tables
+Plug 'henrik/vim-qargs' " Qdo command for search/replace in quickfix list
+Plug 'junegunn/goyo.vim', {'on': 'Goyo'} " Distraction-free writing mode
+Plug 'ludovicchabant/vim-gutentags' " Generate ctags automatically
+Plug 'mbbill/undotree', {'on': 'UndotreeToggle'} " GUI for the undo tree
+Plug 'mhinz/vim-startify' " Better start screen
+Plug 'sheerun/vim-polyglot' " Syntax highlighting
+Plug 'w0rp/ale' " Linting
 
-" Better start screen
-Plug 'mhinz/vim-startify'
-
-" Easy movement around text
-Plug 'Lokaltog/vim-easymotion'
-
-" Better bullet points
-Plug 'dkarter/bullets.vim'
-
-" Fuzzy search
-Plug 'junegunn/fzf.vim'
+" Completion / Snippets
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'honza/vim-snippets'
 
 " Color schemes
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'vim-airline/vim-airline-themes'
-
-" Generate ctags automatically
-Plug 'ludovicchabant/vim-gutentags'
-
-" GUI for the undo tree
-Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
-
-" Rearrange text into tables
-Plug 'godlygeek/tabular', {'on': 'Tabularize'}
-
-" Match HTML tags
-Plug 'Valloric/MatchTagAlways'
-
-" Match quotes
-Plug 'airblade/vim-matchquote'
-
-" Distraction-free writing mode
-Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
-
-" Qdo command for search/replace in quickfix list
-Plug 'henrik/vim-qargs'
-
-" Syntax highlighting
-Plug 'sheerun/vim-polyglot'
-
-" Completion / Snippets
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'honza/vim-snippets'
-
-" Linting
-Plug 'w0rp/ale'
-
-" Expand keys in yaml files
-Plug 'airblade/vim-localorie'
 
 "----------------------------
 " Additional Language Support
