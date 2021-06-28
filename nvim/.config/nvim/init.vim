@@ -582,6 +582,10 @@ noremap <leader>r :Qdo %s/
 " Switch to a distraction-free writing mode
 noremap <leader>G :Goyo 100<CR>
 
+" Insert newline below or above
+noremap <leader>j o<Esc>
+noremap <leader>k O<Esc>
+
 " -------------------------------
 " Leader Key - multiple character
 " -------------------------------
