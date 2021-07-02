@@ -208,12 +208,12 @@ if s:has_plugin('bullets.vim')
 endif
 
 if s:has_plugin('coc.nvim')
-  " Use <c-space> for trigger completion
-  inoremap <silent><expr> <c-space> coc#refresh()
-
   " Use <Tab> and <S-Tab> for navigate completion list
   inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
   inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+  nmap <silent> <Leader>ld <Plug>(coc-definition)
+  let g:coc_global_extensions = ['coc-solargraph']
 
   " Snippets
   " Requires coc-snippets extension - :CocInstall coc-snippets
