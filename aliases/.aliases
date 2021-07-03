@@ -60,6 +60,7 @@ alias be='bundle exec'
 alias prspec='bundle exec parallel_rspec'
 
 # CLI
+alias d='dirs -v'
 alias k9='kill -9'
 alias ls='ls -AFGhl --color --time-style=long-iso --group-directories-first'
 alias lsp='ls | less'
