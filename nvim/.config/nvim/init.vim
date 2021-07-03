@@ -486,6 +486,7 @@ function! ColorsDark()
   set background=dark
   colorscheme palenight
   highlight ColorColumn guibg=#34394e
+  highlight CursorColumn guibg=#34394e
   highlight Search guibg=#5c7aae guifg=white gui=underline
   highlight IncSearch guibg=#5c7aae guifg=white gui=underline
   :AirlineTheme palenight
