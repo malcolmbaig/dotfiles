@@ -17,9 +17,9 @@ gbc() {
 alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit -m "--wip--"'
 alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
 # rebase -i current branch on latest master
-alias grim='git checkout master && git pull && git checkout - && git rebase -i master'
+# alias grim='git checkout master && git pull && git checkout - && git rebase -i master'
 # rebase current branch on latest master
-alias grom='git checkout master && git pull && git checkout - && git rebase master'
+# alias grom='git checkout master && git pull && git checkout - && git rebase master'
 # standard commands
 alias g='git'
 alias gst='git status'
