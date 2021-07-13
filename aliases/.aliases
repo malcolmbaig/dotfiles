@@ -10,7 +10,7 @@ alias dropbox='cd ~/Dropbox/'
 
 # GIT
 # output branch
-gcb() {
+gbc() {
   echo $(git symbolic-ref --short -q HEAD | tr -d '\n') | xsel --clipboard
 }
 # wip
@@ -23,16 +23,16 @@ alias grom='git checkout master && git pull && git checkout - && git rebase mast
 # standard commands
 alias g='git'
 alias gst='git status'
-alias gco='git checkout'
+alias gsw='git switch'
 alias ga='git add'
 alias gl='git log'
 alias gb='git branch'
 alias gc='git commit --verbose'
 alias gcm='git commit --verbose -m'
-alias gcf='git commit --amend'
-alias gcF='git commit --amend --reuse-message HEAD'
+alias gca='git commit --amend'
+alias gcA='git commit --amend --reuse-message HEAD'
 alias gf='git fetch'
-alias gs='git stash'
+alias gss='git stash'
 alias gd='git diff'
 alias gD='git diff --cached'
 alias gp='git pull'
