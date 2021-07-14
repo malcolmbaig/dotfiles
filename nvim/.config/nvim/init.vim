@@ -458,6 +458,7 @@ endif
 " Cursor setup
 set guicursor+=n:hor10-blinkon0 " Horizontal cursor in normal mode
 set cursorcolumn " Display highlighted column at cursor
+set cursorline " Display highlight line at cursor
 au VimLeave * set guicursor=a:block-blinkon1 " Switch to block cursor when leaving vim
 
 "*****************************************************************************
@@ -487,6 +488,7 @@ function! ColorsDark()
   colorscheme palenight
   highlight ColorColumn guibg=#34394e
   highlight CursorColumn guibg=#34394e
+  highlight CursorLine guibg=#34394e
   highlight Search guibg=#5c7aae guifg=white gui=underline
   highlight IncSearch guibg=#5c7aae guifg=white gui=underline
   :AirlineTheme palenight
