@@ -1,6 +1,6 @@
 [user]
   name = Malcolm Baig
-  email = malcolm.baig@gmail.com
+  email = git@baig.org
 [core]
   editor = nvim
   excludesfile = ~/.gitignore-global
