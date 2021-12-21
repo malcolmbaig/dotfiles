@@ -16,13 +16,9 @@ gbc() {
 # wip
 alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit -m "--wip--"'
 alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
-# rebase -i current branch on latest master
-# alias grim='git checkout master && git pull && git checkout - && git rebase -i master'
-# rebase current branch on latest master
-# alias grom='git checkout master && git pull && git checkout - && git rebase master'
-# standard commands
 alias g='git'
 alias gcl='git clean'
+alias gco='git checkout'
 alias gD='git diff --cached'
 alias gd='git diff'
 alias gP='git push'
@@ -35,7 +31,8 @@ alias gca='git commit --amend'
 alias gcm='git commit --verbose -m'
 alias gf='git fetch'
 alias gl='git log'
-alias gres='git restore'
+alias gro='git restore'
+alias gsh='git show'
 alias gss='git stash'
 alias gst='git status'
 alias gsw='git switch'
