@@ -558,6 +558,9 @@ augroup END
 nnoremap <C-l> gt
 nnoremap <C-h> gT
 
+" Terminal normal mode
+tnoremap <Esc> <C-\><C-n>
+
 " -----------------------------
 " Leader Key - single character
 " -----------------------------
