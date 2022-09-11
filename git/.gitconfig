@@ -4,20 +4,20 @@
 [core]
   editor = nvim
   excludesfile = ~/.gitignore-global
-  attributesfile = /home/malcolm/.gitattributes
+  attributesfile = ~/.gitattributes
   pager = delta
 [interactive]
   diffFilter = delta --color-only
 [delta]
-    navigate = true    # use n and N to move between diff sections
-    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+  navigate = true    # use n and N to move between diff sections
+  light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
 [merge]
-    conflictstyle = diff3
+  conflictstyle = diff3
 [diff]
-    colorMoved = default
+  colorMoved = default
 [push]
   default = simple
 [status]
   displaycommentprefix = true
 [pull]
-	rebase = false
+  rebase = false
