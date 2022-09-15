@@ -45,8 +45,6 @@ Plug 'Valloric/MatchTagAlways' " Match HTML tags
 Plug 'airblade/vim-localorie' " Expand keys in yaml files
 Plug 'airblade/vim-matchquote' " Match quotes
 Plug 'dkarter/bullets.vim' " Better bullet points
-Plug 'editorconfig/editorconfig-vim' " Support for .editorconfig files
-Plug 'godlygeek/tabular', {'on': 'Tabularize'} " Rearrange text into tables
 Plug 'henrik/vim-qargs' " Qdo command for search/replace in quickfix list
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'} " Distraction-free writing mode
 Plug 'ludovicchabant/vim-gutentags' " Generate ctags automatically
