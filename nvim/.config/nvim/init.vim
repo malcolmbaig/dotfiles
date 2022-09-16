@@ -293,8 +293,8 @@ if s:has_plugin('defx.nvim')
 	  \ defx#do_action('change_vim_cwd')
 	endfunction
 
-  nnoremap - :Defx -search-recursive=`expand('%:p')` `getcwd()` -buffer-name=`'defx' . tabpagenr()`<CR>
-  nnoremap _ :Defx<CR>
+  nnoremap - :Defx -show-ignored-files -search-recursive=`expand('%:p')` `getcwd()` -buffer-name=`'defx' . tabpagenr()`<CR>
+  nnoremap _ :Defx -show-ignored-files <CR>
 
 	call defx#custom#column('icon', {
 	      \ 'directory_icon': '▸',
