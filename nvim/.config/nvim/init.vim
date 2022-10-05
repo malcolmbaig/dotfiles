@@ -307,11 +307,6 @@ if s:has_plugin('defx.nvim')
 	      \ })
 endif
 
-if s:has_plugin('emmet-vim')
-  let g:user_emmet_install_global = 0
-  autocmd FileType html,css,javascript EmmetInstall
-endif
-
 if s:has_plugin('fzf.vim')
   let g:fzf_height = '40%'
   let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
