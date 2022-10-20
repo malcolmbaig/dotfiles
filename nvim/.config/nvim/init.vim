@@ -71,6 +71,8 @@ endfunction
 " Basic Setup
 "*****************************************************************************
 
+colorscheme tokyonight-storm
+
 " Encoding
 set encoding=utf-8
 set fileencoding=utf-8
@@ -438,24 +440,16 @@ cnoreabbrev Qa q
 cnoreabbrev Qall qall
 
 "*****************************************************************************
-" Color schemes
+" Color scheme functions
 "*****************************************************************************
 
 function! ColorsDark()
-  " set background=dark
   colorscheme tokyonight-storm
 endfunction
 
 function! ColorsLight()
-  " set background=light
   colorscheme tokyonight-day
 endfunction
-
-augroup vimrc-default-colorscheme
-  autocmd!
-  au VimEnter * call ColorsDark()
-augroup END
-
 
 "*****************************************************************************
 " Autocmd Rules
