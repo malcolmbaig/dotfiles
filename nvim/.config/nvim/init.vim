@@ -71,7 +71,10 @@ endfunction
 " Basic Setup
 "*****************************************************************************
 
-colorscheme tokyonight-storm
+if s:has_plugin('tokyonight.nvim')
+  lua require 'tokyonight-custom'
+  colorscheme tokyonight
+endif
 
 " Encoding
 set encoding=utf-8
@@ -444,7 +447,7 @@ cnoreabbrev Qall qall
 "*****************************************************************************
 
 function! ColorsDark()
-  colorscheme tokyonight-storm
+  colorscheme tokyonight
 endfunction
 
 function! ColorsLight()
