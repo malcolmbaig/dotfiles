@@ -343,13 +343,7 @@ if s:has_plugin('hop.nvim')
 endif
 
 if s:has_plugin('lualine.nvim')
-lua <<EOF
-require 'lualine' .setup {
-  options = {
-    theme = 'tokyonight'
-  }
-}
-EOF
+  lua require 'lualine-custom'
 endif
 
 if s:has_plugin('vim-closetag')
