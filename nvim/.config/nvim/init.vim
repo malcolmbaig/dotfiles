@@ -20,7 +20,6 @@ Plug 'tpope/vim-rhubarb' " Github integration
 Plug 'tpope/vim-surround' " Mappings to manipulate surrounding characters
 Plug 'tpope/vim-unimpaired' " Complementary paired commands using ] and [
 
-Plug 'Lokaltog/vim-easymotion' " Easy movement around text
 Plug 'Valloric/MatchTagAlways' " Match HTML tags
 Plug 'airblade/vim-localorie' " Expand keys in yaml files
 Plug 'airblade/vim-matchquote' " Match quotes
@@ -30,6 +29,7 @@ Plug 'junegunn/goyo.vim', {'on': 'Goyo'} " Distraction-free writing mode
 Plug 'ludovicchabant/vim-gutentags' " Generate ctags automatically
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'} " GUI for the undo tree
 Plug 'mhinz/vim-startify' " Better start screen
+Plug 'phaazon/hop.nvim' "Easy movement around text
 Plug 'sheerun/vim-polyglot' " Syntax highlighting
 Plug 'w0rp/ale' " Linting
 
@@ -332,6 +332,9 @@ if s:has_plugin('fzf.vim')
   endfunction
 
   let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
+if s:has_plugin('hop.nvim')
+  lua require 'hop-custom'
+  nmap s :HopWord<CR>
 endif
 
 if s:has_plugin('lualine.nvim')
@@ -347,11 +350,6 @@ endif
 if s:has_plugin('vim-closetag')
   let g:closetag_filenames = "*.html,*.js,*.jsx"
   let g:closetag_close_shortcut = ''
-endif
-
-if s:has_plugin('vim-easymotion')
-  let g:EasyMotion_do_mapping = 0 " Disable default mappings
-  nmap s <Plug>(easymotion-s)
 endif
 
 if s:has_plugin('vim-gutentags')
