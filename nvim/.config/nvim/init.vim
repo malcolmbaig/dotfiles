@@ -19,7 +19,6 @@ Plug 'tpope/vim-repeat' " Expand 'repeat last command' functionality
 Plug 'tpope/vim-rhubarb' " Github integration
 Plug 'tpope/vim-surround' " Mappings to manipulate surrounding characters
 Plug 'tpope/vim-unimpaired' " Complementary paired commands using ] and [
-Plug 'vim-airline/vim-airline' " Improved status and tabline
 
 Plug 'Lokaltog/vim-easymotion' " Easy movement around text
 Plug 'Valloric/MatchTagAlways' " Match HTML tags
@@ -330,22 +329,6 @@ if s:has_plugin('fzf.vim')
   endfunction
 
   let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
-endif
-
-if s:has_plugin('vim-airline')
-  let g:airline#extensions#branch#enabled = 1
-  let g:airline#extensions#tabline#enabled = 1
-  let g:airline#extensions#tabline#formatter = 'unique_tail'
-  let g:airline#extensions#tabline#show_buffers = 0
-  let g:airline#extensions#tabline#show_close_button = 0
-  let g:airline#extensions#tabline#show_splits = 0
-  let g:airline#extensions#tabline#show_tab_nr = 0
-  let g:airline#extensions#tabline#show_tab_type = 0
-  let g:airline#extensions#tabline#show_tabs = 1
-  let g:airline_powerline_fonts = 1
-  let g:airline_section_error = ''
-  let g:airline_section_warning = ''
-  let g:airline_section_y = ''
 endif
 
 if s:has_plugin('vim-closetag')
