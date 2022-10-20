@@ -37,6 +37,10 @@ Plug 'w0rp/ale' " Linting
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'honza/vim-snippets'
 
+" Status line
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+
 " Color schemes
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
@@ -326,6 +330,16 @@ if s:has_plugin('fzf.vim')
   endfunction
 
   let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
+endif
+
+if s:has_plugin('lualine.nvim')
+lua <<EOF
+require 'lualine' .setup {
+  options = {
+    theme = 'tokyonight'
+  }
+}
+EOF
 endif
 
 if s:has_plugin('vim-closetag')
