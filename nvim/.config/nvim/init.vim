@@ -2,28 +2,9 @@
 " Vim-Plug core
 "*****************************************************************************
 
-if has('vim_starting')
-  set nocompatible               " Be iMproved
-endif
-
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
-
-let g:vim_bootstrap_langs = ""
-let g:vim_bootstrap_editor = "nvim"				" nvim or vim
-
-if !filereadable(vimplug_exists)
-  echo "Installing Vim-Plug..."
-  echo ""
-  silent !\curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  let g:not_finish_vimplug = "yes"
-
-  " Run shell script if exist on custom select language
-
-  autocmd VimEnter * PlugInstall
-endif
-
-" Required:
-call plug#begin(expand('~/.config/nvim/plugged'))
+let g:plugin_path = '~/.config/nvim/plugged'
+call plug#begin(g:plugin_path)
 
 "*****************************************************************************
 " Plugins
@@ -78,12 +59,6 @@ Plug 'keith/rspec.vim'
 Plug 'tpope/vim-rails'
 Plug 'thoughtbot/vim-rspec'
 
-" Custom bundles
-" Include user's extra bundle
-if filereadable(expand("~/.config/nvim/local_bundles.vim"))
-  source ~/.config/nvim/local_bundles.vim
-endif
-
 call plug#end()
 
 " Shortcut for checking if a plugin is loaded
@@ -91,9 +66,6 @@ function! s:has_plugin(plugin)
   let lookup = 'g:plugs["' . a:plugin . '"]'
   return exists(lookup)
 endfunction
-
-" Required:
-filetype plugin indent on
 
 "*****************************************************************************
 " Basic Setup
@@ -166,7 +138,6 @@ set expandtab
 noremap <leader>ss <Esc>:syntax sync fromstart<CR>
 
 " " Disable netrw
-" let g:loaded_netrw       = 1
 let g:loaded_netrwPlugin = 1
 
 "*****************************************************************************
