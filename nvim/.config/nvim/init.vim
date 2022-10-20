@@ -38,10 +38,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'honza/vim-snippets'
 
 " Color schemes
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'arcticicestudio/nord-vim'
-Plug 'junegunn/seoul256.vim'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 "----------------------------
 " Additional Language Support
@@ -431,20 +428,13 @@ cnoreabbrev Qall qall
 "*****************************************************************************
 
 function! ColorsDark()
-  set background=dark
-  colorscheme palenight
-  highlight ColorColumn guibg=#34394e
-  highlight CursorColumn guibg=#34394e
-  highlight CursorLine guibg=#34394e
-  highlight Search guibg=#5c7aae guifg=white gui=underline
-  highlight IncSearch guibg=#5c7aae guifg=white gui=underline
-  :AirlineTheme palenight
+  " set background=dark
+  colorscheme tokyonight-storm
 endfunction
 
 function! ColorsLight()
-  set background=light
-  colorscheme seoul256-light
-  :AirlineTheme seoul256
+  " set background=light
+  colorscheme tokyonight-day
 endfunction
 
 augroup vimrc-default-colorscheme
