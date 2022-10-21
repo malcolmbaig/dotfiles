@@ -1,4 +1,6 @@
 {
 	"solargraph.useBundler": true,
+	"solargraph.promptDownload": false,
+	"solargraph.checkGemVersion": false,
 	"suggest.noselect": true
 }
