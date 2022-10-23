@@ -1,6 +1,11 @@
 {
-	"solargraph.useBundler": true,
-	"solargraph.promptDownload": false,
 	"solargraph.checkGemVersion": false,
-	"suggest.noselect": true
+	"solargraph.promptDownload": false,
+	"solargraph.useBundler": true,
+	"solargraph.formatting": true,
+	"suggest.noselect": true,
+
+	"snippets.extends": {
+		"ruby": ["rails"]
+	}
 }
