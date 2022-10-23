@@ -544,10 +544,6 @@ noremap <leader>k O<Esc>
 " Copy name of current file
 noremap <leader>yf :let @+=expand("%")<CR>
 
-" Color schemes
-noremap <leader>cd :call ColorsDark()<CR>
-noremap <leader>cl :call ColorsLight()<CR>
-
 " Git
 noremap <leader>gl :Git log<CR>
 noremap <leader>gb :Git blame<CR>
