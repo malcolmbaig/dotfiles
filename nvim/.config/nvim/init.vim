@@ -39,7 +39,6 @@ Plug 'honza/vim-snippets'
 
 " Status line
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
 
 " Color schemes
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
