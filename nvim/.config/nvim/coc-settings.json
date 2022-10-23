@@ -2,7 +2,6 @@
 	"solargraph.checkGemVersion": false,
 	"solargraph.promptDownload": false,
 	"solargraph.useBundler": true,
-	"solargraph.formatting": true,
 	"suggest.noselect": true,
 
 	"snippets.extends": {
