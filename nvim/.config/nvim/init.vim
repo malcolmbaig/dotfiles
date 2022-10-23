@@ -162,14 +162,13 @@ endif
 
 if s:has_plugin('ale')
   let g:ale_sign_column_always = 1
+  let g:ale_lint_on_text_changed = 'always'
   nmap <silent> <C-k> <Plug>(ale_previous_wrap)
   nmap <silent> <C-j> <Plug>(ale_next_wrap)
   nmap <silent> <leader>f <Plug>(ale_fix)
   let g:ale_ruby_rubocop_executable = 'bundle'
   let g:ale_linters = { 'ruby': ['rubocop'] }
   let g:ale_fixers = { 'ruby': ['rubocop'] }
-
-  let g:ale_pattern_options = {'code\/find': {'ale_linters': ['rubocop'] } }
 endif
 
 if s:has_plugin('bullets.vim')
