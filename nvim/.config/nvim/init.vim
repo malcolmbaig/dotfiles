@@ -180,27 +180,21 @@ if s:has_plugin('bullets.vim')
 endif
 
 if s:has_plugin('coc.nvim')
-  " Use <Tab> and <S-Tab> for navigate completion list
-  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+  let g:coc_global_extensions = ['coc-solargraph', 'coc-snippets', 'coc-prettier']
 
-  nmap <silent> <Leader>ld <Plug>(coc-definition)
-  let g:coc_global_extensions = ['coc-solargraph']
+  nmap <silent> <Leader>cx :CocRestart<CR>
+  nmap <silent> <Leader>cd <Plug>(coc-definition)
+  nmap <silent> <leader>cp :CocCommand prettier.formatFile<cr>
+  nmap <silent> <leader>cr <Plug>(coc-references)
+  nmap <silent> <leader>cR <Plug>(coc-refactor)
+  nmap <silent> <leader>cn <Plug>(coc-rename)
 
   " Snippets
-  " Requires coc-snippets extension - :CocInstall coc-snippets
-  " Use <C-l> for trigger snippet expand.
+  " Use <C-l> to expand snippet
   imap <C-l> <Plug>(coc-snippets-expand)
-  " Use tab for jump to next placeholder, it's default of coc.nvim
+  " Use tab to jump to next placeholder
   let g:coc_snippet_next = '<tab>'
   let g:coc_snippet_prev = '<S-Tab>'
-
-  " Introduce function text object
-  " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-  xmap if <Plug>(coc-funcobj-i)
-  xmap af <Plug>(coc-funcobj-a)
-  omap if <Plug>(coc-funcobj-i)
-  omap af <Plug>(coc-funcobj-a)
 endif
 
 if s:has_plugin('defx.nvim')
