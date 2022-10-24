@@ -1,7 +1,7 @@
 require 'lualine' .setup {
   options = {
     icons_enabled = true,
-    theme = 'OceanicNext',
+    theme = 'base16',
   },
   sections = {
     lualine_a = {'mode'},
