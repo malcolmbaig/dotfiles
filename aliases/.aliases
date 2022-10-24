@@ -6,7 +6,8 @@ alias m='nvim'
 
 # DIRECTORY SHORTCUTS
 alias code='cd ~/code'
-alias dropbox='cd ~/Dropbox/'
+alias dots='cd ~/dotfiles'
+alias db='cd ~/Dropbox/'
 
 # GIT
 # output branch
