@@ -39,5 +39,8 @@ require("tokyonight").setup({
     hl.ColorColumn = {
       bg = c.bg_highlight,
     }
+    hl.Type = {
+      fg = c.yellow,
+    }
   end
 })
