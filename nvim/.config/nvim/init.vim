@@ -336,6 +336,7 @@ endif
 
 if s:has_plugin('lualine.nvim')
   lua require 'lualine-custom'
+  nmap <silent> <leader>llr :LualineRenameTab<Space>
 endif
 
 if s:has_plugin('vim-closetag')
