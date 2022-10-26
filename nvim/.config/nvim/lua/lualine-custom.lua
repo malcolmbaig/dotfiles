@@ -1,7 +1,7 @@
 require 'lualine' .setup {
   options = {
     icons_enabled = true,
-    theme = 'base16',
+    theme = 'auto',
   },
   sections = {
     lualine_a = {'mode'},
@@ -20,12 +20,20 @@ require 'lualine' .setup {
     lualine_z = {}
   },
   tabline = {
-    lualine_a = {'buffers'},
+    lualine_a = {
+      {
+        'tabs',
+        -- 0: Shows tab_nr
+        -- 1: Shows tab_name
+        -- 2: Shows tab_nr + tab_name
+        mode = 1,
+      }
+    },
     lualine_b = {},
     lualine_c = {},
     lualine_x = {},
     lualine_y = {},
-    lualine_z = {'tabs'}
+    lualine_z = {}
   },
   extensions = {}
 }
