@@ -331,7 +331,7 @@ endif
 
 if s:has_plugin('hop.nvim')
   lua require 'hop-custom'
-  nmap s :HopWord<CR>
+  nmap s :HopChar1<CR>
 endif
 
 if s:has_plugin('lualine.nvim')
