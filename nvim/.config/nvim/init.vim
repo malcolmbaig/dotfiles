@@ -551,7 +551,7 @@ noremap <leader>ln :set nu!<CR>
 noremap <leader>lr :set relativenumber!<CR>
 
 " Ruby - add a binding.pry at the cursor
-noremap <leader>rb orequire 'pry-byebug';binding.pry;sleep 1<CR><Esc>
+noremap <leader>rb obinding.pry<CR><Esc>
 " Ruby - Capybara - add a save_and_open_page at the cursor
 noremap <leader>rso osave_and_open_page<CR><Esc>
 " Expand yml key under cursor and add it to clipboard
