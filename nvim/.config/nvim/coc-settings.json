@@ -6,5 +6,7 @@
 
 	"snippets.extends": {
 		"ruby": ["rails"]
-	}
+	},
+
+	"coc.preferences.formatOnSaveFiletypes":  ["*"]
 }
