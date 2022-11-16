@@ -10,13 +10,7 @@ alias dots='cd ~/dotfiles'
 alias db='cd ~/Dropbox/'
 
 # GIT
-# output branch
-gbc() {
-  echo $(git symbolic-ref --short -q HEAD | tr -d '\n') | xsel --clipboard
-}
-# wip
-alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit -m "--wip--"'
-alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
+
 alias g='git'
 alias gcl='git clean'
 alias gco='git checkout'
@@ -37,6 +31,16 @@ alias gsh='git show'
 alias gss='git stash'
 alias gst='git status'
 alias gsw='git switch'
+
+# output branch
+gbc() {
+  echo $(git symbolic-ref --short -q HEAD | tr -d '\n') | xsel --clipboard
+}
+
+# wip
+alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit -m "--wip--"'
+alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
+
 # rebase (r)
 alias gr='git rebase'
 alias gra='git rebase --abort'
