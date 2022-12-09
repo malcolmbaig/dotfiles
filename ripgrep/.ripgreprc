@@ -1,2 +1,5 @@
 --hidden
 --smart-case
+--no-ignore
+--glob=!.git/
+--glob=!node_modules/
