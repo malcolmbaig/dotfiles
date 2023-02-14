@@ -1,12 +1,13 @@
 {
-	"solargraph.checkGemVersion": false,
-	"solargraph.promptDownload": false,
-	"solargraph.useBundler": true,
-	"suggest.noselect": true,
+  "solargraph.checkGemVersion": false,
+  "solargraph.promptDownload": false,
+  "solargraph.useBundler": true,
+  "suggest.noselect": true,
 
-	"snippets.extends": {
-		"ruby": ["rails"]
-	},
+  "snippets.extends": {
+    "ruby": ["rails"]
+  },
 
-	"coc.preferences.formatOnSaveFiletypes":  ["*"]
+  "coc.preferences.formatOnSaveFiletypes": ["*"],
+  "prettier.trailingComma": "none"
 }
