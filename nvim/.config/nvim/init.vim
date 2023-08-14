@@ -179,11 +179,10 @@ if s:has_plugin('bullets.vim')
 endif
 
 if s:has_plugin('coc.nvim')
-  let g:coc_global_extensions = ['coc-solargraph', 'coc-snippets', 'coc-prettier']
+  let g:coc_global_extensions = ['coc-solargraph', 'coc-snippets']
 
   nmap <silent> <Leader>cx :CocRestart<CR>
   nmap <silent> <Leader>cd <Plug>(coc-definition)
-  nmap <silent> <leader>cp :CocCommand prettier.formatFile<cr>
   nmap <silent> <leader>cr <Plug>(coc-references)
   nmap <silent> <leader>cR <Plug>(coc-refactor)
   nmap <silent> <leader>cn <Plug>(coc-rename)
