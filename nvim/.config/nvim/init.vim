@@ -35,7 +35,6 @@ Plug 'w0rp/ale' " Linting
 
 " Completion / Snippets
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'honza/vim-snippets'
 
 " Status line
 Plug 'nvim-lualine/lualine.nvim'
