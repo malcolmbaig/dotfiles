@@ -4,11 +4,9 @@
   "solargraph.useBundler": true,
   "suggest.noselect": true,
   "suggest.removeDuplicateItems": true,
-
   "snippets.extends": {
-    "ruby": ["rails"]
+    "ruby": [
+      "rails"
+    ]
   },
-
-  "coc.preferences.formatOnSaveFiletypes": ["*"],
-  "prettier.trailingComma": "none"
 }
