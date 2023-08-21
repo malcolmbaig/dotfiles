@@ -24,6 +24,7 @@ require 'lualine' .setup {
       {
         'tabs',
         mode = 1 ,
+        max_length = vim.o.columns,
         fmt = function(name, context)
           -- Show + if buffer is modified in tab
           local buflist = vim.fn.tabpagebuflist(context.tabnr)
