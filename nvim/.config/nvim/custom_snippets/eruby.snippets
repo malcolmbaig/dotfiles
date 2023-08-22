@@ -1,0 +1,23 @@
+snippet % "<% $0 %>" i
+<% $0 %>
+endsnippet
+endsnippet
+
+snippet = "<%= $0 %>" i
+<%= $0 %>
+`!p textmate_var('TM_RAILS_TEMPLATE_START_RUBY_EXPR', snip)`$0`!p textmate_var('TM_RAILS_TEMPLATE_END_RUBY_EXPR', snip)`
+endsnippet
+
+snippet if "if (ERB)"
+<% if ${1:condition} %>$0
+endsnippet
+
+snippet else "else (ERB)"
+<% else %>
+	$0
+endsnippet
+
+snippet end "end (ERB)"
+<% end %>
+$0
+endsnippet

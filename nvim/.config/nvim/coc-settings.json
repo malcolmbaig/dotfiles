@@ -9,4 +9,5 @@
       "rails"
     ]
   },
+  "snippets.userSnippetsDirectory": "~/.config/nvim/custom_snippets"
 }

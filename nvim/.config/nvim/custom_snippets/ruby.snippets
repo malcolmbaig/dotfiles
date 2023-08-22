@@ -1,0 +1,69 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+global !p
+
+def write_instance_vars(arglist, snip):
+	args = str(arglist).split(',')
+	for arg in args:
+		name = arg.strip().replace(':', ' ').split(' ', 1)[0]
+		if name:
+			snip += '  @{} = {}'.format(name, name)
+		else:
+			snip += ''
+
+endglobal
+
+snippet "\b(de)?f" "def <name>..." r
+def ${1:function_name}${2:(${3:*args})}
+	$0
+end
+endsnippet
+
+snippet defi "def initialize ..."
+def initialize($1)`!p write_instance_vars(t[1],snip)`$0
+end
+endsnippet
+
+snippet class "class <class_name> def initialize ... end end"
+class ${1:`!p snip.rv = snip.basename.title().replace('_', '')`}
+	def initialize(${2:*args})
+		$0
+	end
+end
+endsnippet
+
+# RSpec
+snippet desc
+describe "${1:subject}" do
+  $0
+end
+endsnippet
+
+snippet it
+it "${1:spec_name}" do
+	${0}
+end
+endsnippet
