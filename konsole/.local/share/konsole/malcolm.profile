@@ -1,5 +1,5 @@
 [Appearance]
-ColorScheme=nord
+ColorScheme=Catppuccin-Macchiato
 Font=Iosevka Fixed,10,-1,5,57,0,0,0,0,0,Medium
 UseFontLineChararacters=false
 
