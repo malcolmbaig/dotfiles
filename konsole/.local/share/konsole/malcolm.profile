@@ -10,10 +10,14 @@ CustomCursorTextColor=122,71,0
 UseCustomCursorColor=true
 
 [General]
+DimWhenInactive=true
 Name=malcolm
 Parent=FALLBACK/
+TerminalCenter=true
+TerminalMargin=10
 
 [Scrolling]
+HighlightScrolledLines=false
 ScrollBarPosition=2
 
 [Terminal Features]
