@@ -381,8 +381,8 @@ else
 endif
 
 " Cursor setup
-set guicursor+=n:hor10-blinkon0 " Horizontal cursor in normal mode
-set cursorcolumn " Display highlighted column at cursor
+" set guicursor+=n:hor10-blinkon0 " Horizontal cursor in normal mode
+" set cursorcolumn " Display highlighted column at cursor
 set cursorline " Display highlight line at cursor
 au VimLeave * set guicursor=a:block-blinkon1 " Switch to block cursor when leaving vim
 
