@@ -35,6 +35,12 @@ Plug 'w0rp/ale' " Linting
 " Completion / Snippets
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" ChatGPT
+Plug 'jackMort/ChatGPT.nvim', { 'branch': 'main' }
+Plug 'MunifTanjim/nui.nvim', { 'branch': 'main' }
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 " Status line
 Plug 'nvim-lualine/lualine.nvim'
 
@@ -174,6 +180,10 @@ if s:has_plugin('bullets.vim')
       \ 'text',
       \ 'gitcommit',
       \]
+endif
+
+if s:has_plugin('ChatGPT.nvim')
+  lua require("chatgpt-custom")
 endif
 
 if s:has_plugin('coc.nvim')
