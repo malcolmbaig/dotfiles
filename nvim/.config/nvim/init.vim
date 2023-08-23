@@ -24,7 +24,6 @@ Plug 'Valloric/MatchTagAlways' " Match HTML tags
 Plug 'airblade/vim-localorie' " Expand keys in yaml files
 Plug 'airblade/vim-matchquote' " Match quotes
 Plug 'dkarter/bullets.vim' " Better bullet points
-Plug 'henrik/vim-qargs' " Qdo command for search/replace in quickfix list
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'} " Distraction-free writing mode
 Plug 'ludovicchabant/vim-gutentags' " Generate ctags automatically
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'} " GUI for the undo tree
@@ -497,8 +496,8 @@ noremap <silent> <leader>t :tabnew<CR>
 " Close all other tabs
 noremap <leader>o :tabonly<cr>
 
-" Replace within Quickfix with Qdo
-noremap <leader>r :Qdo %s/
+" Replace within Quickfix with cdo
+noremap <leader>r :cdo s/
 
 " Switch to a distraction-free writing mode
 noremap <leader>G :Goyo 100<CR>
