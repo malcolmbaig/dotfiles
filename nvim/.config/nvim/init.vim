@@ -414,7 +414,7 @@ augroup END
 
 " Function to preview markdown in an app
 function! s:setupMarkdownPreview()
-  nnoremap <leader>mp :silent !marktext '%:p'<cr>
+  nnoremap <leader>mp :silent !okular '%:p'<cr>
 endfunction
 
 " Markdown
