@@ -163,7 +163,6 @@ if s:has_plugin('ale')
   let g:ale_lint_on_text_changed = 'always'
   nmap <silent> <C-k> <Plug>(ale_previous_wrap)
   nmap <silent> <C-j> <Plug>(ale_next_wrap)
-  nmap <silent> <leader>f <Plug>(ale_fix)
   let g:ale_ruby_rubocop_executable = 'bundle'
   let g:ale_linters = { 'ruby': ['rubocop'] }
   let g:ale_fixers = { 'ruby': ['rubocop'] }
@@ -179,12 +178,6 @@ endif
 
 if s:has_plugin('coc.nvim')
   let g:coc_global_extensions = ['coc-solargraph', 'coc-snippets']
-
-  nmap <silent> <Leader>cx :CocRestart<CR>
-  nmap <silent> <Leader>cd <Plug>(coc-definition)
-  nmap <silent> <leader>cr <Plug>(coc-references)
-  nmap <silent> <leader>cR <Plug>(coc-refactor)
-  nmap <silent> <leader>cn <Plug>(coc-rename)
 
   " Snippets
   " Use <C-l> to expand snippet
@@ -280,11 +273,6 @@ if s:has_plugin('fzf.vim')
     \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
   nnoremap <c-p> :FZF<cr>
-  nnoremap <leader>zb :Buffers<cr>
-  nnoremap <leader>zl :BLines<cr>
-  nnoremap <leader>zh :History:<cr>
-  nnoremap <leader>zc :Commits<cr>
-
   let g:fzf_colors =
   \ { 'fg':      ['fg', 'Normal'],
     \ 'bg':      ['bg', 'Normal'],
@@ -310,7 +298,6 @@ endif
 
 if s:has_plugin('lualine.nvim')
   lua require 'lualine-custom'
-  nmap <silent> <leader>llr :LualineRenameTab<Space>
 endif
 
 if s:has_plugin('vim-closetag')
@@ -477,34 +464,33 @@ tnoremap <Esc> <C-\><C-n>
 " Splits
 noremap <leader>- :<C-u>split<CR>
 noremap <leader><bar> :<C-u>vsplit<CR>
-
 " Set working directory
 noremap <leader>. :lcd %:p:h<CR>
-
-" MatchTagAlways jump shortcut
-noremap <leader>% :MtaJumpToOtherTag<cr>
-
 " Opens an edit command with the path of the currently edited file filled in
 noremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
 " Clear search highlight
 noremap <silent> <leader>l :noh<cr>
-
 " Open new tab
 noremap <silent> <leader>t :tabnew<CR>
-
 " Close all other tabs
 noremap <leader>o :tabonly<cr>
-
 " Replace within Quickfix with cdo
 noremap <leader>r :cdo s/
-
-" Switch to a distraction-free writing mode
-noremap <leader>G :Goyo 100<CR>
-
 " Insert newline below or above
 noremap <leader>j o<Esc>
 noremap <leader>k O<Esc>
+
+" ale - run fixer
+nmap <silent> <leader>f <Plug>(ale_fix)
+
+" goyo - switch to distraction-free writing mode
+noremap <leader>G :Goyo 100<CR>
+
+" lualine - rename tab
+nmap <silent> <leader>llr :LualineRenameTab<Space>
+
+" MatchTagAlways jump shortcut
+noremap <leader>% :MtaJumpToOtherTag<cr>
 
 " -------------------------------
 " Leader Key - multiple character
@@ -512,33 +498,43 @@ noremap <leader>k O<Esc>
 
 " Copy name of current file
 noremap <leader>yf :let @+=expand("%")<CR>
-
-" Git
-noremap <leader>gl :Git log<CR>
-noremap <leader>gb :Git blame<CR>
-noremap <leader>gc :Git commit<CR>
-noremap <leader>gs :Git<CR>
-noremap <leader>go :GBrowse<CR>
-
 " Line number toggles
 noremap <leader>ln :set nu!<CR>
 noremap <leader>lr :set relativenumber!<CR>
-
 " Ruby - add a binding.pry at the cursor
 noremap <leader>rb obinding.pry<CR><Esc>
 " Ruby - Capybara - add a save_and_open_page at the cursor
 noremap <leader>rso osave_and_open_page<CR><Esc>
 " Expand yml key under cursor and add it to clipboard
 nnoremap <silent> <leader>rye :let @+=localorie#expand_key()<CR>
+" Quickfix
+noremap <leader>qf :copen<CR>
 
-" Invoke vim-rspec runner
+" coc
+nmap <silent> <Leader>cx :CocRestart<CR>
+nmap <silent> <Leader>cd <Plug>(coc-definition)
+nmap <silent> <leader>cr <Plug>(coc-references)
+nmap <silent> <leader>cR <Plug>(coc-refactor)
+nmap <silent> <leader>cn <Plug>(coc-rename)
+
+" fugitive
+noremap <leader>gl :Git log<CR>
+noremap <leader>gb :Git blame<CR>
+noremap <leader>gc :Git commit<CR>
+noremap <leader>gs :Git<CR>
+noremap <leader>go :GBrowse<CR>
+
+" fzf
+nnoremap <leader>zb :Buffers<cr>
+nnoremap <leader>zl :BLines<cr>
+nnoremap <leader>zh :History:<cr>
+nnoremap <leader>zc :Commits<cr>
+
+" vim-rspec mappings
 noremap <leader>sa :call RunAllSpecs()<CR>
 noremap <leader>sc :call RunCurrentSpecFile()<CR>
 noremap <leader>sl :call RunLastSpec()<CR>
 noremap <leader>sn :call RunNearestSpec()<CR>
-
-" Quickfix
-noremap <leader>qf :copen<CR>
 
 " -----------------
 " Disabled mappings
