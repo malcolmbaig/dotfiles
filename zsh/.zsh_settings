@@ -2,9 +2,6 @@
 # ZSH Settings
 #******************************************************************************
 
-# Asdf version manager
-. /opt/asdf-vm/asdf.sh
-
 # BAT
 export BAT_THEME=Nord
 
@@ -23,7 +20,6 @@ export GREP_COLORS='mt=30;42'
 # Path updates
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
 
 
 # Prompt settings
@@ -40,3 +36,5 @@ sshl() {
   eval $(ssh-agent)
   ssh-add ~/.ssh/github < /dev/null
 }
+
+. /opt/asdf-vm/asdf.sh
