@@ -520,6 +520,9 @@ nnoremap <silent> <leader>rye :let @+=localorie#expand_key()<CR>
 " Quickfix
 noremap <leader>qf :copen<CR>
 
+" ChatGPT
+nnoremap <leader>cc :ChatGPT<cr>
+
 " coc
 nmap <silent> <Leader>lx :CocRestart<CR>
 nmap <silent> <Leader>ld <Plug>(coc-definition)
