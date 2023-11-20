@@ -521,11 +521,11 @@ nnoremap <silent> <leader>rye :let @+=localorie#expand_key()<CR>
 noremap <leader>qf :copen<CR>
 
 " coc
-nmap <silent> <Leader>cx :CocRestart<CR>
-nmap <silent> <Leader>cd <Plug>(coc-definition)
-nmap <silent> <leader>cr <Plug>(coc-references)
-nmap <silent> <leader>cR <Plug>(coc-refactor)
-nmap <silent> <leader>cn <Plug>(coc-rename)
+nmap <silent> <Leader>lx :CocRestart<CR>
+nmap <silent> <Leader>ld <Plug>(coc-definition)
+nmap <silent> <leader>lr <Plug>(coc-references)
+nmap <silent> <leader>lR <Plug>(coc-refactor)
+nmap <silent> <leader>ln <Plug>(coc-rename)
 
 " fugitive
 noremap <leader>gl :Git log<CR>
