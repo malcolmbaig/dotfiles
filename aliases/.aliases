@@ -77,3 +77,6 @@ alias tailf='tail -f'
 alias tailn='tail -n'
 alias wttr="curl -4 http://wttr\.in/london"
 alias xargs='xargs '
+
+# K8s
+alias k=kubectl
