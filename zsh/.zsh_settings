@@ -2,6 +2,20 @@
 # ZSH Settings
 #******************************************************************************
 
+# Autocompletion / history setup
+autoload -U compinit
+compinit
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+HISTFILE=$HOME/.zhistory
+SAVEHIST=1000
+HISTSIZE=999
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt EXTENDED_HISTORY
+# autocompletion using arrow keys
+bindkey '\e[A' history-search-backward
+bindkey '\e[B' history-search-forward
+
 # BAT
 export BAT_THEME=Nord
 
