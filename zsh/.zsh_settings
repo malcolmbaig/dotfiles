@@ -17,17 +17,6 @@ export BUNDLER_EDITOR='nvim'
 export GREP_COLOR='30;42'
 export GREP_COLORS='mt=30;42'
 
-# Path updates
-export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-
-
-# Prompt settings
-PS1='%F{${PWD_COLOR}}%~%f${(e)git_info[prompt]}
-%(!.#.☾) '
-export PWD_COLOR=008
-export BRANCH_COLOR=039
-
 # Ripgrep
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
