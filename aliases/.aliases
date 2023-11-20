@@ -58,6 +58,7 @@ alias tl='tmux ls'
 alias tn='tmux new -s '
 alias ta='tmux a -t '
 alias tk='tmux kill-session -t '
+alias tL='tmuxp load "$(tmuxp ls | fzf)"'
 
 # RUBY/RAILS
 alias be='bundle exec'
