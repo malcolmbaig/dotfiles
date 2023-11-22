@@ -1,92 +1,96 @@
-color "---"			blue	default
-color "diff --"			yellow	default
-color "--- "			yellow	default
-color "+++ "			yellow	default
-color "@@"			magenta	default
-color "+"			green	default
-color " +"			green	default
-color "-"			red	default
-color " -"			red	default
-color "index "			blue	default
-color "old file mode "		yellow	default
-color "new file mode "		yellow	default
-color "deleted file mode "	yellow	default
-color "copy from "		yellow	default
-color "copy to "		yellow	default
-color "rename from "		yellow	default
-color "rename to "		yellow	default
-color "similarity "		yellow	default
-color "dissimilarity "		yellow	default
-color "diff-tree "		blue	default
-color "Author: "		cyan	default
-color "Commit: "		magenta	default
-color "Tagger: "		magenta	default
-color "Merge: "			blue	default
-color "Date: "			yellow	default
-color "AuthorDate: "		yellow	default
-color "CommitDate: "		yellow	default
-color "TaggerDate: "		yellow	default
-color "Refs: "			red	default
-color "Reflog: "		red	default
-color "Reflog message: "	yellow	default
-color "stash@{"			magenta	default
-color "commit "			green	default
-color "parent "			blue	default
-color "tree "			blue	default
-color "author "			green	default
-color "committer "		magenta	default
-color "    Signed-off-by"	yellow	default
-color "    Acked-by"		yellow	default
-color "    Tested-by"		yellow	default
-color "    Reviewed-by"		yellow	default
-color default			default	default	normal
-color cursor			white	8	bold
-color status			green	default
-color delimiter			magenta	default
-color date			blue	default
-color mode			cyan	default
-color id			magenta	default
-color overflow			red	default
-color header			yellow	default
-color section			blue	default
-color directory			yellow	default
-color file			default	default
-color grep.file			blue	default
-color file-size			default	default
-color line-number		cyan	default
-color title-blur		white	black
-color title-focus		white	black
-color main-commit		default	default
-color main-annotated		default	default	bold
-color main-tag			magenta	default	bold
-color main-local-tag		magenta	default
-color main-remote		yellow	default
-color main-replace		cyan	default
-color main-tracked		yellow	default	bold
-color main-ref			cyan	default
-color main-head			cyan	default	bold
-color stat-none			default	default
-color stat-staged		green	default
-color stat-unstaged		red	default
-color stat-untracked		white	default
-color help-group		blue	default
-color help-action		yellow	default
-color diff-stat			blue	default
-color diff-add-highlight	green	default	standout
-color diff-del-highlight	red	default	standout
-color palette-0			magenta	default
-color palette-1			yellow	default
-color palette-2			cyan	default
-color palette-3			green	default
-color palette-4			default	default
-color palette-5			white	default
-color palette-6			red	default
-color palette-7			magenta	default	bold
-color palette-8			yellow	default	bold
-color palette-9			cyan	default	bold
-color palette-10		green	default	bold
-color palette-11		default	default	bold
-color palette-12		white	default	bold
-color palette-13		red	default	bold
-color graph-commit		blue	default
-color search-result		black	yellow
+# General colors
+color default                       246         235
+color cursor                        223         236
+color status                        default     default
+color title-focus                   default     default
+color title-blur                    default     default
+color delimiter                     245         default
+color header                        66          default         bold
+color section                       172         default
+color line-number                   241         default
+color id                            124         default
+color date                          172         default
+color author                        109         default
+color mode                          166         default
+color overflow                      241         default
+color directory                     106         default         bold
+color file                          223         default
+color file-size                     default     default
+color grep.file                     166         default
+
+# Main view colors
+color main.cursor                   223            236
+color graph-commit                  166         default
+color main-head                     166         default         bold
+color main-remote                   172         default
+color main-tracked                  132         default
+color main-tag                      223         default
+color main-local-tag                106         default
+color main-ref                      72          default
+
+# Status view colors
+color status.header                 172         236             bold
+color status.section                214         default
+color stat-staged                   106         default
+color stat-unstaged                 124         default
+color stat-untracked                166         default
+color stat-none                     default     default
+
+# Help view colors
+color help.header                   241         default         bold
+color help.section                  166         default
+color help.cursor                   72          236
+color help-group                    166         default
+color help-action                   166         default
+
+# Diff view colors
+color "commit "                     default     default
+color "Refs: "                      default     default
+color "Author: "                    default     default
+color "AuthorDate: "                default     default
+color "Commit: "                    106         default
+color "CommitDate: "                66          default
+color "Merge: "                     default     default
+color "---"                         167         default
+color "+++ "                        142         default
+color "--- "                        167         default
+color diff-index                    default     default
+color diff-stat                     223         default
+color diff-add                      142         default
+color diff-add-highlight            106         default
+color diff-del                      167         default
+color diff-del-highlight            223         default
+color diff-header                   132         default
+color diff-chunk                    109         default
+color "diff-tree "                  214         default
+color "TaggerDate: "                default     default
+
+# Log view colors
+color "Date: "                      72          default
+
+# Signature colors
+color "gpg: "                       72          default
+color "Primary key fingerprint: "   72          default
+
+# grep view
+color grep.file			        	208     	default         bold
+color grep.line-number		        241     	default         bold
+color grep.delimiter		        241	        default         bold
+color delimiter			            142     	default         bold
+
+# lines in digraph
+color palette-0		            	166     	default         bold
+color palette-1		            	66	        default         bold
+color palette-2		            	172	        default         bold
+color palette-3		            	132	        default         bold
+color palette-4		            	72	        default         bold
+color palette-5		            	106	        default         bold
+color palette-6		            	124	        default         bold
+color palette-7		            	250	        default         bold
+# repeat
+color palette-8		            	166	        default
+color palette-9		            	66	        default
+color palette-10	            	172	        default
+color palette-11	            	132	        default
+color palette-12	            	72	        default
+color palette-13	            	106	        default
