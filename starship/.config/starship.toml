@@ -1,5 +1,5 @@
 format = """
-$directory$git_branch
+$directory$git_branch$time
 $git_status$character
 """
 add_newline = true
@@ -221,3 +221,8 @@ symbol = "terraform "
 
 [zig]
 symbol = "zig "
+
+[time]
+disabled = false
+format = '[\[ $time \]]($style) '
+time_format = '%T'
