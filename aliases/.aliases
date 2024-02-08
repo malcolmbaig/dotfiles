@@ -46,8 +46,8 @@ alias gri='git rebase --interactive'
 alias grs='git rebase --skip'
 alias grm='gsw main && gp && gsw - && gri main'
 
-# TIG
-alias ts='tig status'
+# LAZYGIT
+alias lg='lazygit'
 
 # TMUX
 alias t='tmux'
