@@ -16,6 +16,9 @@ setopt EXTENDED_HISTORY
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 
+# Auto cd
+setopt autocd
+
 # BAT
 export BAT_THEME=Nord
 
