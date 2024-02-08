@@ -1,3 +1,5 @@
+# Source: https://github.com/honza/vim-snippets/blob/master/UltiSnips/ruby.snippets
+
 # A valid snippet should starts with:
 #
 #		snippet trigger_word [ "description" [ options ] ]
@@ -23,6 +25,7 @@
 #		endsnippet
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
 global !p
 
 def write_instance_vars(arglist, snip):
@@ -52,6 +55,12 @@ class ${1:`!p snip.rv = snip.basename.title().replace('_', '')`}
 	def initialize(${2:*args})
 		$0
 	end
+end
+endsnippet
+
+snippet module "module"
+module ${1:`!p snip.rv = snip.basename.title().replace('_', '')`}
+	$0
 end
 endsnippet
 
