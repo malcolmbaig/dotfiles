@@ -1,15 +1,13 @@
-pamac install yay
-
 yay asdf
-yay bat
+yay ctags
 yay dropbox
 yay fzf
 yay git-delta
+yay lazygit
 yay iosevka-fixed
 yay neovim
 yay ripgrep
 yay stow
-yay tig
 yay tmux
 yay xsel
 
