@@ -2,25 +2,23 @@
 # ZSH Settings
 #******************************************************************************
 
-# Autocompletion / history setup
-autoload -U compinit
+## COPIED FROM .zshrc
+# The following lines were added by compinstall
+zstyle ':completion:*' completer _complete _ignored _correct
+zstyle :compinstall filename '/home/malcolm/.zshrc'
+
+autoload -Uz compinit
 compinit
-setopt APPEND_HISTORY
-setopt SHARE_HISTORY
-HISTFILE=$HOME/.zhistory
+# End of lines added by compinstall
+
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
 SAVEHIST=1000
-HISTSIZE=999
-setopt HIST_EXPIRE_DUPS_FIRST
-setopt EXTENDED_HISTORY
-# autocompletion using arrow keys
-bindkey '\e[A' history-search-backward
-bindkey '\e[B' history-search-forward
-
-# Auto cd
-setopt autocd
-
-# BAT
-export BAT_THEME=Nord
+setopt autocd extendedglob
+bindkey -e
+# End of lines configured by zsh-newuser-install
+## END OF LINES COPIED FROM .zshrc
 
 # Editor
 export EDITOR='nvim'
