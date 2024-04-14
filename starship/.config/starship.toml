@@ -1,5 +1,5 @@
 format = """
-$directory$git_branch$time
+$directory$git_branch$time$hostname
 $git_status$character
 """
 add_newline = true
@@ -91,6 +91,12 @@ symbol = "guix "
 
 [hg_branch]
 symbol = "hg "
+
+[hostname]
+ssh_only = false
+format = '[$hostname](bold red) '
+trim_at = ''
+disabled = false
 
 [java]
 symbol = "java "
