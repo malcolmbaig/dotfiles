@@ -43,4 +43,9 @@ sshl() {
   ssh-add ~/.ssh/github < /dev/null
 }
 
-. /opt/asdf-vm/asdf.sh
+# ASDF Version Manager
+[ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
+
+# Starship prompt
+eval "$(starship init zsh)"
+
