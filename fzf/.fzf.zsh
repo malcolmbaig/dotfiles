@@ -1,4 +1,4 @@
-source /usr/share/fzf/key-bindings.zsh
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 
 export FZF_DEFAULT_COMMAND='rg --files'
 
