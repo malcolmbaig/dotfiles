@@ -7,7 +7,7 @@ alias m='nvim'
 # DIRECTORY SHORTCUTS
 alias code='cd ~/code'
 alias dots='cd ~/dotfiles'
-alias db='cd ~/Dropbox/'
+alias drop='cd ~/Dropbox/'
 
 # GIT
 alias g='git'
@@ -75,5 +75,6 @@ alias tailn='tail -n'
 alias wttr="curl -4 http://wttr\.in/london"
 alias xargs='xargs '
 
-# K8s
+# Containers
+alias db=distrobox
 alias k=kubectl
