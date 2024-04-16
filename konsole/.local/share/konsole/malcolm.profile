@@ -1,6 +1,6 @@
 [Appearance]
 ColorScheme=Catppuccin-Macchiato
-Font=Iosevka Fixed,10,-1,5,57,0,0,0,0,0,Medium
+Font=Iosevka Fixed,11,-1,5,57,0,0,0,0,0,Medium
 UseFontLineChararacters=false
 
 [Cursor Options]
