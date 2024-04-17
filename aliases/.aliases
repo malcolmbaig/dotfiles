@@ -49,6 +49,9 @@ alias grm='gsw main && gp && gsw - && gri main'
 # LAZYGIT
 alias lg='lazygit'
 
+# PARU
+alias paru='paru --bottomup'
+
 # TMUX
 alias t='tmux'
 alias tl='tmux ls'
