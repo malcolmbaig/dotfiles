@@ -19,3 +19,4 @@ paru neovim
 paru ripgrep
 paru starship
 paru tmux
+paru tmuxp
