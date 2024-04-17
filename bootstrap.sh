@@ -1,16 +1,21 @@
-yay asdf
-yay ctags
-yay dropbox
-yay fzf
-yay git-delta
-yay lazygit
-yay iosevka-fixed
-yay neovim
-yay ripgrep
-yay stow
-yay tmux
-yay xsel
+#! /usr/bin/sh
 
+# Install paru https://github.com/Morganamilo/paru
+
+paru stow
 cd ~/dotfiles
-stow aliases asdf ctags fzf git konsole nvim ripgrep tig tmux zsh
+stow aliases asdf ctags fzf git konsole nvim ripgrep starship tmux zsh
+source ~/.aliases
 
+paru asdf
+paru bat
+paru ctags
+paru dropbox
+paru fzf
+paru git-delta
+paru github
+paru lazygit
+paru neovim
+paru ripgrep
+paru starship
+paru tmux
