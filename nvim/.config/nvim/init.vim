@@ -131,9 +131,7 @@ set spellfile=~/.config/nvim/spell/en.utf-8.add
 set nomodeline
 
  " Copy/Paste/Cut
-if (executable('pbcopy') || executable('xclip') || executable('xsel')) && has('clipboard')
-  set clipboard+=unnamed,unnamedplus
-endif
+set clipboard+=unnamed,unnamedplus
 
 " Tabs and spaces
 set tabstop=2
