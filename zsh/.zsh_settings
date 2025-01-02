@@ -2,23 +2,37 @@
 # ZSH Settings
 #******************************************************************************
 
-## COPIED FROM .zshrc
 # The following lines were added by compinstall
-zstyle ':completion:*' completer _complete _ignored _correct
-zstyle :compinstall filename '/home/malcolm/.zshrc'
+zstyle ':completion:*' completer _complete _ignored _approximate
+zstyle :compinstall filename '/Users/malcolm/.zshrc'
 
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
+# END of lines added by compinstall
 
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-setopt autocd extendedglob
-bindkey -e
-# End of lines configured by zsh-newuser-install
-## END OF LINES COPIED FROM .zshrc
+HISTFILE=~/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=$HISTSIZE
+setopt autocd
+bindkey -v
+# END of lines configured by zsh-newuser-install
+
+# History
+setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
+setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
+setopt HIST_FIND_NO_DUPS         # Do not display a previously found event.
+setopt HIST_IGNORE_ALL_DUPS      # Delete an old recorded event if a new event is a duplicate.
+setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded again.
+setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
+setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
+setopt SHARE_HISTORY             # Share history between all sessions.
+# END History
+
+# Directory stack
+setopt AUTO_PUSHD           # Push the current directory visited on the stack.
+setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
+setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
 
 # Editor
 export EDITOR='nvim'
@@ -26,7 +40,9 @@ export VISUAL='nvim'
 export BUNDLER_EDITOR='nvim'
 
 # FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if command -v fzf &>/dev/null; then
+  source <(fzf --zsh)
+fi
 
 # Grep
 export GREP_COLOR='30;42'
@@ -35,15 +51,27 @@ export GREP_COLORS='mt=30;42'
 # Ripgrep
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
-# SSH
-sshl() {
-  eval $(ssh-agent)
-  ssh-add ~/.ssh/github < /dev/null
-}
-
-# ASDF Version Manager
-[ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
 
 # Starship prompt
-eval "$(starship init zsh)"
+if command -v starship &>/dev/null; then
+  eval "$(starship init zsh)"
+fi
 
+case "$(uname)" in
+  Linux)
+    # Add any Linux-specific configurations
+
+    # ASDF Version Manager
+    if command -v asdf &>/dev/null; then
+      [ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
+    fi
+    ;;
+  Darwin)
+    # Add any macOS-specific configurations
+
+    # ASDF Version Manager
+    if command -v asdf &>/dev/null; then
+      . $(brew --prefix asdf)/libexec/asdf.sh
+    fi
+    ;;
+esac
