@@ -11,7 +11,8 @@ call plug#begin(g:plugin_path)
 "*****************************************************************************
 
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' } " File navigation
-Plug 'junegunn/fzf.vim' " Fuzzy search
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy search
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary' " Convenient mappings for commenting stuff out
 Plug 'tpope/vim-endwise' " Automatically insert ends
 Plug 'tpope/vim-fugitive' " Git integration
@@ -274,29 +275,9 @@ if s:has_plugin('defx.nvim')
 endif
 
 if s:has_plugin('fzf.vim')
-  let g:fzf_height = '40%'
-  let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
-
   autocmd! FileType fzf set laststatus=0 noshowmode noruler
     \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-
-  nnoremap <c-p> :FZF<cr>
-  let g:fzf_colors =
-  \ { 'fg':      ['fg', 'Normal'],
-    \ 'bg':      ['bg', 'Normal'],
-    \ 'hl':      ['fg', 'Boolean'],
-    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-    \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-    \ 'hl+':     ['fg', 'Statement'],
-    \ 'info':    ['fg', 'PreProc'],
-    \ 'border':  ['fg', 'Ignore'],
-    \ 'prompt':  ['fg', 'Conditional'],
-    \ 'pointer': ['fg', 'Exception'],
-    \ 'marker':  ['fg', 'Keyword'],
-    \ 'spinner': ['fg', 'Label'],
-    \ 'header':  ['fg', 'Comment'] }
-
-  let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.5, 'highlight': 'Comment' } }
+  nnoremap <c-p> :Files<cr>
 endif
 
 if s:has_plugin('hop.nvim')
