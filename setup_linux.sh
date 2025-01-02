@@ -5,7 +5,6 @@
 paru stow
 cd ~/dotfiles
 stow aliases asdf ctags fzf git konsole nvim ripgrep starship tmux zsh
-source ~/.aliases
 
 paru asdf
 paru bat
