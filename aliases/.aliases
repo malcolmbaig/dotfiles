@@ -67,7 +67,11 @@ alias prspec='bundle exec parallel_rspec'
 # CLI
 alias d='dirs -v'
 alias k9='kill -9'
-alias ls='ls -AFGhl --color --time-style=long-iso --group-directories-first'
+if command -v gls &>/dev/null; then
+    alias ls='gls -AFGhl --color --time-style=long-iso --group-directories-first'
+else
+    alias ls='ls -AFGhl --color --time-style=long-iso --group-directories-first'
+fi
 alias ll='eza --long --header --icons -a --group-directories-first'
 alias psg='ps -ef --forest | grep '
 alias sc='systemctl'
