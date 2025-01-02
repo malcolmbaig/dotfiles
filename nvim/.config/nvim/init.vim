@@ -25,22 +25,11 @@ Plug 'Valloric/MatchTagAlways' " Match HTML tags
 Plug 'airblade/vim-localorie' " Expand keys in yaml files
 Plug 'airblade/vim-matchquote' " Match quotes
 Plug 'dkarter/bullets.vim' " Better bullet points
-Plug 'junegunn/goyo.vim', {'on': 'Goyo'} " Distraction-free writing mode
-Plug 'ludovicchabant/vim-gutentags' " Generate ctags automatically
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'} " GUI for the undo tree
 Plug 'mhinz/vim-startify' " Better start screen
 Plug 'phaazon/hop.nvim' "Easy movement around text
 Plug 'sheerun/vim-polyglot' " Syntax highlighting
 Plug 'w0rp/ale' " Linting
-
-" Completion / Snippets
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" ChatGPT
-Plug 'jackMort/ChatGPT.nvim', { 'branch': 'main' }
-Plug 'MunifTanjim/nui.nvim', { 'branch': 'main' }
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
 
 " Status line
 Plug 'nvim-lualine/lualine.nvim'
@@ -179,21 +168,6 @@ if s:has_plugin('bullets.vim')
       \ 'text',
       \ 'gitcommit',
       \]
-endif
-
-if s:has_plugin('ChatGPT.nvim')
-  lua require("chatgpt-custom")
-endif
-
-if s:has_plugin('coc.nvim')
-  let g:coc_global_extensions = ['coc-solargraph', 'coc-snippets']
-
-  " Snippets
-  " Use <C-l> to expand snippet
-  imap <C-l> <Plug>(coc-snippets-expand)
-  " Use tab to jump to next placeholder
-  let g:coc_snippet_next = '<tab>'
-  let g:coc_snippet_prev = '<S-Tab>'
 endif
 
 if s:has_plugin('defx.nvim')
@@ -498,16 +472,6 @@ noremap <leader>rso osave_and_open_page<CR><Esc>
 nnoremap <silent> <leader>rye :let @+=localorie#expand_key()<CR>
 " Quickfix
 noremap <leader>qf :copen<CR>
-
-" ChatGPT
-nnoremap <leader>cc :ChatGPT<cr>
-
-" coc
-nmap <silent> <Leader>lx :CocRestart<CR>
-nmap <silent> <Leader>ld <Plug>(coc-definition)
-nmap <silent> <leader>lr <Plug>(coc-references)
-nmap <silent> <leader>lR <Plug>(coc-refactor)
-nmap <silent> <leader>ln <Plug>(coc-rename)
 
 " fugitive
 noremap <leader>gl :Git log<CR>
