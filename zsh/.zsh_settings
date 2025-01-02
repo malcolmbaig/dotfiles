@@ -42,6 +42,7 @@ export BUNDLER_EDITOR='nvim'
 # FZF
 if command -v fzf &>/dev/null; then
   source <(fzf --zsh)
+  source ~/.fzf.zsh
 fi
 
 # Grep
