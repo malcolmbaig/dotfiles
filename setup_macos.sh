@@ -11,6 +11,7 @@ brew install --cask zen-browser
 
 brew install asdf
 brew install bat
+brew install coreutils
 brew install delta
 brew install eza
 brew install fzf
