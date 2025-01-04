@@ -20,6 +20,7 @@ brew install neovim
 brew install ripgrep
 brew install stow
 brew install tmux
+brew install tmuxp
 brew install zsh
 
 cd ~/dotfiles
