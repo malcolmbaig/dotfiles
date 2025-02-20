@@ -5,4 +5,4 @@ tags
 .vim_tags*
 .rgignore
 .pryrc
-.mb_notes
+.mbnotes.md
