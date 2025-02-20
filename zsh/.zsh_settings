@@ -34,6 +34,11 @@ setopt AUTO_PUSHD           # Push the current directory visited on the stack.
 setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
 setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
 
+
+# ASDF Version Manager
+export ASDF_DATA_DIR="$(echo ~)/.asdf"
+export PATH="$ASDF_DATA_DIR/shims:$PATH"
+
 # Editor
 export EDITOR='nvim'
 export VISUAL='nvim'
@@ -62,17 +67,9 @@ case "$(uname)" in
   Linux)
     # Add any Linux-specific configurations
 
-    # ASDF Version Manager
-    if command -v asdf &>/dev/null; then
-      [ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
-    fi
     ;;
   Darwin)
     # Add any macOS-specific configurations
 
-    # ASDF Version Manager
-    if command -v asdf &>/dev/null; then
-      . $(brew --prefix asdf)/libexec/asdf.sh
-    fi
     ;;
 esac
