@@ -29,11 +29,12 @@ if TerminalNeovim()
 	Plug 'tpope/vim-surround' " Mappings to manipulate surrounding characters
 	Plug 'w0rp/ale' " Linting
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' } " File navigation
+  Plug 'ap/vim-css-color' " CSS
+  Plug 'folke/tokyonight.nvim', { 'branch': 'main' } " Color scheme
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy search
   Plug 'junegunn/fzf.vim'
   Plug 'tpope/vim-commentary' " Convenient mappings for commenting stuff out
-  Plug 'folke/tokyonight.nvim', { 'branch': 'main' } " Color scheme
-  Plug 'ap/vim-css-color' " CSS
+  Plug 'nvim-lualine/lualine.nvim' " Status line
 endif
 
 Plug 'tpope/vim-endwise' " Automatically insert ends
@@ -44,7 +45,6 @@ Plug 'airblade/vim-localorie' " Expand keys in yaml files
 Plug 'airblade/vim-matchquote' " Match quotes
 Plug 'dkarter/bullets.vim' " Better bullet points
 Plug 'phaazon/hop.nvim' " Easy movement around text
-Plug 'nvim-lualine/lualine.nvim' " Status line
 Plug 'alvan/vim-closetag' " Close HTML tags
 Plug 'tpope/vim-rails' " Rails functionality
 
