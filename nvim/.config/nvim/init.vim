@@ -46,9 +46,7 @@ Plug 'dkarter/bullets.vim' " Better bullet points
 Plug 'phaazon/hop.nvim' " Easy movement around text
 Plug 'nvim-lualine/lualine.nvim' " Status line
 Plug 'alvan/vim-closetag' " Close HTML tags
-Plug 'keith/rspec.vim' " RSpec syntax highlighting
 Plug 'tpope/vim-rails' " Rails functionality
-Plug 'thoughtbot/vim-rspec' " Spec runner
 
 call plug#end()
 
@@ -280,10 +278,6 @@ if s:has_plugin('vim-polyglot')
   let g:jsx_ext_required = 0
 endif
 
-if s:has_plugin('vim-rspec')
-  let g:rspec_command = "vsplit | term bundle exec rspec {spec}"
-endif
-
 if s:has_plugin('vim-startify')
   let g:startify_custom_header =
         \ 'startify#center(startify#fortune#boxed())'
@@ -497,12 +491,6 @@ if s:has_plugin('fzf')
 	nnoremap <leader>zh :History:<cr>
 	nnoremap <leader>zc :Commits<cr>
 endif
-
-" vim-rspec mappings
-noremap <leader>sa :call RunAllSpecs()<CR>
-noremap <leader>sc :call RunCurrentSpecFile()<CR>
-noremap <leader>sl :call RunLastSpec()<CR>
-noremap <leader>sn :call RunNearestSpec()<CR>
 
 " -----------------
 " Disabled mappings
