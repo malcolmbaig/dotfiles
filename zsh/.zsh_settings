@@ -72,5 +72,11 @@ case "$(uname)" in
   Darwin)
     # Add any macOS-specific configurations
 
+    # Prioritise brew-installed GNU tools
+    PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+    PATH="$HOME/.docker/bin:$PATH"
+
     ;;
 esac
+
+
