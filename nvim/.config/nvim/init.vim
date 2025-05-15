@@ -4,53 +4,51 @@
 
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
 let g:plugin_path = '~/.config/nvim/plugged'
-call plug#begin(g:plugin_path)
 
 "*****************************************************************************
 " Plugins
 "*****************************************************************************
 
-Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' } " File navigation
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy search
-Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-commentary' " Convenient mappings for commenting stuff out
-Plug 'tpope/vim-endwise' " Automatically insert ends
-Plug 'tpope/vim-fugitive' " Git integration
-Plug 'tpope/vim-repeat' " Expand 'repeat last command' functionality
-Plug 'tpope/vim-rhubarb' " Github integration
-Plug 'tpope/vim-surround' " Mappings to manipulate surrounding characters
-Plug 'tpope/vim-unimpaired' " Complementary paired commands using ] and [
+call plug#begin(g:plugin_path)
 
+function! Cond(cond, ...)
+	let opts = get(a:000, 0, {})
+	return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
+endfunction
+
+function! TerminalNeovim()
+	return !exists('g:vscode')
+endfunction
+
+if TerminalNeovim()
+	Plug 'mbbill/undotree', {'on': 'UndotreeToggle'} " GUI for the undo tree
+	Plug 'mhinz/vim-startify' " Better start screen
+	Plug 'sheerun/vim-polyglot' " Syntax highlighting
+	Plug 'tpope/vim-fugitive' " Git integration
+	Plug 'tpope/vim-rhubarb' " Github integration
+	Plug 'tpope/vim-surround' " Mappings to manipulate surrounding characters
+	Plug 'w0rp/ale' " Linting
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' } " File navigation
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy search
+  Plug 'junegunn/fzf.vim'
+  Plug 'tpope/vim-commentary' " Convenient mappings for commenting stuff out
+  Plug 'folke/tokyonight.nvim', { 'branch': 'main' } " Color scheme
+  Plug 'ap/vim-css-color' " CSS
+endif
+
+Plug 'tpope/vim-endwise' " Automatically insert ends
+Plug 'tpope/vim-repeat' " Expand 'repeat last command' functionality
+Plug 'tpope/vim-unimpaired' " Complementary paired commands using ] and [
 Plug 'Valloric/MatchTagAlways' " Match HTML tags
 Plug 'airblade/vim-localorie' " Expand keys in yaml files
 Plug 'airblade/vim-matchquote' " Match quotes
 Plug 'dkarter/bullets.vim' " Better bullet points
-Plug 'mbbill/undotree', {'on': 'UndotreeToggle'} " GUI for the undo tree
-Plug 'mhinz/vim-startify' " Better start screen
-Plug 'phaazon/hop.nvim' "Easy movement around text
-Plug 'sheerun/vim-polyglot' " Syntax highlighting
-Plug 'w0rp/ale' " Linting
-
-" Status line
-Plug 'nvim-lualine/lualine.nvim'
-
-" Color schemes
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-
-"----------------------------
-" Additional Language Support
-"----------------------------
-
-" CSS
-Plug 'ap/vim-css-color'
-
-" HTML
-Plug 'alvan/vim-closetag'
-
-" Ruby
-Plug 'keith/rspec.vim'
-Plug 'tpope/vim-rails'
-Plug 'thoughtbot/vim-rspec'
+Plug 'phaazon/hop.nvim' " Easy movement around text
+Plug 'nvim-lualine/lualine.nvim' " Status line
+Plug 'alvan/vim-closetag' " Close HTML tags
+Plug 'keith/rspec.vim' " RSpec syntax highlighting
+Plug 'tpope/vim-rails' " Rails functionality
+Plug 'thoughtbot/vim-rspec' " Spec runner
 
 call plug#end()
 
@@ -498,4 +496,3 @@ noremap <leader>sn :call RunNearestSpec()<CR>
 
 " Disable Ex mode shortcut
 nnoremap Q <nop>
-
