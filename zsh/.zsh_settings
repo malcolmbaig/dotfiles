@@ -6,6 +6,7 @@
 zstyle ':completion:*' completer _complete _ignored _approximate
 zstyle :compinstall filename '/Users/malcolm/.zshrc'
 
+fpath+=~/.zfunc
 autoload -Uz compinit
 compinit
 # END of lines added by compinstall
