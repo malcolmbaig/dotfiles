@@ -373,11 +373,6 @@ augroup vimrc-whitespace
   autocmd BufWritePre * :%s/\s\+$//e
 augroup END
 
-" Function to preview markdown in an app
-function! s:setupMarkdownPreview()
-  nnoremap <leader>mp :silent !okular '%:p'<cr>
-endfunction
-
 " Markdown
 augroup vimrc-markdown-settings
   autocmd!
@@ -425,24 +420,33 @@ tnoremap <Esc> <C-\><C-n>
 " Splits
 noremap <leader>- :<C-u>split<CR>
 noremap <leader><bar> :<C-u>vsplit<CR>
+
 " Set working directory
 noremap <leader>. :lcd %:p:h<CR>
+
 " Opens an edit command with the path of the currently edited file filled in
 noremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
 " Clear search highlight
 noremap <silent> <leader>l :noh<cr>
+
 " Open new tab
 noremap <silent> <leader>t :tabnew<CR>
+
 " Close all other tabs
 noremap <leader>o :tabonly<cr>
+
 " Replace within Quickfix with cdo
 noremap <leader>r :cdo s/
+
 " Insert newline below or above
 noremap <leader>j o<Esc>
 noremap <leader>k O<Esc>
 
 " ale - run fixer
-nmap <silent> <leader>f <Plug>(ale_fix)
+if s:has_plugin('ale')
+	nmap <silent> <leader>f <Plug>(ale_fix)
+endif
 
 " goyo - switch to distraction-free writing mode
 noremap <leader>G :Goyo 100<CR>
@@ -459,30 +463,40 @@ noremap <leader>% :MtaJumpToOtherTag<cr>
 
 " Copy name of current file
 noremap <leader>yf :let @+=expand("%")<CR>
+
 " Line number toggles
 noremap <leader>ln :set nu!<CR>
 noremap <leader>lr :set relativenumber!<CR>
+
 " Ruby - add a binding.pry at the cursor
 noremap <leader>rb obinding.pry<CR><Esc>
 " Ruby - Capybara - add a save_and_open_page at the cursor
 noremap <leader>rso osave_and_open_page<CR><Esc>
+
 " Expand yml key under cursor and add it to clipboard
-nnoremap <silent> <leader>rye :let @+=localorie#expand_key()<CR>
+if s:has_plugin('localorie')
+	nnoremap <silent> <leader>rye :let @+=localorie#expand_key()<CR>
+endif
+
 " Quickfix
 noremap <leader>qf :copen<CR>
 
 " fugitive
-noremap <leader>gl :Git log<CR>
-noremap <leader>gb :Git blame<CR>
-noremap <leader>gc :Git commit<CR>
-noremap <leader>gs :Git<CR>
-noremap <leader>go :GBrowse<CR>
+if s:has_plugin('fugitive')
+	noremap <leader>gl :Git log<CR>
+	noremap <leader>gb :Git blame<CR>
+	noremap <leader>gc :Git commit<CR>
+	noremap <leader>gs :Git<CR>
+	noremap <leader>go :GBrowse<CR>
+endif
 
 " fzf
-nnoremap <leader>zb :Buffers<cr>
-nnoremap <leader>zl :BLines<cr>
-nnoremap <leader>zh :History:<cr>
-nnoremap <leader>zc :Commits<cr>
+if s:has_plugin('fzf')
+	nnoremap <leader>zb :Buffers<cr>
+	nnoremap <leader>zl :BLines<cr>
+	nnoremap <leader>zh :History:<cr>
+	nnoremap <leader>zc :Commits<cr>
+endif
 
 " vim-rspec mappings
 noremap <leader>sa :call RunAllSpecs()<CR>
