@@ -1,6 +1,7 @@
 [user]
   name = Malcolm Baig
   email = git@baig.org
+  signingkey = 096EFF0BAEDB017D
 [core]
   editor = nvim
   excludesfile = ~/.gitignore-global
@@ -21,3 +22,5 @@
   displaycommentprefix = true
 [pull]
   rebase = false
+[commit]
+  gpgsign = true
