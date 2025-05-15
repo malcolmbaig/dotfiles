@@ -3,6 +3,7 @@
 
 # TEXT EDITORS
 alias m='nvim'
+alias ws='windsurf'
 
 # DIRECTORY SHORTCUTS
 alias code='cd ~/code'
