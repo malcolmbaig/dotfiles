@@ -476,7 +476,7 @@ endif
 noremap <leader>qf :copen<CR>
 
 " fugitive
-if s:has_plugin('fugitive')
+if s:has_plugin('vim-fugitive')
 	noremap <leader>gl :Git log<CR>
 	noremap <leader>gb :Git blame<CR>
 	noremap <leader>gc :Git commit<CR>
