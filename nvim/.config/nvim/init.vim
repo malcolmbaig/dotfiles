@@ -26,7 +26,6 @@ if TerminalNeovim()
 	Plug 'sheerun/vim-polyglot' " Syntax highlighting
 	Plug 'tpope/vim-fugitive' " Git integration
 	Plug 'tpope/vim-rhubarb' " Github integration
-	Plug 'tpope/vim-surround' " Mappings to manipulate surrounding characters
 	Plug 'w0rp/ale' " Linting
   Plug 'ap/vim-css-color' " CSS
   Plug 'folke/tokyonight.nvim', { 'branch': 'main' } " Color scheme
@@ -37,6 +36,7 @@ if TerminalNeovim()
   Plug 'tpope/vim-commentary' " Convenient mappings for commenting stuff out
 endif
 
+Plug 'tpope/vim-surround' " Mappings to manipulate surrounding characters
 Plug 'airblade/vim-localorie' " Expand keys in yaml files
 Plug 'airblade/vim-matchquote' " Match quotes
 Plug 'alvan/vim-closetag' " Close HTML tags
