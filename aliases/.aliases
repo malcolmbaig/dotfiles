@@ -61,6 +61,10 @@ alias ta='tmux a -t '
 alias tk='tmux kill-session -t '
 alias tL='tmuxp load "$(tmuxp ls | fzf)"'
 
+# PYTHON
+alias pt='poetry run pytest'
+alias ptw='poetry run pytest --disable-warnings'
+
 # RUBY/RAILS
 alias be='bundle exec'
 alias prspec='bundle exec parallel_rspec'
