@@ -1,7 +1,12 @@
-command = /opt/homebrew/bin/zsh
-click-repeat-interval = 500
-auto-update-channel = stable
+theme = Gruvbox Dark Hard
 
-theme = catppuccin-macchiato
+font-family = InconsolataNerdFontMono-Regular
 font-size = 14
-window-inherit-font-size = true
+
+macos-titlebar-style = hidden
+macos-non-native-fullscreen = true
+
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = true
+
