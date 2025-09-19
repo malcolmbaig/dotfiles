@@ -10,6 +10,10 @@ alias code='cd ~/code'
 alias dots='cd ~/dotfiles'
 alias drop='cd ~/Dropbox/'
 
+# DOCKER
+alias dex='docker exec -i -t'
+alias dps='docker ps'
+
 # GIT
 alias g='git'
 alias gcl='git clean'
