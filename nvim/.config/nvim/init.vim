@@ -374,7 +374,6 @@ augroup vimrc-markdown-settings
         \ setlocal wrap linebreak nolist textwidth=0 wrapmargin=0 |
         \ setlocal fo+=t spell spelllang=en_gb |
         \ setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2 |
-        \ call s:setupMarkdownPreview() |
         \ setlocal comments+=fb:-,fb:* |
         \ set colorcolumn=
 augroup END
