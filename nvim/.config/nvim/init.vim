@@ -499,3 +499,9 @@ endif
 
 " Disable Ex mode shortcut
 nnoremap Q <nop>
+
+if exists('g:vscode')
+	unmap gq
+	unmap gqq
+endif
+
