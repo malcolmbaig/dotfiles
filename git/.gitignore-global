@@ -1,9 +1,13 @@
 .DS_Store
+.claude/
+.libs/
+.mbnotes.md
+.pryrc
+.rgignore
 .tags
-tags
 .tags_sorted_by_file
 .vim_tags*
-.rgignore
-.pryrc
-.mbnotes.md
 .windsurfrules
+AGENTS.md
+CLAUDE.md
+tags
