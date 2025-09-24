@@ -13,6 +13,7 @@ vimcmd_symbol = "[<](bold green)"
 tag_symbol = " tag "
 
 [git_status]
+style = "red"
 ahead = ">"
 behind = "<"
 diverged = "<>"
@@ -56,6 +57,7 @@ symbol = "deno "
 symbol = ".NET "
 
 [directory]
+style = "004"
 read_only = " 🔒"
 
 [docker_context]
@@ -78,6 +80,7 @@ symbol = "gcp "
 
 [git_branch]
 symbol = "⎇  "
+style = "bright-yellow"
 format = '[$symbol$branch(:$remote_branch)]($style) '
 
 [golang]
@@ -94,7 +97,7 @@ symbol = "hg "
 
 [hostname]
 ssh_only = false
-format = '[$hostname](bold red) '
+format = '[$hostname](007) '
 trim_at = '.'
 disabled = false
 
@@ -230,5 +233,6 @@ symbol = "zig "
 
 [time]
 disabled = false
+style = "007"
 format = '[\[ $time \]]($style) '
 time_format = '%T'
