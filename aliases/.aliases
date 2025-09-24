@@ -66,6 +66,7 @@ alias tk='tmux kill-session -t '
 alias tL='tmuxp load "$(tmuxp ls | fzf)"'
 
 # PYTHON
+alias prp='poetry run python'
 alias pt='poetry run pytest'
 alias ptd='PWDEBUG=1 poetry run pytest'
 alias ptw='poetry run pytest --disable-warnings'
