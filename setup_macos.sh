@@ -12,12 +12,14 @@ brew install --cask zen-browser
 brew install asdf
 brew install bat
 brew install coreutils
+brew install ctags
 brew install delta
 brew install eza
 brew install fzf
 brew install lazygit
 brew install neovim
 brew install ripgrep
+brew install starship
 brew install stow
 brew install tmux
 brew install tmuxp
