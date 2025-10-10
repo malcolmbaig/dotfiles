@@ -67,6 +67,7 @@ alias tL='tmuxp load "$(tmuxp ls | fzf)"'
 
 # PYTHON
 alias prp='poetry run python'
+alias prm='poetry run python manage.py'
 alias pt='poetry run pytest'
 alias ptd='PWDEBUG=1 poetry run pytest'
 alias ptw='poetry run pytest --disable-warnings'
