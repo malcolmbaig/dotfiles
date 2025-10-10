@@ -1,0 +1,53 @@
+{
+  "windsurf.autocompleteSpeed": "fast",
+  "windsurf.autoExecutionPolicy": "off",
+  "windsurf.chatFontSize": "default",
+  "windsurf.rememberLastModelSelection": true,
+  "editor.fontSize": 13,
+  "editor.formatOnSave": true,
+  "vim.useSystemClipboard": true,
+  "windsurf.explainAndFixInCurrentConversation": true,
+  "explorer.confirmDelete": false,
+  "windsurf.enableConfig": {
+    "*": true
+  },
+  "editor.tabSize": 2,
+  "git.blame.editorDecoration.enabled": true,
+  "git.blame.statusBarItem.enabled": true,
+  "explorer.confirmDragAndDrop": false,
+  "editor.fontFamily": "InconsolataNerdFontMono-Regular",
+  "telemetry.telemetryLevel": "off",
+  "editor.renderWhitespace": "all",
+  "files.trimTrailingWhitespace": true,
+  "vim.smartRelativeLine": true,
+  "files.associations": {
+    "*.jinja": "jinja"
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "extensions.ignoreRecommendations": true,
+  "breadcrumbs.enabled": false,
+  "workbench.editor.editorActionsLocation": "titleBar",
+  "catppuccin.italicComments": false,
+  "catppuccin.italicKeywords": false,
+  "gruvboxMaterial.darkContrast": "hard",
+  "gruvboxMaterial.italicComments": false,
+  "terminal.external.osxExec": "Ghostty.app",
+  "editor.rulers": [100],
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "gruvboxMaterial.highContrast": true,
+  "workbench.editor.labelFormat": "medium",
+  "terminal.integrated.fontLigatures.enabled": true,
+  "terminal.integrated.fontSize": 14,
+  "search.exclude": {
+    ".libs/**": true
+  },
+  "workbench.colorTheme": "Gruvbox Material Dark",
+  "claude-code.selectedModel": "default",
+  "claude-code.environmentVariables": []
+}

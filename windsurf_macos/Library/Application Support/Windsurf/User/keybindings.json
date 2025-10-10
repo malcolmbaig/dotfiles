@@ -1,0 +1,52 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    "key": "-",
+    "command": "workbench.view.explorer",
+    "when": "viewContainer.workbench.view.explorer.enabled && neovim.mode == 'normal' && (filesExplorerFocus || editorTextFocus)"
+  },
+  {
+    "key": "shift+cmd+e",
+    "command": "-workbench.view.explorer",
+    "when": "viewContainer.workbench.view.explorer.enabled"
+  },
+  {
+    "key": "shift+k",
+    "command": "-editor.action.showHover",
+    "when": "editorHoverVisible && editorTextFocus && neovim.init && neovim.mode == 'normal'"
+  },
+  {
+    "key": "shift+k",
+    "command": "workbench.action.findInFiles",
+    "when": "editorTextFocus && neovim.mode != 'insert'"
+  },
+  {
+    "key": "shift+cmd+f",
+    "command": "-workbench.action.findInFiles"
+},
+{
+    "key": "shift+enter",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+        "text": "\\\r\n"
+    },
+    "when": "terminalFocus"
+},
+{
+  "key": "shift+enter",
+  "command": "-workbench.action.terminal.findNext",
+  "when": "terminalFindInputFocused && terminalHasBeenCreated || terminalFindInputFocused && terminalProcessSupported"
+},
+{
+  "key": "cmd+escape",
+  "command": "-claude-code.runClaude.keyboard"
+},
+{
+  "key": "cmd+escape",
+  "command": "chatgpt.sidebarView.focus"
+},
+{
+  "key": "cmd+k cmd+p",
+  "command": "workbench.action.toggleMaximizedPanel"
+}
+]
