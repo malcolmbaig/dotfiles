@@ -80,6 +80,9 @@ case "$(uname)" in
     ;;
 esac
 
+# XDG config dir
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Git worktree add completion
 _gwta() {
   local -a branches
