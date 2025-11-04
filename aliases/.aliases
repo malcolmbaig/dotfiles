@@ -50,6 +50,15 @@ alias grc='git rebase --continue'
 alias gri='git rebase --interactive'
 alias grs='git rebase --skip'
 alias grm='gsw main && gp && gsw - && gri main'
+alias gwt='git worktree'
+gwta() {
+  if [ -z "$1" ]; then
+    echo "Usage: gwta <branch_name>"
+    return 1
+  fi
+  git worktree add ../wt/$1 $1
+}
+
 
 # LAZYGIT
 alias lg='lazygit'
