@@ -1,6 +1,6 @@
 theme = Gruvbox Dark Hard
 
-font-family = InconsolataNerdFontMono-Regular
+font-family = Jetbrains Mono
 font-size = 14
 
 macos-titlebar-style = hidden
