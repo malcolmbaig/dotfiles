@@ -15,7 +15,7 @@
   "git.blame.editorDecoration.enabled": true,
   "git.blame.statusBarItem.enabled": true,
   "explorer.confirmDragAndDrop": false,
-  "editor.fontFamily": "InconsolataNerdFontMono-Regular",
+  "editor.fontFamily": "Jetbrains Mono",
   "telemetry.telemetryLevel": "off",
   "editor.renderWhitespace": "all",
   "files.trimTrailingWhitespace": true,
@@ -28,7 +28,6 @@
     "asvetliakov.vscode-neovim": 1
   },
   "extensions.ignoreRecommendations": true,
-  "breadcrumbs.enabled": false,
   "workbench.editor.editorActionsLocation": "titleBar",
   "catppuccin.italicComments": false,
   "catppuccin.italicKeywords": false,
@@ -48,6 +47,9 @@
     ".libs/**": true
   },
   "workbench.colorTheme": "Gruvbox Material Dark",
-  "claude-code.selectedModel": "default",
-  "claude-code.environmentVariables": []
+  "terminal.integrated.fontFamily": "Jetbrains Mono",
+  "editor.lineNumbers": "relative",
+  "claudeCode.selectedModel": "default",
+  "claudeCode.environmentVariables": [],
+  "windsurf.marketplaceExtensionGalleryServiceURL": "https://marketplace.visualstudio.com/_apis/public/gallery"
 }
