@@ -80,5 +80,12 @@ case "$(uname)" in
     ;;
 esac
 
+# Git worktree add completion
+_gwta() {
+  local -a branches
+  branches=(${(f)"$(git branch 2>/dev/null | sed 's/^[* ] //')"})
+  _describe 'branch' branches
+}
+compdef _gwta gwta
 
 autoload bashcompinit && bashcompinit && source "$(brew --prefix)/etc/bash_completion.d/az"
