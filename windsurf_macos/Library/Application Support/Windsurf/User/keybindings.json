@@ -1,9 +1,9 @@
 // Place your key bindings in this file to override the defaults
 [
   {
-    "key": "-",
+    "key": "cmd+k x",
     "command": "workbench.view.explorer",
-    "when": "viewContainer.workbench.view.explorer.enabled && neovim.mode == 'normal' && (filesExplorerFocus || editorTextFocus)"
+    "when": "editorTextFocus && viewContainer.workbench.view.explorer.enabled && !filesExplorerFocus && neovim.mode == 'normal'"
   },
   {
     "key": "shift+cmd+e",
@@ -48,5 +48,10 @@
 {
   "key": "cmd+k cmd+p",
   "command": "workbench.action.toggleMaximizedPanel"
+},
+{
+  "key": "cmd+k cmd+x",
+  "command": "-editor.action.trimTrailingWhitespace",
+  "when": "editorTextFocus && !editorReadonly"
 }
 ]
