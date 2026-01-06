@@ -1,7 +1,7 @@
 // Place your key bindings in this file to override the defaults
 [
   {
-    "key": "cmd+k x",
+    "key": "cmd+k cmd+x",
     "command": "workbench.view.explorer",
     "when": "editorTextFocus && viewContainer.workbench.view.explorer.enabled && !filesExplorerFocus && neovim.mode == 'normal'"
   },
@@ -53,5 +53,9 @@
   "key": "cmd+k cmd+x",
   "command": "-editor.action.trimTrailingWhitespace",
   "when": "editorTextFocus && !editorReadonly"
+},
+{
+  "key": "shift+cmd+escape",
+  "command": "chatgpt.addToThread"
 }
 ]
