@@ -2,4 +2,4 @@
 konsole/.local/share/konsole/bookmarks.xml
 konsole/.local/share/konsole/bookmarks.xml.tbcache
 nvim/.config/nvim/autoload/plug.vim.old
-nvim/.config/nvim/plugged
+**/nvim/plugged/
