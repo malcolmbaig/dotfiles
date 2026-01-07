@@ -9,6 +9,16 @@ return {
       easing = "outQuad",
       fps = 120,
     },
+    image = {
+      enabled = true,
+    },
+    lazygit = {
+      enabled = true,
+      theme = {
+        defaultFgColor = { fg = "Normal", bg = "Normal" },
+        selectedLineBgColor = { bg = "Normal" },
+      },
+    },
     picker = {
       enabled = true,
     },

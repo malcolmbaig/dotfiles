@@ -133,3 +133,8 @@ end, desc("Find git files"))
 keymap("n", "<leader>sr", function()
   require("snacks").picker.recent()
 end, desc("Recent files"))
+
+-- Plugin: snacks.nvim (lazygit)
+keymap("n", "<leader>gg", function()
+  require("snacks").lazygit()
+end, desc("Open LazyGit"))
