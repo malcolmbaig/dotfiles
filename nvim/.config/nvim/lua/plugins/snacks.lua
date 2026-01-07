@@ -28,5 +28,8 @@ return {
     scroll = {
       enabled = true,
     },
+    statuscolumn = {
+      enabled = true,
+    },
   },
 }
