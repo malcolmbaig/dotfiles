@@ -12,6 +12,9 @@ return {
     image = {
       enabled = true,
     },
+    indent = {
+      enabled = true,
+    },
     lazygit = {
       enabled = true,
       theme = {
