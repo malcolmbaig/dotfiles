@@ -4,7 +4,15 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
+    animate = {
+      duration = { step = 10, total = 150 },
+      easing = "outQuad",
+      fps = 120,
+    },
     picker = {
+      enabled = true,
+    },
+    scroll = {
       enabled = true,
     },
   },
