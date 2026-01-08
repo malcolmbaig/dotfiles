@@ -134,6 +134,11 @@ keymap("n", "<leader>sr", function()
   require("snacks").picker.recent()
 end, desc("Recent files"))
 
+-- Plugin: snacks.nvim (gitbrowse)
+keymap("n", "<leader>gb", function()
+  require("snacks").gitbrowse()
+end, desc("Open git link in browser"))
+
 -- Plugin: snacks.nvim (lazygit)
 keymap("n", "<leader>gg", function()
   require("snacks").lazygit()

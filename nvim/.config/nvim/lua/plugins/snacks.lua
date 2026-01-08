@@ -15,6 +15,9 @@ return {
     indent = {
       enabled = true,
     },
+    gitbrowse = {
+      enabled = true,
+    },
     lazygit = {
       enabled = true,
       theme = {
