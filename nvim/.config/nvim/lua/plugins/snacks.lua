@@ -21,8 +21,12 @@ return {
     lazygit = {
       enabled = true,
       theme = {
-        defaultFgColor = { fg = "Normal", bg = "Normal" },
-        selectedLineBgColor = { bg = "Normal" },
+        defaultFgColor = { fg = "Normal" },
+        selectedLineBgColor = { bg = "Visual" },
+        cherryPickedCommitBgColor = { bg = "Visual" },
+        optionsTextColor = { fg = "Function" },
+        inactiveBorderColor = { fg = "FloatBorder" },
+        activeBorderColor = { fg = "MatchParen" },
       },
     },
     picker = {
