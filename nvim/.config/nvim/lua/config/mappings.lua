@@ -134,6 +134,13 @@ keymap("n", "<leader>sr", function()
   require("snacks").picker.recent()
 end, desc("Recent files"))
 
+-- =============================================
+-- Git Operations
+-- =============================================
+
+-- Plugin: vim-fugitive
+keymap("n", "<leader>gb", "<cmd>Git blame<CR>", desc("Git blame"))
+
 -- Plugin: snacks.nvim (gitbrowse)
 keymap("n", "<leader>go", function()
   require("snacks").gitbrowse()
