@@ -106,7 +106,7 @@ keymap("n", "<leader><space>", function()
   require("snacks").picker.smart()
 end, desc("Find files (smart)"))
 
-keymap("n", "<leader>,", function()
+keymap("n", "<leader>sb", function()
   require("snacks").picker.buffers()
 end, desc("Switch buffers"))
 
@@ -135,7 +135,7 @@ keymap("n", "<leader>sr", function()
 end, desc("Recent files"))
 
 -- Plugin: snacks.nvim (gitbrowse)
-keymap("n", "<leader>gb", function()
+keymap("n", "<leader>go", function()
   require("snacks").gitbrowse()
 end, desc("Open git link in browser"))
 
