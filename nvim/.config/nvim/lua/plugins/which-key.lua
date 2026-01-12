@@ -46,8 +46,11 @@ return {
     spec = {
       -- Leader key groups for better organization
       { "<leader>b", group = "Buffer" },
+      { "<leader>g", group = "Git" },
+      { "<leader>r", group = "References (LSP)" },
       { "<leader>s", group = "Search" },
       { "<leader>t", group = "Tab" },
+      { "<leader>y", group = "Yank" },
     },
   },
 }
