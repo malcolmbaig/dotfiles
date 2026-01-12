@@ -9,6 +9,9 @@ return {
       easing = "outQuad",
       fps = 120,
     },
+    dashboard = {
+      enabled = true,
+    },
     image = {
       enabled = true,
     },
