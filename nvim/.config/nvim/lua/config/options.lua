@@ -36,21 +36,6 @@ opt.cursorline = true
 opt.wrap = false
 opt.scrolloff = 8
 opt.sidescrolloff = 8
-local function tabline()
-  local s = ""
-  for i = 1, vim.fn.tabpagenr("$") do
-    local w = vim.fn.tabpagewinnr(i)
-    local b = vim.fn.tabpagebuflist(i)[w]
-    local name = vim.fn.bufname(b)
-    name = (name == "") and "[No Name]" or vim.fn.fnamemodify(name, ":t")
-    local hl = (i == vim.fn.tabpagenr()) and "%#TabLineSel#" or "%#TabLine#"
-    s = s .. hl .. " " .. name .. " "
-  end
-  return s .. "%#TabLineFill#"
-end
-vim.o.showtabline = 2
-vim.o.tabline = "%!v:lua.tabline()"
-_G.tabline = tabline
 
 -- Splits
 opt.splitright = true
