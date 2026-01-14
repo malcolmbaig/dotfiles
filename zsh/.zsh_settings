@@ -1,26 +1,79 @@
-#******************************************************************************
-# ZSH Settings
-#******************************************************************************
+# ========================================================================
+# >>> ZSH Settings <<<
+# ========================================================================
 
-# The following lines were added by compinstall
+# ========================================================================
+# SECTION: Core Settings
+# ========================================================================
 zstyle ':completion:*' completer _complete _ignored _approximate
 zstyle :compinstall filename '/Users/malcolm/.zshrc'
-
 fpath+=~/.zfunc
 fpath+=/opt/homebrew/share/zsh/site-functions
 autoload -Uz compinit
 compinit
-# END of lines added by compinstall
-
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=$HISTSIZE
 setopt autocd
 bindkey -v
-# END of lines configured by zsh-newuser-install
 
-# History
+# ========================================================================
+# SECTION: ASDF Version Manager
+# ========================================================================
+export ASDF_DATA_DIR="$(echo ~)/.asdf"
+export PATH="$ASDF_DATA_DIR/shims:$PATH"
+
+# ========================================================================
+# SECTION: Autocompletions
+# ========================================================================
+# Git worktree
+_gwta() {
+  local -a branches
+  branches=(${(f)"$(git branch 2>/dev/null | sed 's/^[* ] //')"})
+  _describe 'branch' branches
+}
+compdef _gwta gwta
+
+# Azure CLI
+autoload bashcompinit && bashcompinit && source "$(brew --prefix)/etc/bash_completion.d/az"
+
+# UV (Python)
+if asdf which uv &>/dev/null; then
+  eval "$(uv generate-shell-completion zsh)"
+fi
+
+# ========================================================================
+# SECTION: Directory Stack
+# ========================================================================
+setopt AUTO_PUSHD           # Push the current directory visited on the stack.
+setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
+setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
+
+# ========================================================================
+# SECTION: Editor
+# ========================================================================
+export EDITOR='nvim'
+export VISUAL='nvim'
+export BUNDLER_EDITOR='nvim'
+
+# ========================================================================
+# SECTION: FZF
+# ========================================================================
+if command -v fzf &>/dev/null; then
+  source <(fzf --zsh)
+  source ~/.fzf.zsh
+fi
+
+# ========================================================================
+# SECTION: Grep / Ripgrep
+# ========================================================================
+export GREP_COLOR='30;42'
+export GREP_COLORS='mt=30;42'
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
+# ========================================================================
+# SECTION: History
+# ========================================================================
 setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
 setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
 setopt HIST_FIND_NO_DUPS         # Do not display a previously found event.
@@ -29,42 +82,10 @@ setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded
 setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
 setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
 setopt SHARE_HISTORY             # Share history between all sessions.
-# END History
 
-# Directory stack
-setopt AUTO_PUSHD           # Push the current directory visited on the stack.
-setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
-setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
-
-
-# ASDF Version Manager
-export ASDF_DATA_DIR="$(echo ~)/.asdf"
-export PATH="$ASDF_DATA_DIR/shims:$PATH"
-
-# Editor
-export EDITOR='nvim'
-export VISUAL='nvim'
-export BUNDLER_EDITOR='nvim'
-
-# FZF
-if command -v fzf &>/dev/null; then
-  source <(fzf --zsh)
-  source ~/.fzf.zsh
-fi
-
-# Grep
-export GREP_COLOR='30;42'
-export GREP_COLORS='mt=30;42'
-
-# Ripgrep
-export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
-
-
-# Starship prompt
-if command -v starship &>/dev/null; then
-  eval "$(starship init zsh)"
-fi
-
+# ========================================================================
+# SECTION: OS-Specific Setup
+# ========================================================================
 case "$(uname)" in
   Linux)
     # Add any Linux-specific configurations
@@ -80,18 +101,14 @@ case "$(uname)" in
     ;;
 esac
 
-# XDG config dir
+# ========================================================================
+# SECTION: Starship Prompt
+# ========================================================================
+if command -v starship &>/dev/null; then
+  eval "$(starship init zsh)"
+fi
+
+# ========================================================================
+# SECTION: XDG Base Directory
+# ========================================================================
 export XDG_CONFIG_HOME="$HOME/.config"
-
-# Autocompletions
-
-# Git worktree add completion
-_gwta() {
-  local -a branches
-  branches=(${(f)"$(git branch 2>/dev/null | sed 's/^[* ] //')"})
-  _describe 'branch' branches
-}
-compdef _gwta gwta
-
-autoload bashcompinit && bashcompinit && source "$(brew --prefix)/etc/bash_completion.d/az"
-eval "$(uv generate-shell-completion zsh)"
