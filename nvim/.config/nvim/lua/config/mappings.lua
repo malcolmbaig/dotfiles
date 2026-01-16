@@ -135,6 +135,15 @@ keymap("n", "<leader>sr", function()
 end, desc("Recent files"))
 
 -- =============================================
+-- LSP
+-- =============================================
+
+-- Signature help (LSP) in insert mode
+keymap("i", "<C-k>", function()
+  vim.lsp.buf.signature_help()
+end, desc("Signature help"))
+
+-- =============================================
 -- Git Operations
 -- =============================================
 
