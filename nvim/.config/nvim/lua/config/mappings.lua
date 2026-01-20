@@ -16,6 +16,10 @@ end
 -- Better escape
 keymap("i", "jk", "<ESC>", desc("Exit insert mode"))
 
+-- Quick save and quit
+keymap("n", "<leader>w", "<cmd>write<CR>", desc("Write file"))
+keymap("n", "<leader>q", "<cmd>quit<CR>", desc("Quit"))
+
 -- Clear search highlighting
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", desc("Clear search highlight"))
 
