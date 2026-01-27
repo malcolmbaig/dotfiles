@@ -138,6 +138,18 @@ keymap("n", "<leader>sr", function()
   require("snacks").picker.recent()
 end, desc("Recent files"))
 
+keymap("n", "<leader>sB", function()
+  require("snacks").picker.grep_buffers()
+end, desc("Grep open buffers"))
+
+keymap("n", "<leader>sq", function()
+  require("snacks").picker.qflist()
+end, desc("Quickfix list"))
+
+keymap({ "n", "x" }, "<leader>sw", function()
+  require("snacks").picker.grep_word()
+end, desc("Grep word/selection"))
+
 -- =============================================
 -- LSP
 -- =============================================
