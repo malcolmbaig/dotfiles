@@ -59,9 +59,6 @@ gwta() {
   git worktree add ../wt/$1 $1
 }
 
-# LLMs
-alias claude="/Users/malcolm/.claude/local/claude"
-
 # LAZYGIT
 alias lg='lazygit'
 
