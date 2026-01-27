@@ -3,12 +3,18 @@
 # ========================================================================
 
 # ========================================================================
+# SECTION: OS Detection
+# ========================================================================
+is_mac() { [[ "$(uname)" == "Darwin" ]]; }
+is_linux() { [[ "$(uname)" == "Linux" ]]; }
+
+# ========================================================================
 # SECTION: Core Settings
 # ========================================================================
 zstyle ':completion:*' completer _complete _ignored _approximate
 zstyle :compinstall filename '/Users/malcolm/.zshrc'
 fpath+=~/.zfunc
-fpath+=/opt/homebrew/share/zsh/site-functions
+is_mac && fpath+=/opt/homebrew/share/zsh/site-functions
 autoload -Uz compinit
 compinit
 HISTFILE=~/.zsh_history
@@ -35,7 +41,7 @@ _gwta() {
 compdef _gwta gwta
 
 # Azure CLI
-autoload bashcompinit && bashcompinit && source "$(brew --prefix)/etc/bash_completion.d/az"
+is_mac && autoload bashcompinit && bashcompinit && source "$(brew --prefix)/etc/bash_completion.d/az"
 
 # UV (Python)
 if asdf which uv &>/dev/null; then
@@ -84,22 +90,11 @@ setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history
 setopt SHARE_HISTORY             # Share history between all sessions.
 
 # ========================================================================
-# SECTION: OS-Specific Setup
+# SECTION: PATH updates
 # ========================================================================
-case "$(uname)" in
-  Linux)
-    # Add any Linux-specific configurations
-
-    ;;
-  Darwin)
-    # Add any macOS-specific configurations
-
-    # Prioritise brew-installed GNU tools
-    PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
-    PATH="$HOME/.docker/bin:$PATH"
-
-    ;;
-esac
+is_mac && PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+is_mac && PATH="$HOME/.docker/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # ========================================================================
 # SECTION: Starship Prompt
