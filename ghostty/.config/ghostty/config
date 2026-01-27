@@ -9,5 +9,4 @@ macos-non-native-fullscreen = true
 window-padding-x = 10
 window-padding-y = 10
 window-padding-balance = true
-background-opacity = 0.9
-
+background-opacity = 0.966
