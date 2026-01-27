@@ -147,6 +147,24 @@ keymap("i", "<C-k>", function()
   vim.lsp.buf.signature_help()
 end, desc("Signature help"))
 
+-- LSP actions under <leader>l
+keymap("n", "<leader>la", vim.lsp.buf.code_action, desc("Code action"))
+keymap("n", "<leader>ld", vim.diagnostic.open_float, desc("Diagnostic under cursor"))
+keymap("n", "<leader>li", function()
+  require("snacks").picker.lsp_incoming_calls()
+end, desc("Incoming calls"))
+keymap("n", "<leader>lo", function()
+  require("snacks").picker.lsp_outgoing_calls()
+end, desc("Outgoing calls"))
+keymap("n", "<leader>ln", vim.lsp.buf.rename, desc("Rename symbol"))
+keymap("n", "<leader>lr", vim.lsp.buf.references, desc("References"))
+keymap("n", "<leader>ls", function()
+  require("snacks").picker.lsp_symbols()
+end, desc("LSP Symbols"))
+keymap("n", "<leader>lS", function()
+  require("snacks").picker.lsp_workspace_symbols()
+end, desc("LSP Workspace Symbols"))
+
 -- =============================================
 -- Git Operations
 -- =============================================
