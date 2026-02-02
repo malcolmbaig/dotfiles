@@ -211,7 +211,7 @@ on-mode-changed = []
     # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
     #s = ['layout sticky tiling', 'mode main']
 
-    ctrl-alt-cmd-shift-h = ['join-with left', 'mode main']
-    ctrl-alt-cmd-shift-j = ['join-with down', 'mode main']
-    ctrl-alt-cmd-shift-k = ['join-with up', 'mode main']
-    ctrl-alt-cmd-shift-l = ['join-with right', 'mode main']
+    h = ['join-with left', 'mode main']
+    j = ['join-with down', 'mode main']
+    k = ['join-with up', 'mode main']
+    l = ['join-with right', 'mode main']
