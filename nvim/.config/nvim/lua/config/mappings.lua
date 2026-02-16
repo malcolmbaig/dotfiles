@@ -114,7 +114,7 @@ keymap("n", "<leader>sb", function()
   require("snacks").picker.buffers()
 end, desc("Switch buffers"))
 
-keymap("n", "<leader>/", function()
+keymap("n", "<leader>s/", function()
   require("snacks").picker.grep()
 end, desc("Grep search"))
 
@@ -161,7 +161,8 @@ end, desc("Signature help"))
 
 -- LSP actions under <leader>l
 keymap("n", "<leader>la", vim.lsp.buf.code_action, desc("Code action"))
-keymap("n", "<leader>ld", vim.diagnostic.open_float, desc("Diagnostic under cursor"))
+keymap("n", "<leader>ld", vim.lsp.buf.definition, desc("Go to definition"))
+keymap("n", "<leader>lw", vim.diagnostic.open_float, desc("Diagnostic under cursor"))
 keymap("n", "<leader>li", function()
   require("snacks").picker.lsp_incoming_calls()
 end, desc("Incoming calls"))
@@ -193,3 +194,11 @@ end, desc("Open git link in browser"))
 keymap("n", "<leader>gg", function()
   require("snacks").lazygit()
 end, desc("Open LazyGit"))
+
+-- =============================================
+-- Plugin: copilot.lua
+-- =============================================
+
+keymap("i", "<C-l>", function()
+  require("copilot.suggestion").accept()
+end, desc("Accept copilot suggestion"))
