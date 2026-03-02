@@ -51,13 +51,21 @@ alias gri='git rebase --interactive'
 alias grs='git rebase --skip'
 alias grm='gsw main && gp && gsw - && gri main'
 alias gwt='git worktree'
-gwta() {
-  if [ -z "$1" ]; then
-    echo "Usage: gwta <branch_name>"
-    return 1
-  fi
-  git worktree add ../wt/$1 $1
-}
+gwtn() {
+    local name="$1"
+    if [[ -z "$name" ]]; then
+      echo "Usage: gwtn <name>"
+      return 1
+    fi
+
+    local wt_path="../wt/$name"
+
+    git worktree add "$wt_path" || return 1
+    cd "$wt_path" || return 1
+    cd ..
+    ./copy_env.sh "$name"
+    cd "$name"
+  }
 
 # LAZYGIT
 alias lg='lazygit'
