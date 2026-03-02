@@ -34,6 +34,29 @@ return {
     },
     picker = {
       enabled = true,
+      layout = {
+        layout = {
+          backdrop = false,
+          box = "horizontal",
+          width = 0.95,
+          height = 0.9,
+          border = "rounded",
+          title = "{title} {live} {flags}",
+          title_pos = "center",
+          {
+            box = "vertical",
+            { win = "input", height = 1, border = "bottom" },
+            { win = "list", border = "none" },
+          },
+          {
+            win = "preview",
+            title = "{preview}",
+            title_pos = "center",
+            width = 0.33,
+            border = "left",
+          },
+        },
+      },
     },
     scroll = {
       enabled = true,
