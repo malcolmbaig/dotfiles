@@ -2,7 +2,7 @@
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  opts = function()
+  config = function()
     -- Custom component for worktree indicator
     local worktree_indicator = function()
       local bufpath = vim.api.nvim_buf_get_name(0)
@@ -12,7 +12,7 @@ return {
       return ""
     end
 
-    return {
+    require('lualine').setup({
       options = {
         theme = "auto",
         icons_enabled = true,
@@ -59,6 +59,42 @@ return {
         },
         lualine_z = {},
       },
-    }
+    })
+
+    -- Override the tabline fill color without affecting the statusline.
+    -- Lualine uses the same lualine_c_<mode> highlight for both statusline
+    -- and tabline fill areas. We intercept the tabline string and swap in
+    -- a custom highlight group so only the tabline is affected.
+    local tabfill_bg = "#282828" -- gruvbox-material dark medium bg0
+
+    local function create_tabfill_hl()
+      local c_hl = vim.api.nvim_get_hl(0, { name = "lualine_c_normal", link = false })
+      vim.api.nvim_set_hl(0, "LualineTabFill", { bg = tabfill_bg, fg = c_hl.fg })
+    end
+
+    create_tabfill_hl()
+
+    local augroup = vim.api.nvim_create_augroup("LualineTabFill", { clear = true })
+
+    vim.api.nvim_create_autocmd("OptionSet", {
+      group = augroup,
+      pattern = "tabline",
+      callback = function()
+        local tl = vim.v.option_new
+        if tl and tl:find("lualine_c_") then
+          local new_tl = tl:gsub("%%#lualine_c_%w+#", "%%#LualineTabFill#")
+          if new_tl ~= tl then
+            vim.o.tabline = new_tl
+          end
+        end
+      end,
+    })
+
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      group = augroup,
+      callback = function()
+        vim.schedule(create_tabfill_hl)
+      end,
+    })
   end,
 }
