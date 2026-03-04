@@ -50,6 +50,17 @@ autocmd("BufWritePre", {
   desc = "Auto-create parent directories when saving",
 })
 
+-- Enable comment continuation for Python
+augroup("python_formatoptions", { clear = true })
+autocmd("FileType", {
+  group = "python_formatoptions",
+  pattern = "python",
+  callback = function()
+    vim.opt_local.formatoptions:append("ro")
+  end,
+  desc = "Enable comment continuation in Python files",
+})
+
 -- Close certain filetypes with 'q'
 augroup("close_with_q", { clear = true })
 autocmd("FileType", {
@@ -68,13 +79,3 @@ autocmd("FileType", {
   desc = "Close certain filetypes with 'q'",
 })
 
--- Disable automatic comment continuation
-augroup("no_auto_comment", { clear = true })
-autocmd("BufEnter", {
-  group = "no_auto_comment",
-  pattern = "*",
-  callback = function()
-    vim.opt.formatoptions:remove({ "c", "r", "o" })
-  end,
-  desc = "Disable automatic comment continuation",
-})
