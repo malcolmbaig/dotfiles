@@ -61,6 +61,18 @@ autocmd("FileType", {
   desc = "Enable comment continuation in Python files",
 })
 
+-- Enable spell checking for git commit messages
+augroup("gitcommit_spell", { clear = true })
+autocmd("FileType", {
+  group = "gitcommit_spell",
+  pattern = "gitcommit",
+  callback = function()
+    vim.opt_local.spell = true
+    vim.opt_local.spelllang = "en"
+  end,
+  desc = "Enable spell checking in git commit messages",
+})
+
 -- Close certain filetypes with 'q'
 augroup("close_with_q", { clear = true })
 autocmd("FileType", {
