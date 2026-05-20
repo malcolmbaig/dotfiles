@@ -4,8 +4,6 @@
   signingkey = 096EFF0BAEDB017D
 [core]
   editor = nvim
-  excludesfile = ~/.gitignore-global
-  attributesfile = ~/.gitattributes
   pager = delta
 [interactive]
   diffFilter = delta --color-only
