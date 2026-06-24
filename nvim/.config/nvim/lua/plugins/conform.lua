@@ -3,7 +3,7 @@ return {
   event = "BufWritePre",
   opts = {
     formatters_by_ft = {
-      jinja = { "djlint" },
+      -- jinja = { "djlint" },
     },
     format_on_save = {
       timeout_ms = 1000,
