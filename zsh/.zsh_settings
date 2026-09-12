@@ -15,6 +15,7 @@ zstyle ':completion:*' completer _complete _ignored _approximate
 zstyle :compinstall filename '/Users/malcolm/.zshrc'
 fpath+=~/.zfunc
 is_mac && fpath+=/opt/homebrew/share/zsh/site-functions
+is_mac && fpath+=/opt/homebrew/share/zsh/functions
 autoload -Uz compinit
 compinit
 HISTFILE=~/.zsh_history
