@@ -23,3 +23,4 @@
   rebase = false
 [commit]
   gpgsign = true
+  verbose = true
