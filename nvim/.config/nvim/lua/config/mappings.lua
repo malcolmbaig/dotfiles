@@ -99,8 +99,9 @@ keymap("n", "s", "<cmd>HopChar1<CR>", desc("Hop by 1 char"))
 -- Plugin: nvim-tree
 -- =============================================
 
-keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", desc("Toggle file explorer"))
-keymap("n", "<leader>E", "<cmd>NvimTreeFindFile<CR>", desc("Find current file in explorer"))
+keymap("n", "<leader>e", "<cmd>ea<CR>", desc("Edit all buffers"))
+keymap("n", "<leader>f", "<cmd>NvimTreeToggle<CR>", desc("Toggle file explorer"))
+keymap("n", "<leader>F", "<cmd>NvimTreeFindFile<CR>", desc("Find current file in explorer"))
 
 -- =============================================
 -- Plugin: snacks.nvim (picker)
@@ -177,6 +178,12 @@ end, desc("LSP Symbols"))
 keymap("n", "<leader>lS", function()
   require("snacks").picker.lsp_workspace_symbols()
 end, desc("LSP Workspace Symbols"))
+keymap("n", "<leader>lSC", function()
+  require("snacks").picker.lsp_workspace_symbols({ filter = { default = { "Class" } } })
+end, desc("LSP Workspace Symbols (Classes)"))
+keymap("n", "<leader>lSF", function()
+  require("snacks").picker.lsp_workspace_symbols({ filter = { default = { "Function", "Method" } } })
+end, desc("LSP Workspace Symbols (Functions)"))
 
 -- =============================================
 -- Git Operations
