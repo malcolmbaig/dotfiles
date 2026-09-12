@@ -1,4 +1,5 @@
-theme = Gruvbox Dark Hard
+theme = Miasma
+background = #161616
 
 font-family = Jetbrains Mono
 font-size = 13
@@ -9,4 +10,4 @@ macos-non-native-fullscreen = true
 window-padding-x = 10
 window-padding-y = 10
 window-padding-balance = true
-background-opacity = 0.999
+background-opacity = 1
