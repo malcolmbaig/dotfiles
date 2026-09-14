@@ -12,8 +12,8 @@ is_linux() { [[ "$(uname)" == "Linux" ]]; }
 # SECTION: Core Settings
 # ========================================================================
 zstyle ':completion:*' completer _complete _ignored _approximate
-zstyle :compinstall filename '/Users/malcolm/.zshrc'
-fpath+=~/.zfunc
+zstyle :compinstall filename "$ZDOTDIR/.zshrc"
+fpath+=("$ZDOTDIR/.zfunc")
 is_mac && fpath+=/opt/homebrew/share/zsh/site-functions
 is_mac && fpath+=/opt/homebrew/share/zsh/functions
 autoload -Uz compinit
@@ -68,7 +68,7 @@ export BUNDLER_EDITOR='nvim'
 # ========================================================================
 if command -v fzf &>/dev/null; then
   source <(fzf --zsh)
-  source ~/.fzf.zsh
+  [[ -r ~/.fzf.zsh ]] && source ~/.fzf.zsh
 fi
 
 # ========================================================================
@@ -103,8 +103,3 @@ export PATH="$HOME/.local/bin:$PATH"
 if command -v starship &>/dev/null; then
   eval "$(starship init zsh)"
 fi
-
-# ========================================================================
-# SECTION: XDG Base Directory
-# ========================================================================
-export XDG_CONFIG_HOME="$HOME/.config"

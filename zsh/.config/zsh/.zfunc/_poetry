@@ -1,5 +1,6 @@
 #compdef poetry
 
+
 _poetry_7fc64231bf956c99_complete()
 {
     local state com cur
