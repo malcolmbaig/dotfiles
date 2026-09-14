@@ -76,7 +76,7 @@ fi
 # ========================================================================
 export GREP_COLOR='30;42'
 export GREP_COLORS='mt=30;42'
-export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
 
 # ========================================================================
 # SECTION: History
