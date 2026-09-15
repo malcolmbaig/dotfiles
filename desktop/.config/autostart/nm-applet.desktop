@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=NetworkManager Applet
+Comment=Network connection controls
+Exec=nm-applet --indicator
+Terminal=false
+X-GNOME-Autostart-enabled=true

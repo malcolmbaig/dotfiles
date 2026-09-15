@@ -1,0 +1,48 @@
+@define-color background #161616;
+@define-color surface #242220;
+@define-color border #46413c;
+@define-color text #d7c9b8;
+@define-color muted #918a82;
+@define-color accent #c6a0f6;
+
+* {
+  font-family: "JetBrains Mono", sans-serif;
+  font-size: 13px;
+}
+
+notificationwindow, blankwindow { background: transparent; }
+
+.control-center {
+  background: @background;
+  border: 1px solid @border;
+  border-radius: 10px;
+  color: @text;
+  margin: 8px;
+  padding: 10px;
+}
+
+.notification-row .notification-background { padding: 6px 10px; }
+
+.notification-row .notification-background .notification {
+  background: @surface;
+  border: 1px solid @border;
+  border-radius: 10px;
+  color: @text;
+  padding: 6px;
+}
+
+.notification-row .notification-background .notification:hover { border-color: @accent; }
+
+.summary { color: @text; font-weight: 700; }
+.body, .time { color: @muted; }
+
+.widget-title, .widget-dnd, .widget-mpris, .widget-volume { margin: 6px 0; }
+
+button {
+  background: @surface;
+  border: 1px solid @border;
+  border-radius: 6px;
+  color: @text;
+}
+
+button:hover { border-color: @accent; }

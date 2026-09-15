@@ -1,0 +1,10 @@
+#!/bin/sh
+
+action="$(printf '%s\n' 'Lock' 'Log out' 'Reboot' 'Power off' | hyprlauncher --dmenu)"
+
+case "$action" in
+    Lock) loginctl lock-session ;;
+    'Log out') uwsm stop ;;
+    Reboot) systemctl reboot ;;
+    'Power off') systemctl poweroff ;;
+esac
