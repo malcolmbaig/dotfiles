@@ -28,6 +28,7 @@ bindkey -v
 # SECTION: ASDF Version Manager
 # ========================================================================
 export ASDF_DATA_DIR="$(echo ~)/.asdf"
+export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
 export PATH="$ASDF_DATA_DIR/shims:$PATH"
 
 # ========================================================================
@@ -68,7 +69,7 @@ export BUNDLER_EDITOR='nvim'
 # ========================================================================
 if command -v fzf &>/dev/null; then
   source <(fzf --zsh)
-  [[ -r ~/.fzf.zsh ]] && source ~/.fzf.zsh
+  [[ -r "$XDG_CONFIG_HOME/fzf/config.zsh" ]] && source "$XDG_CONFIG_HOME/fzf/config.zsh"
 fi
 
 # ========================================================================
